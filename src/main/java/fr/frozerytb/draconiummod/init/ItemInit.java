@@ -12,4 +12,6 @@ public class ItemInit
 	
 	//LINGOT
 	public static final Item AZURITE_INGOT = new ItemBase("azurite_ingot");
+	public static final Item DRACONIUM_INGOT = new ItemBase("draconium_ingot");
+	public static final Item FINDIUM_CRYSTAL = new ItemBase("findium_cristal");
 }

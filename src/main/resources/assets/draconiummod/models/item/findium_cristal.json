@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures":
     {
-        "layer0": "draconiummc:items/azurite_ingot"
+        "layer0": "draconiummod:items/findium_cristal"
     }
 }

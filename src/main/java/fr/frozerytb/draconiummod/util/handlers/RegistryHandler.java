@@ -1,8 +1,10 @@
 package fr.frozerytb.draconiummod.util.handlers;
 
+import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.item.Item;
+import net.minecraft.block.Block;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -17,6 +19,13 @@ public class RegistryHandler
     {
         event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
     }
+
+    @SubscribeEvent
+    public static void onBlockRegister(RegistryEvent.Register<Block> event)
+    {
+        event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
+    }
+
     
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event)
@@ -26,6 +35,14 @@ public class RegistryHandler
             if(item instanceof IHasmodel)
             {
                 ((IHasmodel)item).registerModels();
+            }
+        }
+
+        for(Block block : BlockInit.BLOCKS)
+        {
+            if(block instanceof IHasmodel)
+            {
+                ((IHasmodel)block).registerModels();
             }
         }
     }

@@ -113,4 +113,9 @@ publishing {
             url "file:///${project.projectDir}/mcmodsrepo"
         }
     }
+    sourceSets {
+        main {
+            output.resourcesDir = output.classesDir
+        }
+    }
 }
