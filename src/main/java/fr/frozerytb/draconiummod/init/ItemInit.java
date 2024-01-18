@@ -9,6 +9,9 @@ import fr.frozerytb.draconiummod.util.Reference;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSword;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
@@ -22,6 +25,9 @@ public class ItemInit
     public static final ArmorMaterial ARMOR_MATERIAL_AZURITE = EnumHelper.addArmorMaterial("armor_material_azurite", Reference.MODID + ":azurite", 14,
             new int[] {3, 6, 4, 2}, 14, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
 
+    public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", );
+
+
 
     //LINGOT
     public static final Item AZURITE_INGOT = new ItemBase("azurite_ingot");
@@ -29,6 +35,10 @@ public class ItemInit
     public static final Item FINDIUM_CRISTAL = new ItemBase("findium_cristal");
 
     //OUTILS
+    public static final Item AZURITE_AXE = new ItemAxe("azurite_axe");
+    public static final Item AZURITE_PICKAXE = new ItemPickaxe("azurite_pickaxe");
+    public static final Item AZURITE_SHOVEL = new ItemShovel("azurite_shovel");
+    public static final Item AZURITE_SWORD = new ItemSword("azurite_sword");
 
     //ARMURES
 
@@ -41,7 +51,6 @@ public class ItemInit
 
 }
 
-public void main() {
-}
+
 
 

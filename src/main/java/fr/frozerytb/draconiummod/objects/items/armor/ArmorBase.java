@@ -1,5 +1,7 @@
 package fr.frozerytb.draconiummod.objects.items.armor;
 
+import fr.frozerytb.draconiummod.Main;
+import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -14,4 +16,10 @@ public class ArmorBase  extends ItemArmor implements IHasmodel {
         setCreativeTab(CreativeTabs.COMBAT);
         ItemInit.ITEMS.add(this);
     }
+
+    @Override
+    public void registerModels() {
+        Main.proxy.registerItemRenderer(this, 0, "inventory");
+    }
 }
+
