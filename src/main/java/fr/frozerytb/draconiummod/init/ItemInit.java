@@ -36,16 +36,16 @@ public class ItemInit
     public static final Item FINDIUM_CRISTAL = new ItemBase("findium_cristal");
 
     //OUTILS
-    public static final ItemAxe AZURITE_AXE = new ToolAxe("azurite_axe", TOOLS_MATERIAL_AZURITE);
-    public static final ItemPickaxe AZURITE_PICKAXE = new ToolPickaxe("azurite_pickaxe", TOOLS_MATERIAL_AZURITE);
-    public static final ItemSpade AZURITE_SHOVEL = new ToolSpade("azurite_shovel", TOOLS_MATERIAL_AZURITE);
-    public static final ItemSword AZURITE_SWORD = new ToolSword("azurite_sword", TOOLS_MATERIAL_AZURITE);
+    public static final Item AZURITE_AXE = new ToolAxe("azurite_axe", TOOLS_MATERIAL_AZURITE);
+    public static final Item AZURITE_PICKAXE = new ToolPickaxe("azurite_pickaxe", TOOLS_MATERIAL_AZURITE);
+    public static final Item AZURITE_SHOVEL = new ToolSpade("azurite_shovel", TOOLS_MATERIAL_AZURITE);
+    public static final Item AZURITE_SWORD = new ToolSword("azurite_sword", TOOLS_MATERIAL_AZURITE);
 
     //ARMURES
 
-    public static final Item AZURITE_HELMET = new ArmorBase("azurite_hemet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
+    public static final Item AZURITE_HELMET = new ArmorBase("azurite_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
     public static final Item AZURITE_CHESTPLATE= new ArmorBase("azurite_chestplate", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
-    public static final Item AZURITE_LEGGINGS = new ArmorBase("azurite_leggingss", ARMOR_MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
+    public static final Item AZURITE_LEGGINGS = new ArmorBase("azurite_leggings", ARMOR_MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
     public static final Item AZURITE_BOOTS = new ArmorBase("azurite_boots", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.FEET);
 
 
