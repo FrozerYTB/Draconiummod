@@ -1,4 +1,4 @@
-package fr.frozerytb.draconiummod.objects.items.armor;
+package fr.frozerytb.draconiummod.init;
 
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
