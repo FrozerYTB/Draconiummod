@@ -1,5 +1,6 @@
 package fr.frozerytb.draconiummod;
 
+import fr.frozerytb.draconiummod.util.handlers.RegistryHandler;
 import org.apache.logging.log4j.core.Logger;
 
 import fr.frozerytb.draconiummod.proxy.CommonProxy;
@@ -28,12 +29,14 @@ public class Main {
 		logger = e.getModLog();
 		
 		proxy.preInit();
+
+		RegistryHandler.preInitRegistries();
 	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent e)
 	{
-		
+		RegistryHandler.initRegistries();
 	}
 	
 	@EventHandler

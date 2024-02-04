@@ -49,10 +49,11 @@ public class RegistryHandler
     
     public static void preInitRegistries()
     {
-    	
+
+
     }
-    public static void InitRegistries()
+    public static void initRegistries()
     {
-    	
+        RecipesHandler.registerRecipies();
     }
 }

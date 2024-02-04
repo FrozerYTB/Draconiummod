@@ -9,6 +9,7 @@ import fr.frozerytb.draconiummod.objects.items.tools.ToolPickaxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolSpade;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolSword;
 import fr.frozerytb.draconiummod.util.Reference;
+import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
@@ -41,11 +42,18 @@ public class ItemInit
     public static final Item AZURITE_SWORD = new ToolSword("azurite_sword", TOOLS_MATERIAL_AZURITE);
 
     //ARMURES
-
     public static final Item AZURITE_HELMET = new ArmorBase("azurite_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
-    public static final Item AZURITE_CHESTPLATE= new ArmorBase("azurite_chestplate", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
+    public static final Item AZURITE_CHESTPLATE = new ArmorBase("azurite_chestplate", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
     public static final Item AZURITE_LEGGINGS = new ArmorBase("azurite_leggings", ARMOR_MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
     public static final Item AZURITE_BOOTS = new ArmorBase("azurite_boots", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.FEET);
+
+
+    public static final Item DRACONIUM_HELMET = new ArmorBase("draconium_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
+    public static final Item DRACONIUM_CHESTPLATE = new ArmorBase("draconium_chestplate", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
+    public static final Item DRACONIUM_LEGGINGS = new ArmorBase("draconiumleggings", ARMOR_MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
+    public static final Item DRACONIUM_BOOTS = new ArmorBase("draconium_boots", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.FEET);
+
+    public static final Item AQUATIQUE_HELMET = new ArmorBase("aquatique_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
 
 
 
