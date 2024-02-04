@@ -12,7 +12,7 @@ public class ItemBase extends Item implements IHasmodel
 	{
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		setCreativeTab(CreativeTabs.MATERIALS);
+		setCreativeTab(Main.DraconiummodTab);
 		ItemInit.ITEMS.add(this);
 	}
 	@Override

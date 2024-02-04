@@ -24,9 +24,13 @@ public class ItemInit
 
     //materiaux
     public static final ArmorMaterial ARMOR_MATERIAL_AZURITE = EnumHelper.addArmorMaterial("armor_material_azurite", Reference.MODID + ":azurite", 14,
-            new int[] {4, 5, 9, 4}, 14, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
+            new int[] {4, 5, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
+
+    public static final ArmorMaterial ARMOR_MATERIAL_DRACONIUM = EnumHelper.addArmorMaterial("armor_material_draconium", Reference.MODID + ":draconium", 20,
+            new int[] {6, 7,11, 6}, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
 
     public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", 4, 2890, 9.0F, 4.0F, 15);
+    public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3090, 11.0F, 6.0F, 20);
 
 
 
@@ -41,6 +45,11 @@ public class ItemInit
     public static final Item AZURITE_SHOVEL = new ToolSpade("azurite_shovel", TOOLS_MATERIAL_AZURITE);
     public static final Item AZURITE_SWORD = new ToolSword("azurite_sword", TOOLS_MATERIAL_AZURITE);
 
+    public static final Item DRACONIUM_AXE = new ToolAxe("draconium_axe", TOOLS_MATERIAL_AZURITE);
+    public static final Item DRACONIUM_PICKAXE = new ToolPickaxe("draconium_pickaxe", TOOLS_MATERIAL_AZURITE);
+    public static final Item DRACONIUM_SHOVEL = new ToolSpade("draconium_shovel", TOOLS_MATERIAL_AZURITE);
+    public static final Item DRACONIUM_SWORD = new ToolSword("draconium_sword", TOOLS_MATERIAL_AZURITE);
+
     //ARMURES
     public static final Item AZURITE_HELMET = new ArmorBase("azurite_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
     public static final Item AZURITE_CHESTPLATE = new ArmorBase("azurite_chestplate", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
@@ -50,7 +59,7 @@ public class ItemInit
 
     public static final Item DRACONIUM_HELMET = new ArmorBase("draconium_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
     public static final Item DRACONIUM_CHESTPLATE = new ArmorBase("draconium_chestplate", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
-    public static final Item DRACONIUM_LEGGINGS = new ArmorBase("draconiumleggings", ARMOR_MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
+    public static final Item DRACONIUM_LEGGINGS = new ArmorBase("draconium_leggings", ARMOR_MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
     public static final Item DRACONIUM_BOOTS = new ArmorBase("draconium_boots", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.FEET);
 
     public static final Item AQUATIQUE_HELMET = new ArmorBase("aquatique_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);

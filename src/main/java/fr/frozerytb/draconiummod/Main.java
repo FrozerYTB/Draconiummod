@@ -1,6 +1,8 @@
 package fr.frozerytb.draconiummod;
 
+import fr.frozerytb.draconiummod.tabs.DraconiummodTab;
 import fr.frozerytb.draconiummod.util.handlers.RegistryHandler;
+import net.minecraft.creativetab.CreativeTabs;
 import org.apache.logging.log4j.core.Logger;
 
 import fr.frozerytb.draconiummod.proxy.CommonProxy;
@@ -18,6 +20,8 @@ public class Main {
 	
 	@Instance
 	public static Main Instance;
+
+	public static final CreativeTabs DraconiummodTab = new DraconiummodTab("draconiummod");
 	
 	@SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.COMMON)
 	public static CommonProxy proxy;

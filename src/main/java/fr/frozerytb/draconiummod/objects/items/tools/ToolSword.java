@@ -13,7 +13,7 @@ public class ToolSword extends ItemSword implements IHasmodel {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.MATERIALS);
+        setCreativeTab(Main.DraconiummodTab);
         ItemInit.ITEMS.add(this);
     }
     @Override

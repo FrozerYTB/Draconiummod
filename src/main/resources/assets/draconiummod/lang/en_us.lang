@@ -4,5 +4,6 @@ item.findium_cristal.name=Cristal en Findium
 tile.azurite_ore.name=Minerai d'Azurite
 tile.draconium_ore.name=Minerai de Draconium
 tile.findium_ore.name=Minerai de Findium
+itemGroup.draconiummod=DraconiumTAB
 
 

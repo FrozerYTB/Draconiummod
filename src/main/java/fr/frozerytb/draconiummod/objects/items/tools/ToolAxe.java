@@ -3,6 +3,7 @@ package fr.frozerytb.draconiummod.objects.items.tools;
 
 import java.util.Set;
 import com.google.common.collect.Sets;
+import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.block.material.Material;
@@ -23,7 +24,7 @@ public class ToolAxe extends ItemTool implements IHasmodel
         super(material, EFFECTIVE_ON);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.TOOLS);
+        setCreativeTab(Main.DraconiummodTab);
 
         ItemInit.ITEMS.add(this);
     }
