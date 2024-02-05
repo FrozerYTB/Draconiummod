@@ -5,7 +5,7 @@ import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
-
+import net.minecraft.util.math.MathHelper;
 
 
 public class ArmorBase extends ItemArmor implements IHasmodel {

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.frozerytb.draconiummod.objects.items.ItemBase;
+import fr.frozerytb.draconiummod.objects.items.Regeneration_stick;
+import fr.frozerytb.draconiummod.objects.items.Stick_of_god;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolAxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolPickaxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolSpade;
@@ -61,9 +63,9 @@ public class ItemInit {
 
     public static final Item AQUATIQUE_HELMET = new ArmorBase("aquatique_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
 
-
-
-
+    //STICKS
+    public static final Item STICK_OF_GOD = new Stick_of_god("stick_of_god");
+    public static final Item REGENERATION_STICK = new Regeneration_stick("regeneration_stick");
 
 }
 
