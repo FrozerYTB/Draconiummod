@@ -9,40 +9,26 @@ import fr.frozerytb.draconiummod.objects.items.tools.ToolPickaxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolSpade;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolSword;
 import fr.frozerytb.draconiummod.util.Reference;
-import ibxm.Player;
-import javafx.scene.effect.Effect;
-import net.minecraft.client.Minecraft;
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Enchantments;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionType;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.World;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 
 
-public class ItemInit
-{
+public class ItemInit {
     public static List<Item> ITEMS = new ArrayList<Item>();
-
 
 
     //materiaux
     public static final ArmorMaterial ARMOR_MATERIAL_AZURITE = EnumHelper.addArmorMaterial("armor_material_azurite", Reference.MODID + ":azurite", 14,
-            new int[] {4, 5, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
+            new int[]{4, 5, 9, 4}, 15, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
 
     public static final ArmorMaterial ARMOR_MATERIAL_DRACONIUM = EnumHelper.addArmorMaterial("armor_material_draconium", Reference.MODID + ":draconium", 20,
-            new int[] {6, 7,11, 6}, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+            new int[]{6, 7, 11, 6}, 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
 
     public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", 4, 2890, 9.0F, 4.0F, 15);
-    public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3090, 11.0F, 6.0F, 20);
-
+    public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3090, 11.0F, 6.0F, 25);
 
 
     //LINGOT
@@ -76,13 +62,8 @@ public class ItemInit
     public static final Item AQUATIQUE_HELMET = new ArmorBase("aquatique_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
 
 
-    public void onArmorTick(World world, EntityPlayer player, ItemStack stack)
-    {
-        if(this.ARMOR_MATERIAL_AZURITE = 0 && world.getBlockLightOpacity(MathHelper.floor(player.posX), MathHelper.floor(player.posY), MathHelper.floor(player.posZ)) < 8)
-        {
-            player.addPotionEffect(new PotionEffect(Potion.night_vision.id, 220, 0));
-        }
-    }
+
+
 
 }
 
