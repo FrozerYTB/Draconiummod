@@ -1,15 +1,15 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
+  "modid": "draconiummod",
+  "name": "Draconium Mod",
+  "description": "Voici le mod pour le serveur DraconiumMC",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
-  "logoFile": "",
+  "authorList": ["FrozerYTB"],
+  "credits": "Merci a FrozerYTB d'avoir fait ce mod !",
+  "logoFile": "logo.jpg",
   "screenshots": [],
   "dependencies": []
 }
