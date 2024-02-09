@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fr.frozerytb.draconiummod.objects.items.ItemBase;
-import fr.frozerytb.draconiummod.objects.items.armor.ArmorBase;
+import fr.frozerytb.draconiummod.init.ArmorBase;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolAxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolPickaxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolSpade;
@@ -24,9 +24,13 @@ public class ItemInit
 
     //materiaux
     public static final ArmorMaterial ARMOR_MATERIAL_AZURITE = EnumHelper.addArmorMaterial("armor_material_azurite", Reference.MODID + ":azurite", 14,
-            new int[] {4, 9, 7, 4}, 17, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
+            new int[] {4, 7, 9, 4}, 17, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
 
-    public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", 4, 2890, 9.0F, 4.0F, 15);
+    public static final ArmorMaterial ARMOR_MATERIAL_DRACONIUM = EnumHelper.addArmorMaterial("armor_material_draconium", Reference.MODID + ":draconium", 14,
+            new int[] {6, 9, 11, 6}, 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+
+    public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", 4, 2890, 9.0F, 4.0F, 17);
+    public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3890, 10.0F, 6.0F, 25);
 
 
 

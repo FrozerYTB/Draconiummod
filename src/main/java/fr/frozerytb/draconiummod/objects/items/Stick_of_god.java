@@ -13,7 +13,7 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
-public class Stick_of_god extends Item implements IHasmodel
+public class  Stick_of_god extends Item implements IHasmodel
 {
 	public Stick_of_god(String name)
 	{
