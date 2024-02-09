@@ -3,12 +3,14 @@ package fr.frozerytb.draconiummod.util.handlers;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
+import fr.frozerytb.draconiummod.world.generation.WorldGenCustomOres;
 import net.minecraft.item.Item;
 import net.minecraft.block.Block;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @EventBusSubscriber
 public class RegistryHandler
@@ -49,10 +51,10 @@ public class RegistryHandler
     
     public static void preInitRegistries()
     {
-    	
+        GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
     }
-    public static void InitRegistries()
+    public static void initRegistries()
     {
-    	
+        RecipesHandler.registerRecipies();
     }
 }

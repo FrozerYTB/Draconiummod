@@ -18,7 +18,7 @@ public class BlockBasic extends Block implements IHasmodel
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.BUILDING_BLOCKS);
+        setCreativeTab(Main.DraconiummodTab);
         setHardness(8.0F);
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(name));

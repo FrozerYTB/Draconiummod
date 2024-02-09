@@ -12,7 +12,7 @@ public class ToolSpade extends ItemSpade implements IHasmodel {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(CreativeTabs.MATERIALS);
+        setCreativeTab(Main.DraconiummodTab);
         ItemInit.ITEMS.add(this);
     }
     @Override
