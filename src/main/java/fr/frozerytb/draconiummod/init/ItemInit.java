@@ -7,6 +7,7 @@ import fr.frozerytb.draconiummod.objects.items.*;
 import fr.frozerytb.draconiummod.init.ArmorBase;
 import fr.frozerytb.draconiummod.objects.items.tools.*;
 import fr.frozerytb.draconiummod.util.Reference;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.*;
