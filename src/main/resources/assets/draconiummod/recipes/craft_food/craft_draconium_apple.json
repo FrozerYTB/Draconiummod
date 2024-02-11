@@ -1,0 +1,21 @@
+{"type":"minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "#A#",
+    "###"
+  ],
+  "key":{
+    "#":
+    {
+      "item": "draconiummod:draconium_ingot"
+    },
+    "A":
+    {
+      "item": "minecraft:apple"
+    }
+  },
+  "result":{
+    "item": "draconiummod:draconium_apple",
+    "count": 1
+  }
+}

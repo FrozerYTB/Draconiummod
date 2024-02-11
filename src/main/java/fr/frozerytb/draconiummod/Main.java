@@ -33,7 +33,7 @@ public class Main {
 		logger = e.getModLog();
 		
 		proxy.preInit();
-
+		proxy.registerGuis();
 		RegistryHandler.preInitRegistries();
 	}
 	

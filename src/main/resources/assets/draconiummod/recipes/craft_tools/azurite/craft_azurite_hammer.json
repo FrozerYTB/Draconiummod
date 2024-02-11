@@ -1,0 +1,21 @@
+{"type":"minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    " B "
+  ],
+  "key":{
+    "#":
+    {
+      "item": "draconiummod:azurite_ingot"
+    },
+    "B":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+  "result":{
+    "item": "draconiummod:azurite_hammer",
+    "count": 1
+  }
+}

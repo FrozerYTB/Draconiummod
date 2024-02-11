@@ -1,0 +1,21 @@
+{"type":"minecraft:crafting_shaped",
+  "pattern": [
+  "## ",
+  "#B ",
+  " B "
+],
+  "key":{
+    "#":
+    {
+      "item": "draconiummod:draconium_ingot"
+    },
+    "B":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+  "result":{
+    "item": "draconiummod:draconium_axe",
+    "count": 1
+  }
+}

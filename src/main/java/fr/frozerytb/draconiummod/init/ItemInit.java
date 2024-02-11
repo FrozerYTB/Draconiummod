@@ -3,15 +3,9 @@ package fr.frozerytb.draconiummod.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.frozerytb.draconiummod.objects.items.ItemBase;
+import fr.frozerytb.draconiummod.objects.items.*;
 import fr.frozerytb.draconiummod.init.ArmorBase;
-import fr.frozerytb.draconiummod.objects.items.ItemRadar;
-import fr.frozerytb.draconiummod.objects.items.Regeneration_stick;
-import fr.frozerytb.draconiummod.objects.items.Stick_of_god;
-import fr.frozerytb.draconiummod.objects.items.tools.ToolAxe;
-import fr.frozerytb.draconiummod.objects.items.tools.ToolPickaxe;
-import fr.frozerytb.draconiummod.objects.items.tools.ToolSpade;
-import fr.frozerytb.draconiummod.objects.items.tools.ToolSword;
+import fr.frozerytb.draconiummod.objects.items.tools.*;
 import fr.frozerytb.draconiummod.util.Reference;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -33,7 +27,9 @@ public class ItemInit
             new int[] {6, 9, 11, 6}, 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
 
     public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", 4, 2890, 9.0F, 4.0F, 17);
+    public static final Item.ToolMaterial HAMMER_MATERIAL_AZURITE = EnumHelper.addToolMaterial("hammer_material_azurite", 4, 2890, 1.0F, 2.0F, 17);
     public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3890, 10.0F, 6.0F, 25);
+    public static final Item.ToolMaterial HAMMER_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("hammer_material_azurite", 5, 3890, 3.0F, 3.0F, 25);
 
 
 
@@ -47,11 +43,14 @@ public class ItemInit
     public static final Item AZURITE_PICKAXE = new ToolPickaxe("azurite_pickaxe", TOOLS_MATERIAL_AZURITE);
     public static final Item AZURITE_SHOVEL = new ToolSpade("azurite_shovel", TOOLS_MATERIAL_AZURITE);
     public static final Item AZURITE_SWORD = new ToolSword("azurite_sword", TOOLS_MATERIAL_AZURITE);
+    public static final Item AZURITE_HAMMER = new ToolHammer("azurite_hammer", HAMMER_MATERIAL_AZURITE);
 
     public static final Item DRACONIUM_AXE = new ToolAxe("draconium_axe", TOOLS_MATERIAL_DRACONIUM);
     public static final Item DRACONIUM_PICKAXE = new ToolPickaxe("draconium_pickaxe", TOOLS_MATERIAL_DRACONIUM);
     public static final Item DRACONIUM_SHOVEL = new ToolSpade("draconium_shovel", TOOLS_MATERIAL_DRACONIUM);
     public static final Item DRACONIUM_SWORD = new ToolSword("draconium_sword", TOOLS_MATERIAL_DRACONIUM);
+    public static final Item DRACONIUM_HAMMER = new ToolHammer("draconium_hammer", HAMMER_MATERIAL_DRACONIUM );
+
 
     //ARMURES
 
@@ -71,6 +70,10 @@ public class ItemInit
     public static final Item STICK_OF_GOD =new Stick_of_god("stick_of_god");
     public static final Item REGENERATION_STICK =new Regeneration_stick("regeneration_stick");
     public static final Item RADAR = new ItemRadar("radar");
+
+    //NOURRITURRES
+
+    public static final Item DRACONIUM_APPLE = new ItemCustomFood("draconium_apple", 8, false);
 
 
 

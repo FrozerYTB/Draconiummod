@@ -1,6 +1,8 @@
 package fr.frozerytb.draconiummod.init;
 
 import fr.frozerytb.draconiummod.objects.blocks.BlockBasic;
+import fr.frozerytb.draconiummod.objects.blocks.CaveBlock;
+import fr.frozerytb.draconiummod.objects.blocks.Elevator;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
@@ -21,4 +23,10 @@ public class BlockInit {
     //BLOCS
     public static final Block AZURITE_BLOCK = new BlockBasic("azurite_block", Material.IRON);
     public static final Block DRACONIUM_BLOCK = new BlockBasic("draconium_block", Material.IRON);
+
+    //AUTRES
+
+    public static final Block CAVE_BLOCK = new CaveBlock("cave_block", Material.GLASS);
+
+    public static final Block ELEVATOR = new Elevator("elevator", Material.IRON);
 }

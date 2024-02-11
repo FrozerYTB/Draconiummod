@@ -24,7 +24,10 @@ item.draconium_leggings.name=Jambières en Draconium
 item.draconium_boots.name=Bottes en Draconium
 item.stick_of_god.name=Bâton de Dieu
 item.regeneration_stick.name=Bâton de Régénération
-
+item.radar.name=Unclaim Finder
+tile.cave_block.name=Cave Block
+item.hammer.name=Marteau
+item.draconium_apple=Pomme en Draconium
 
 
 

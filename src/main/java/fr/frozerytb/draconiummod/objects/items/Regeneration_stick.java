@@ -35,7 +35,7 @@ public class Regeneration_stick extends Item implements IHasmodel
 	{
 		if(!worldIn.isRemote)
 		{
-			playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 1));
+			playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 2));
 			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 		}
 		else
