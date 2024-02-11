@@ -4,7 +4,6 @@ import fr.frozerytb.draconiummod.objects.blocks.BlockBasic;
 import fr.frozerytb.draconiummod.objects.blocks.CaveBlock;
 import fr.frozerytb.draconiummod.objects.blocks.Elevator;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockOre;
 import net.minecraft.block.material.Material;
 
 import java.util.ArrayList;
@@ -23,6 +22,7 @@ public class BlockInit {
     //BLOCS
     public static final Block AZURITE_BLOCK = new BlockBasic("azurite_block", Material.IRON);
     public static final Block DRACONIUM_BLOCK = new BlockBasic("draconium_block", Material.IRON);
+
 
     //AUTRES
 
