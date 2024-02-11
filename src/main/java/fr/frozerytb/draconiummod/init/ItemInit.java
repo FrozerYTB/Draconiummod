@@ -5,6 +5,7 @@ import java.util.List;
 
 import fr.frozerytb.draconiummod.objects.items.ItemBase;
 import fr.frozerytb.draconiummod.init.ArmorBase;
+import fr.frozerytb.draconiummod.objects.items.ItemRadar;
 import fr.frozerytb.draconiummod.objects.items.Regeneration_stick;
 import fr.frozerytb.draconiummod.objects.items.Stick_of_god;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolAxe;
@@ -69,6 +70,7 @@ public class ItemInit
 
     public static final Item STICK_OF_GOD =new Stick_of_god("stick_of_god");
     public static final Item REGENERATION_STICK =new Regeneration_stick("regeneration_stick");
+    public static final Item RADAR = new ItemRadar("radar");
 
 
 
