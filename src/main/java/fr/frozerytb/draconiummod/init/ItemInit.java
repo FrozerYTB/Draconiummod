@@ -5,6 +5,8 @@ import java.util.List;
 
 import fr.frozerytb.draconiummod.objects.items.ItemBase;
 import fr.frozerytb.draconiummod.init.ArmorBase;
+import fr.frozerytb.draconiummod.objects.items.Regeneration_stick;
+import fr.frozerytb.draconiummod.objects.items.Stick_of_god;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolAxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolPickaxe;
 import fr.frozerytb.draconiummod.objects.items.tools.ToolSpade;
@@ -45,12 +47,28 @@ public class ItemInit
     public static final Item AZURITE_SHOVEL = new ToolSpade("azurite_shovel", TOOLS_MATERIAL_AZURITE);
     public static final Item AZURITE_SWORD = new ToolSword("azurite_sword", TOOLS_MATERIAL_AZURITE);
 
+    public static final Item DRACONIUM_AXE = new ToolAxe("draconium_axe", TOOLS_MATERIAL_DRACONIUM);
+    public static final Item DRACONIUM_PICKAXE = new ToolPickaxe("draconium_pickaxe", TOOLS_MATERIAL_DRACONIUM);
+    public static final Item DRACONIUM_SHOVEL = new ToolSpade("draconium_shovel", TOOLS_MATERIAL_DRACONIUM);
+    public static final Item DRACONIUM_SWORD = new ToolSword("draconium_sword", TOOLS_MATERIAL_DRACONIUM);
+
     //ARMURES
 
     public static final Item AZURITE_HELMET = new ArmorBase("azurite_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
     public static final Item AZURITE_CHESTPLATE= new ArmorBase("azurite_chestplate", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
     public static final Item AZURITE_LEGGINGS = new ArmorBase("azurite_leggings", ARMOR_MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
     public static final Item AZURITE_BOOTS = new ArmorBase("azurite_boots", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.FEET);
+
+
+    public static final Item DRACONIUM_HELMET = new ArmorBase("draconium_helmet", ARMOR_MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.HEAD);
+    public static final Item DRACONIUM_CHESTPLATE= new ArmorBase("draconium_chestplate", ARMOR_MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.CHEST);
+    public static final Item DRACONIUM_LEGGINGS = new ArmorBase("draconium_leggings", ARMOR_MATERIAL_DRACONIUM, 2, EntityEquipmentSlot.LEGS);
+    public static final Item DRACONIUM_BOOTS = new ArmorBase("draconium_boots", ARMOR_MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.FEET);
+
+    //ITEMS SPECIAUX
+
+    public static final Item STICK_OF_GOD =new Stick_of_god("stick_of_god");
+    public static final Item REGENERATION_STICK =new Regeneration_stick("regeneration_stick");
 
 
 

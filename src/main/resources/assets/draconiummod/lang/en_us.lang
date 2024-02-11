@@ -1,5 +1,7 @@
 item.azurite_ingot.name=Lingot d'Azurite
 item.draconium_ingot.name=Lingot de Draconium
+tile.azurite_block.name=Bloc d'Azurite
+tile.draconium_block.name=Bloc de Draconium
 item.findium_cristal.name=Cristal en Findium
 tile.azurite_ore.name=Minerai d'Azurite
 tile.draconium_ore.name=Minerai de Draconium
@@ -8,10 +10,20 @@ item.azurite_axe.name=Hache en Azurite
 item.azurite_pickaxe.name=Pioche en Azurite
 item.azurite_sword.name=Épée en Azurite
 item.azurite_shovel.name=Pelle en Azurite
+item.draconium_axe.name=Hache en Draconium
+item.draconium_pickaxe.name=Pioche en Draconium
+item.draconium_shovel.name=Pelle en Draconium
+item.draconium_sword.name=Épée en Draconium
 item.azurite_helmet.name=Casque en Azurite
 item.azurite_chestplate.name=Plastron en Azurite
 item.azurite_leggings.name=Jambières en Azurite
 item.azurite_boots.name=Bottes en Azurite
+item.draconium_helmet.name=Casque en Draconium
+item.draconium_chestplate.name=Plastron en Draconium
+item.draconium_leggings.name=Jambières en Draconium
+item.draconium_boots.name=Bottes en Draconium
+item.stick_of_god.name=Bâton de Dieu
+item.regeneration_stick.name=Bâton de Régénération
 
 
 
