@@ -22,8 +22,8 @@ public class WorldGenCustomOres implements IWorldGenerator {
 
     public WorldGenCustomOres()
     {
-        azurite_ore = new WorldGenMinable(BlockInit.AZURITE_ORE.getDefaultState(), 8, BlockMatcher.forBlock(Blocks.STONE));
-        draconium_ore = new WorldGenMinable(BlockInit.DRACONIUM_ORE.getDefaultState(), 6, BlockMatcher.forBlock(Blocks.STONE));
+        azurite_ore = new WorldGenMinable(BlockInit.AZURITE_ORE.getDefaultState(), 7, BlockMatcher.forBlock(Blocks.STONE));
+        draconium_ore = new WorldGenMinable(BlockInit.DRACONIUM_ORE.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.STONE));
         findium_ore = new WorldGenMinable(BlockInit.FINDIUM_ORE.getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
     }
 
@@ -37,9 +37,9 @@ public class WorldGenCustomOres implements IWorldGenerator {
             case -1:
                 break;
             case 0:
-                runGenerator(azurite_ore, world, random, chunkX, chunkZ, 35, 0, 30);
+                runGenerator(azurite_ore, world, random, chunkX, chunkZ, 20, 0, 30);
                 runGenerator(draconium_ore, world, random, chunkX, chunkZ, 10, 0, 12);
-                runGenerator(findium_ore, world, random, chunkX, chunkZ, 5, 0, 8);
+                runGenerator(findium_ore, world, random, chunkX, chunkZ, 5, 0, 7);
                 break;
             case 1:
                 break;

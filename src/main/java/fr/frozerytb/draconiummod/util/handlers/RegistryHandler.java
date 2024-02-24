@@ -2,7 +2,6 @@ package fr.frozerytb.draconiummod.util.handlers;
 
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
-import fr.frozerytb.draconiummod.util.compat.OreDictionaryCompat;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import fr.frozerytb.draconiummod.world.generation.WorldGenCustomOres;
 import net.minecraft.entity.player.EntityPlayer;
@@ -116,6 +115,5 @@ public class RegistryHandler
     public static void initRegistries()
     {
         RecipesHandler.registerRecipies();
-        OreDictionaryCompat.registerOres();
     }
 }
