@@ -28,6 +28,7 @@ item.radar.name=Unclaim Finder
 tile.cave_block.name=Cave Block
 item.hammer.name=Marteau
 item.draconium_apple=Pomme en Draconium
+itemGroup.draconiummod=DraconiumMod
 
 
 
