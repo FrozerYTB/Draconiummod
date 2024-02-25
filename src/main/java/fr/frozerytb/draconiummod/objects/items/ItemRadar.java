@@ -10,65 +10,125 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.stats.StatList;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class ItemRadar extends Item implements IHasmodel
-{
-	public static int dura = 90*20*60;
-	public static int percents = 0;
-	private static EntityPlayer player;
-	public ItemRadar(String name)
-	{
-		this.addPropertyOverride(new ResourceLocation("percent"), new IItemPropertyGetter()
-		{
-			@SideOnly(Side.CLIENT)
-			@Override
-			public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn)
-			{
-				return percents;
-			}
-		});
+public class ItemRadar extends Item implements IHasmodel {
+    public static final int maxUseTime = 90 * 20 * 60; // 90 minutes
 
-		this.setMaxDamage(this.dura);
-		setUnlocalizedName(name);
-		setRegistryName(name);
-		setMaxStackSize(1);
-		setCreativeTab(Main.DraconiummodTab);
-		ItemInit.ITEMS.add(this);
-	}
-	@Override
-	public void registerModels() {
-		Main.proxy.registerItemRenderer(this, 0);
-	}
-	@Override
-	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+    public ItemRadar(String name) {
+        this.addPropertyOverride(new ResourceLocation("percent"), new IItemPropertyGetter() {
+            @Override
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                return Math.min(26, GuiRadar.amountTiles);
+            }
+        });
 
-		this.player = (EntityPlayer)entityIn;
+        // Utilisation d'un système de "durabilité" alternatif, car sinon on ne pourrait pas dépasser 54 minutes d'utilisation (65535 ticks)
+        this.addPropertyOverride(new ResourceLocation("damage"), new IItemPropertyGetter() {
+            @Override
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                int usedTime = getUsedTime(stack);
+                return MathHelper.clamp((float) usedTime / (float) maxUseTime, 0.0F, 1.0F);
+            }
+        });
+        this.addPropertyOverride(new ResourceLocation("damaged"), new IItemPropertyGetter() {
+            @Override
+            @SideOnly(Side.CLIENT)
+            public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
+                int usedTime = getUsedTime(stack);
+                return usedTime > 0 ? 1.0f : 0.0f;
+            }
+        });
 
-		if (this.player.getHeldItem(EnumHand.MAIN_HAND).getItem() instanceof ItemRadar)
-		{
-			if(dura >= 0)
-			{
-				this.dura --;
-				stack.damageItem(1, this.player);
+        setUnlocalizedName(name);
+        setRegistryName(name);
+        setMaxStackSize(1);
+        setCreativeTab(Main.DraconiummodTab);
+        ItemInit.ITEMS.add(this);
+    }
 
-				if(GuiRadar.amountTiles <= 25)
-				{
-					this.percents = GuiRadar.amountTiles;
-				}
-				else if (GuiRadar.amountTiles >= 26)
-				{
-					this.percents = 26;
-				}
-			}
-		}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerModels() {
+        Main.proxy.registerItemRenderer(this, 0);
+    }
 
-		super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
-	}
+    @Override
+    public boolean isDamageable() {
+        return true;
+    }
+
+    @Override
+    public int getMaxDamage(ItemStack stack) {
+        return maxUseTime;
+    }
+
+    @Override
+    public boolean isDamaged(ItemStack stack) {
+        return getUsedTime(stack) > 0;
+    }
+
+    @Override
+    public void setDamage(ItemStack stack, int damage) {
+        NBTTagCompound itemNBT = stack.getTagCompound();
+        if (itemNBT == null) {
+            stack.setTagCompound(itemNBT = new NBTTagCompound());
+        }
+        itemNBT.setInteger("usedTime", damage);
+    }
+
+    @Override
+    public ItemRadar setMaxDamage(int maxDamageIn) {
+        return this;
+    }
+
+    @Override
+    public int getDamage(ItemStack stack) {
+        return getUsedTime(stack);
+    }
+
+    @Override
+    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+        if (entityIn instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entityIn;
+
+            if (!player.isCreative() && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == this) {
+                NBTTagCompound itemNBT = stack.getTagCompound();
+                if (itemNBT == null) {
+                    stack.setTagCompound(itemNBT = new NBTTagCompound());
+                }
+                int usedTime = itemNBT.getInteger("usedTime") + 1;
+                if (usedTime > maxUseTime) {
+                    player.renderBrokenItemStack(stack);
+                    stack.shrink(1);
+                    player.addStat(StatList.getObjectBreakStats(stack.getItem()));
+                    if (stack.isEmpty()) {
+                        return;
+                    }
+                    usedTime = 0;
+                }
+                itemNBT.setInteger("usedTime", usedTime);
+            }
+        }
+        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+    }
+
+    public static int getUsedTime(ItemStack stack) {
+        NBTTagCompound itemNBT = stack.getTagCompound();
+        if (itemNBT == null) {
+            return 0;
+        }
+        return itemNBT.getInteger("usedTime");
+    }
 }

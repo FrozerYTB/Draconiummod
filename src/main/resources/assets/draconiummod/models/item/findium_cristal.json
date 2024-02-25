@@ -1,7 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures":
-    {
-        "layer0": "draconiummod:items/findium_cristal"
-    }
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "draconiummod:items/findium_cristal"
+  }
 }

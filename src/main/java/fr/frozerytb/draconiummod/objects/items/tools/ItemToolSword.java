@@ -3,20 +3,22 @@ package fr.frozerytb.draconiummod.objects.items.tools;
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSword;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ToolSword extends ItemSword implements IHasmodel {
+public class ItemToolSword extends ItemSword implements IHasmodel {
 
-    public ToolSword(String name, ToolMaterial material)
-    {
+    public ItemToolSword(String name, ToolMaterial material) {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(Main.DraconiummodTab);
         ItemInit.ITEMS.add(this);
     }
+
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerModels() {
         Main.proxy.registerItemRenderer(this, 0);
     }

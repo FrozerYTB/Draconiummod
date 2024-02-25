@@ -15,4 +15,3 @@ public class DraconiummodTab extends CreativeTabs {
         return new ItemStack(ItemInit.DRACONIUM_INGOT);
     }
 }
-

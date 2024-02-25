@@ -1,8 +1,6 @@
 package fr.frozerytb.draconiummod.objects.blocks;
 
 
-
-
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
@@ -15,10 +13,8 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class CaveBlock extends Block implements IHasmodel
-{
-    public CaveBlock(String name, Material material)
-    {
+public class BlockCaveBlock extends Block implements IHasmodel {
+    public BlockCaveBlock(String name, Material material) {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
@@ -29,14 +25,12 @@ public class CaveBlock extends Block implements IHasmodel
     }
 
     @Override
-    public void registerModels()
-    {
+    public void registerModels() {
         Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
     }
 
     @SideOnly(Side.CLIENT)
-    public BlockRenderLayer func_180664_k()
-    {
+    public BlockRenderLayer getBlockLayer() {
         return BlockRenderLayer.CUTOUT_MIPPED;
     }
 }

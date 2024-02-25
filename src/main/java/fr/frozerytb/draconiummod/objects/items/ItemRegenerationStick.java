@@ -5,20 +5,23 @@ import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.ItemFood;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemCustomFood extends ItemFood implements IHasmodel {
-    public ItemCustomFood(String name, int amout, boolean isWolfFood) {
-        super(amout, isWolfFood);
+public class ItemRegenerationStick extends Item implements IHasmodel {
+    public ItemRegenerationStick(String name) {
         setUnlocalizedName(name);
         setRegistryName(name);
+        setMaxDamage(15);
+        setMaxStackSize(1);
         setCreativeTab(Main.DraconiummodTab);
-        setAlwaysEdible();
         ItemInit.ITEMS.add(this);
     }
 
@@ -29,12 +32,12 @@ public class ItemCustomFood extends ItemFood implements IHasmodel {
     }
 
     @Override
-    protected void onFoodEaten(ItemStack stack, World world, EntityPlayer player) {
-        if (!world.isRemote) {
-            player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 100, 2));
-            player.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 2400, 1));
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+        if (!worldIn.isRemote) {
+            playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 2));
+            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+        } else {
+            return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
         }
-
-        super.onFoodEaten(stack, world, player);
     }
 }

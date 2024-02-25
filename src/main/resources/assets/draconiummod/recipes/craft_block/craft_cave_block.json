@@ -1,20 +1,19 @@
-{"type":"minecraft:crafting_shaped",
+{
+  "type": "minecraft:crafting_shaped",
   "pattern": [
     "###",
     "#F#",
     "###"
   ],
-  "key":{
-    "#":
-    {
+  "key": {
+    "#": {
       "item": "minecraft:glass"
     },
-    "F":
-    {
+    "F": {
       "item": "draconiummod:findium_cristal"
     }
   },
-  "result":{
+  "result": {
     "item": "draconiummod:cave_block",
     "count": 1
   }

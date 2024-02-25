@@ -1,18 +1,14 @@
 package fr.frozerytb.draconiummod.init;
 
 import fr.frozerytb.draconiummod.Main;
-import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.crafting.RecipeRepairItem;
-import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 
 public class ArmorBase extends ItemArmor implements IHasmodel {
-
-
     public ArmorBase(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
@@ -22,9 +18,9 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void registerModels() {
         Main.proxy.registerItemRenderer(this, 0);
     }
-
 }
 

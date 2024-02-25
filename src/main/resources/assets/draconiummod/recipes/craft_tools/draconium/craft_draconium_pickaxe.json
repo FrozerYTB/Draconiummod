@@ -1,20 +1,19 @@
-{"type":"minecraft:crafting_shaped",
+{
+  "type": "minecraft:crafting_shaped",
   "pattern": [
-  "###",
-  " B ",
-  " B "
-],
-  "key":{
-    "#":
-    {
+    "###",
+    " B ",
+    " B "
+  ],
+  "key": {
+    "#": {
       "item": "draconiummod:draconium_ingot"
     },
-    "B":
-    {
+    "B": {
       "item": "minecraft:stick"
     }
   },
-  "result":{
+  "result": {
     "item": "draconiummod:draconium_pickaxe",
     "count": 1
   }
