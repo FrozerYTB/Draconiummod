@@ -29,6 +29,6 @@
     { "predicate": { "percent": 23 }, "model": "draconiummod:item/radar11_25" },
     { "predicate": { "percent": 24 }, "model": "draconiummod:item/radar11_25" },
     { "predicate": { "percent": 25 }, "model": "draconiummod:item/radar11_25" },
-    { "predicate": { "percent": 26 }, "model": "draconiummod :item/radar26_more" }
+    { "predicate": { "percent": 26 }, "model": "draconiummod:item/radar26_more" }
   ]
 }

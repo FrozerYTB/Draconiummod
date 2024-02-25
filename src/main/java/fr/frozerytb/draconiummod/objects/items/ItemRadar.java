@@ -46,7 +46,6 @@ public class ItemRadar extends Item implements IHasmodel
 	public void registerModels() {
 		Main.proxy.registerItemRenderer(this, 0);
 	}
-
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 
