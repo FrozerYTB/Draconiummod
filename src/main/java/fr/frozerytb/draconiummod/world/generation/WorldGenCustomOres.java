@@ -3,7 +3,6 @@ package fr.frozerytb.draconiummod.world.generation;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -11,7 +10,10 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -25,16 +27,17 @@ public class WorldGenCustomOres implements IWorldGenerator {
         findium_ore = new WorldGenMinable(BlockInit.FINDIUM_ORE.getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
     }
 
+    @SideOnly(Side.SERVER)
+    private static boolean dedicatedServerIsMinage(World world) {
+        DedicatedServer server = (DedicatedServer) world.getMinecraftServer();
+        return server.getBooleanProperty("minage-server", false);
+    }
+
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if (isMinage == null) {
-            MinecraftServer server = world.getMinecraftServer();
-            if (server instanceof DedicatedServer) {
-                isMinage = ((DedicatedServer) server).getBooleanProperty("minage-server", false);
-            } else {
-                // Monde solo considéré en minage
-                isMinage = true;
-            }
+            // Monde solo considéré en minage
+            isMinage = FMLCommonHandler.instance().getSide().isClient() || dedicatedServerIsMinage(world);
         }
 
         if (isMinage && world.provider.getDimension() == 0) {
