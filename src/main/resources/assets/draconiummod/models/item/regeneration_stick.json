@@ -1,7 +1,6 @@
 {
-    "parent": "item/generated",
-    "textures":
-    {
-        "layer0": "draconiummod:items/regeneration_stick"
-    }
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "draconiummod:items/regeneration_stick"
+  }
 }

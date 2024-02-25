@@ -1,6 +1,9 @@
 package fr.frozerytb.draconiummod.util.interfaces;
 
-public interface IHasmodel 
-{
-	public void registerModels();
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+
+public interface IHasmodel {
+    @SideOnly(Side.CLIENT)
+    void registerModels();
 }

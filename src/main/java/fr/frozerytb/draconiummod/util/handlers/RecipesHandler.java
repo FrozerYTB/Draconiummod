@@ -5,10 +5,8 @@ import fr.frozerytb.draconiummod.init.ItemInit;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class RecipesHandler
-{
-    public static void registerRecipies()
-    {
+public class RecipesHandler {
+    public static void registerRecipies() {
         //Smelt ORE
         GameRegistry.addSmelting(BlockInit.AZURITE_ORE, new ItemStack(ItemInit.AZURITE_INGOT, 1), 5.0F);
         GameRegistry.addSmelting(BlockInit.DRACONIUM_ORE, new ItemStack(ItemInit.DRACONIUM_INGOT, 1), 5.0F);

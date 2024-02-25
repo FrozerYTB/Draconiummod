@@ -1,8 +1,6 @@
 {
-  "variants":
-  {
-    "normal":
-    {
+  "variants": {
+    "normal": {
       "model": "draconiummod:findium_ore"
     }
   }

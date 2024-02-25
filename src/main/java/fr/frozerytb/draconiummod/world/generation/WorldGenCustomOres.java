@@ -1,11 +1,10 @@
 package fr.frozerytb.draconiummod.world.generation;
 
 import fr.frozerytb.draconiummod.init.BlockInit;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockSand;
 import net.minecraft.block.state.pattern.BlockMatcher;
-import net.minecraft.dispenser.IPosition;
 import net.minecraft.init.Blocks;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.dedicated.DedicatedServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -17,44 +16,41 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 import java.util.Random;
 
 public class WorldGenCustomOres implements IWorldGenerator {
+    private static Boolean isMinage;
+    private final WorldGenerator azurite_ore, draconium_ore, findium_ore;
 
-    private WorldGenerator azurite_ore, draconium_ore, findium_ore;
-
-    public WorldGenCustomOres()
-    {
+    public WorldGenCustomOres() {
         azurite_ore = new WorldGenMinable(BlockInit.AZURITE_ORE.getDefaultState(), 7, BlockMatcher.forBlock(Blocks.STONE));
         draconium_ore = new WorldGenMinable(BlockInit.DRACONIUM_ORE.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.STONE));
         findium_ore = new WorldGenMinable(BlockInit.FINDIUM_ORE.getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
     }
 
-
-
     @Override
-    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
-    {
-        switch(world.provider.getDimension())
-        {
-            case -1:
-                break;
-            case 0:
-                runGenerator(azurite_ore, world, random, chunkX, chunkZ, 20, 0, 30);
-                runGenerator(draconium_ore, world, random, chunkX, chunkZ, 10, 0, 12);
-                runGenerator(findium_ore, world, random, chunkX, chunkZ, 5, 0, 7);
-                break;
-            case 1:
-                break;
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+        if (isMinage == null) {
+            MinecraftServer server = world.getMinecraftServer();
+            if (server instanceof DedicatedServer) {
+                isMinage = ((DedicatedServer) server).getBooleanProperty("minage-server", false);
+            } else {
+                // Monde solo considéré en minage
+                isMinage = true;
+            }
+        }
+
+        if (isMinage && world.provider.getDimension() == 0) {
+            runGenerator(azurite_ore, world, random, chunkX, chunkZ, 20, 0, 30);
+            runGenerator(draconium_ore, world, random, chunkX, chunkZ, 10, 0, 12);
+            runGenerator(findium_ore, world, random, chunkX, chunkZ, 5, 0, 7);
         }
     }
 
-    private void runGenerator(WorldGenerator gen, World world, Random rand, int chunkX, int chunkZ, int chance, int minHeight, int maxHeight)
-    {
+    private void runGenerator(WorldGenerator gen, World world, Random rand, int chunkX, int chunkZ, int chance, int minHeight, int maxHeight) {
         if (minHeight > maxHeight || minHeight < 0 || maxHeight > 256) throw new IllegalArgumentException("Ore genrated out of bounds");
 
-        int heightDiff = maxHeight - minHeight +1;
+        int heightDiff = maxHeight - minHeight + 1;
 
-        for(int i = 0; i < chance; i++)
-        {
-            int x = chunkX * 16 +rand.nextInt(16);
+        for (int i = 0; i < chance; i++) {
+            int x = chunkX * 16 + rand.nextInt(16);
             int y = minHeight + rand.nextInt(heightDiff);
             int z = chunkZ * 16 + rand.nextInt(16);
 
