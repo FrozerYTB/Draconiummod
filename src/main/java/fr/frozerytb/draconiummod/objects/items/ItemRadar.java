@@ -4,7 +4,6 @@ import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.guis.GuiRadar;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
@@ -16,6 +15,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -56,6 +58,7 @@ public class ItemRadar extends Item implements IHasmodel {
         setMaxStackSize(1);
         setCreativeTab(Main.DraconiummodTab);
         ItemInit.ITEMS.add(this);
+        MinecraftForge.EVENT_BUS.register(this);
     }
 
     @Override
@@ -98,30 +101,37 @@ public class ItemRadar extends Item implements IHasmodel {
         return getUsedTime(stack);
     }
 
-    @Override
-    public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-        if (entityIn instanceof EntityPlayer) {
-            EntityPlayer player = (EntityPlayer) entityIn;
+    @SubscribeEvent
+    public void onTickPlayerTick(TickEvent.PlayerTickEvent event) {
+        EntityPlayer player = event.player;
+        if (event.phase == TickEvent.Phase.START && event.side.isServer() && !player.isCreative()) {
+            ItemStack stack = getUsableItemStack(player);
+            NBTTagCompound itemNBT = stack.getTagCompound();
+            if (itemNBT == null) {
+                stack.setTagCompound(itemNBT = new NBTTagCompound());
+            }
+            int usedTime = itemNBT.getInteger("usedTime") + 1;
+            if (usedTime > maxUseTime) {
+                player.renderBrokenItemStack(stack);
+                stack.shrink(1);
+                player.addStat(StatList.getObjectBreakStats(stack.getItem()));
+                if (stack.isEmpty()) {
+                    return;
+                }
+                usedTime = 0;
+            }
+            itemNBT.setInteger("usedTime", usedTime);
+        }
+    }
 
-            if (!player.isCreative() && player.getHeldItem(EnumHand.MAIN_HAND).getItem() == this) {
-                NBTTagCompound itemNBT = stack.getTagCompound();
-                if (itemNBT == null) {
-                    stack.setTagCompound(itemNBT = new NBTTagCompound());
-                }
-                int usedTime = itemNBT.getInteger("usedTime") + 1;
-                if (usedTime > maxUseTime) {
-                    player.renderBrokenItemStack(stack);
-                    stack.shrink(1);
-                    player.addStat(StatList.getObjectBreakStats(stack.getItem()));
-                    if (stack.isEmpty()) {
-                        return;
-                    }
-                    usedTime = 0;
-                }
-                itemNBT.setInteger("usedTime", usedTime);
+    public static ItemStack getUsableItemStack(EntityPlayer player) {
+        for (EnumHand hand : EnumHand.values()) {
+            ItemStack stack = player.getHeldItem(hand);
+            if (stack.getItem() == ItemInit.RADAR) {
+                return stack;
             }
         }
-        super.onUpdate(stack, worldIn, entityIn, itemSlot, isSelected);
+        return ItemStack.EMPTY;
     }
 
     public static int getUsedTime(ItemStack stack) {
