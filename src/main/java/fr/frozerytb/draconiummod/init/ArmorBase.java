@@ -40,7 +40,7 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
             applyNightVision(player);
         }
         if (this == ItemInit.DRACONIUM_CHESTPLATE) {
-            applyStrength(player);
+            applyResistance(player);
         }
         if (this == ItemInit.DRACONIUM_LEGGINGS) {
             applySpeed(player);
@@ -51,19 +51,19 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
     }
 
     private void applyNightVision(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 300, 0, true, false)); // 300 ticks = 15 secondes
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 300, 0, true, true)); // 300 ticks = 15 secondes
     }
 
-    private void applyStrength(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 20, 0, true, false)); // 300 ticks = 15 secondes
+    private void applyResistance(EntityLivingBase entity) {
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 20, 0, true, true)); // 300 ticks = 15 secondes
     }
 
     private void applySpeed(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 20, 0, true, false)); // 300 ticks = 15 secondes
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 20, 0, true, true)); // 300 ticks = 15 secondes
     }
 
     private void applyHaste(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(3), 20, 0, true, false)); // 300 ticks = 15 secondes
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(3), 20, 0, true, true)); // 300 ticks = 15 secondes
     }
 
     @SubscribeEvent

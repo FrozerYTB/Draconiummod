@@ -15,8 +15,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemStickOfGod extends Item implements IHasmodel {
 
-    private static final int COOLDOWN_TICKS = 90 * 20;
-    private static final int MAX_DURABILITY = 16;
+    private static final int COOLDOWN_TICKS = 120 * 20;
+    private static final int MAX_DURABILITY = 11;
 
     public ItemStickOfGod(String name) {
         setUnlocalizedName(name);
@@ -46,8 +46,9 @@ public class ItemStickOfGod extends Item implements IHasmodel {
                 {
 
                 }
-                playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 4440, 1));
+                playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 1850, 2));
                 playerIn.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 4440, 1));
+                playerIn.addPotionEffect(new PotionEffect(MobEffects.SPEED, 100, 2));
 
                 return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
             } else {
