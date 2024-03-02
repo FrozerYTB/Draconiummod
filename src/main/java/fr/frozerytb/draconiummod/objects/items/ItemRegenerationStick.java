@@ -17,8 +17,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemRegenerationStick extends Item implements IHasmodel {
 
-    private static final int COOLDOWN_TICKS = 5 * 60 * 20;
-    private static final int MAX_DURABILITY = 15;
+    private static final int COOLDOWN_TICKS = 30 * 20;
+    private static final int MAX_DURABILITY = 16;
 
     public ItemRegenerationStick(String name) {
         setUnlocalizedName(name);
@@ -41,15 +41,7 @@ public class ItemRegenerationStick extends Item implements IHasmodel {
 
         if (!worldIn.isRemote) {
             if (!playerIn.getCooldownTracker().hasCooldown(this) && itemstack.getItemDamage() < itemstack.getMaxDamage()) {
-                // Fait quelque chose lorsque l'item est utilisé
-                // ...
-
                 itemstack.damageItem(1, playerIn);
-
-                if (itemstack.getItemDamage() == itemstack.getMaxDamage()) {
-
-                }
-
                 playerIn.getCooldownTracker().setCooldown(this, COOLDOWN_TICKS);
                 playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 300, 2));
 
