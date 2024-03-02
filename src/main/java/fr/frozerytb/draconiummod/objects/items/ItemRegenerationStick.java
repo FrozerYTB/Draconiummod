@@ -34,7 +34,7 @@ public class ItemRegenerationStick extends Item implements IHasmodel {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.isRemote) {
-            playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 500, 2));
+            playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 300, 2));
             return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
         } else {
             return new ActionResult<ItemStack>(EnumActionResult.PASS, playerIn.getHeldItem(handIn));
