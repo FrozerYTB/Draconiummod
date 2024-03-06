@@ -4,6 +4,7 @@ import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
@@ -65,7 +66,6 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
     private void applyHaste(EntityLivingBase entity) {
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(3), 20, 0, true, true)); // 300 ticks = 15 secondes
     }
-
     @SubscribeEvent
     public void onUnequipped(PlayerEvent.ItemCraftedEvent event) {
         // Vérifie si l'item qui a été enlevé est une pièce d'armure draconium
