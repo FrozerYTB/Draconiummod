@@ -37,6 +37,7 @@ public class GuiRadar extends Gui {
         return seconds < 0 ? "-" + positive : positive;
     }
 
+
     @SubscribeEvent
     public void onRenderPre(RenderGameOverlayEvent.Pre event) {
         if (event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
@@ -50,6 +51,8 @@ public class GuiRadar extends Gui {
             amountTiles += mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX, mc.player.chunkCoordZ - 1).getTileEntityMap().values().size();
             amountTiles += mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX + 1, mc.player.chunkCoordZ).getTileEntityMap().values().size();
             amountTiles += mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX - 1, mc.player.chunkCoordZ).getTileEntityMap().values().size();
+
+
 
             ResourceLocation texture;
             if (amountTiles > 25) {
