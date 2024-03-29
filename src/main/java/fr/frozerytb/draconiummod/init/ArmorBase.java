@@ -49,6 +49,10 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
         if (this == ItemInit.DRACONIUM_BOOTS) {
             applyHaste(player);
         }
+
+        if (this == ItemInit.SCUBA_HELMET) {
+            applyWaterBreathing(player);
+        }
     }
 
     private void applyNightVision(EntityLivingBase entity) {
@@ -66,13 +70,18 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
     private void applyHaste(EntityLivingBase entity) {
         entity.addPotionEffect(new PotionEffect(Potion.getPotionById(3), 20, 0, true, true)); // 300 ticks = 15 secondes
     }
+
+    private void applyWaterBreathing(EntityLivingBase entity) {
+        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(13), 300, 0, true, true)); // 300 ticks = 15 secondes
+    }
     @SubscribeEvent
     public void onUnequipped(PlayerEvent.ItemCraftedEvent event) {
         // Vérifie si l'item qui a été enlevé est une pièce d'armure draconium
         if (event.crafting.getItem() == ItemInit.DRACONIUM_HELMET
                 || event.crafting.getItem() == ItemInit.DRACONIUM_CHESTPLATE
                 || event.crafting.getItem() == ItemInit.DRACONIUM_LEGGINGS
-                || event.crafting.getItem() == ItemInit.DRACONIUM_BOOTS) {
+                || event.crafting.getItem() == ItemInit.DRACONIUM_BOOTS
+                || event.crafting.getItem() == ItemInit.SCUBA_HELMET) {
             // Retire les effets de potion
             removePotionEffects(event.player);
         }

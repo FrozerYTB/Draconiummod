@@ -53,6 +53,8 @@ public class ItemInit {
     public static final Item DRACONIUM_LEGGINGS = new ArmorBase("draconium_leggings", ARMOR_MATERIAL_DRACONIUM, 2, EntityEquipmentSlot.LEGS);
     public static final Item DRACONIUM_BOOTS = new ArmorBase("draconium_boots", ARMOR_MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.FEET);
 
+    public static final Item SCUBA_HELMET = new ArmorBase("scuba_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
+
     //ITEMS SPECIAUX
     public static final Item STICK_OF_GOD = new ItemStickOfGod("stick_of_god");
     public static final Item REGENERATION_STICK = new ItemRegenerationStick("regeneration_stick");
