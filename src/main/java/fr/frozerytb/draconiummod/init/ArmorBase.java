@@ -50,7 +50,7 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
             applyHaste(player);
         }
 
-        if (this == ItemInit.SCUBA_HELMET) {
+        if (this == ItemInit.AQUATIQUE_HELMET) {
             applyWaterBreathing(player);
         }
     }
@@ -81,7 +81,7 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
                 || event.crafting.getItem() == ItemInit.DRACONIUM_CHESTPLATE
                 || event.crafting.getItem() == ItemInit.DRACONIUM_LEGGINGS
                 || event.crafting.getItem() == ItemInit.DRACONIUM_BOOTS
-                || event.crafting.getItem() == ItemInit.SCUBA_HELMET) {
+                || event.crafting.getItem() == ItemInit.AQUATIQUE_HELMET) {
             // Retire les effets de potion
             removePotionEffects(event.player);
         }
