@@ -19,6 +19,7 @@ public class ItemInit {
     //materiaux
     public static final ArmorMaterial ARMOR_MATERIAL_AZURITE = EnumHelper.addArmorMaterial("armor_material_azurite", Reference.MODID + ":azurite", 175, new int[]{4, 7, 9, 4}, 17, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 1.0F);
     public static final ArmorMaterial ARMOR_MATERIAL_DRACONIUM = EnumHelper.addArmorMaterial("armor_material_draconium", Reference.MODID + ":draconium", 220, new int[]{5, 8, 10, 5}, 25, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
+    public static final ArmorMaterial ARMOR_MATERIAL_AQUATIQUE = EnumHelper.addArmorMaterial("armor_material_aquatique", Reference.MODID + ":aquatique", 100, new int[]{2, 5, 7, 2}, 17, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0F);
     public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", 4, 2890, 9.0F, 4.0F, 17);
     public static final Item.ToolMaterial HAMMER_MATERIAL_AZURITE = EnumHelper.addToolMaterial("hammer_material_azurite", 4, 2890, 1.0F, 2.0F, 17);
     public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3890, 10.0F, 6.0F, 25);
@@ -53,7 +54,7 @@ public class ItemInit {
     public static final Item DRACONIUM_LEGGINGS = new ArmorBase("draconium_leggings", ARMOR_MATERIAL_DRACONIUM, 2, EntityEquipmentSlot.LEGS);
     public static final Item DRACONIUM_BOOTS = new ArmorBase("draconium_boots", ARMOR_MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.FEET);
 
-    public static final Item AQUATIQUE_HELMET = new ArmorBase("aquatique_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
+    public static final Item AQUATIQUE_HELMET = new ArmorBase("aquatique_helmet", ARMOR_MATERIAL_AQUATIQUE, 1, EntityEquipmentSlot.HEAD);
 
     //ITEMS SPECIAUX
     public static final Item STICK_OF_GOD = new ItemStickOfGod("stick_of_god");
