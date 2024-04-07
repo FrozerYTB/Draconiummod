@@ -3,6 +3,7 @@ package fr.frozerytb.draconiummod.init;
 import fr.frozerytb.draconiummod.objects.blocks.BlockBasic;
 import fr.frozerytb.draconiummod.objects.blocks.BlockCaveBlock;
 import fr.frozerytb.draconiummod.objects.blocks.BlockElevator;
+import fr.frozerytb.draconiummod.objects.blocks.fluids.BlockFakeWaterFluid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -24,4 +25,7 @@ public class BlockInit {
     //AUTRES
     public static final Block CAVE_BLOCK = new BlockCaveBlock("cave_block", Material.GLASS);
     public static final Block ELEVATOR = new BlockElevator("elevator", Material.IRON);
+    public static final Block FAKE_WATER_FLUID = new BlockFakeWaterFluid("fake_water", FluidInit.FAKE_WATER_FLUID, Material.WATER);
+
+
 }

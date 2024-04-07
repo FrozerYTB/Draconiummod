@@ -5,6 +5,7 @@ import fr.frozerytb.draconiummod.tabs.DraconiummodTab;
 import fr.frozerytb.draconiummod.util.Reference;
 import fr.frozerytb.draconiummod.util.handlers.RegistryHandler;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
@@ -23,6 +24,11 @@ public class Main {
     public static Logger logger;
 
     public static final CreativeTabs DraconiummodTab = new DraconiummodTab("draconiummod");
+
+    static
+    {
+        FluidRegistry.enableUniversalBucket();
+    }
 
     @EventHandler
     public static void preinit(FMLPreInitializationEvent e) {

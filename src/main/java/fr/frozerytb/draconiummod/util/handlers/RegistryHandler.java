@@ -1,6 +1,7 @@
 package fr.frozerytb.draconiummod.util.handlers;
 
 import fr.frozerytb.draconiummod.init.BlockInit;
+import fr.frozerytb.draconiummod.init.FluidInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import fr.frozerytb.draconiummod.world.generation.WorldGenCustomOres;
@@ -42,7 +43,10 @@ public class RegistryHandler {
         }
     }
 
-    public static void preInitRegistries() {
+    public static void preInitRegistries()
+    {
+        FluidInit.registerFluids();
+        RenderHandler.registerCustomMeshesAndStates();
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
     }
 
