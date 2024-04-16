@@ -60,7 +60,7 @@ public class ItemInit {
     public static final Item STICK_OF_GOD = new ItemStickOfGod("stick_of_god");
     public static final Item REGENERATION_STICK = new ItemRegenerationStick("regeneration_stick");
     public static final Item RADAR = new ItemRadar("radar");
-    public static final Item DYNAMITE = new ItemDynamite("dynamite");
+    public static final Item DYNAMITE = new ItemGrenade("grenade");
 
     //NOURRITURRES
     public static final Item DRACONIUM_APPLE = new ItemCustomFood("draconium_apple", 8, false);
