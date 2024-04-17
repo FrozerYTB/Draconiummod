@@ -19,12 +19,14 @@ import java.util.Random;
 
 public class WorldGenCustomOres implements IWorldGenerator {
     private static Boolean isMinage;
-    private final WorldGenerator azurite_ore, draconium_ore, findium_ore;
+    private final WorldGenerator azurite_ore, draconium_ore, explosive_ore, findium_ore;
 
     public WorldGenCustomOres() {
         azurite_ore = new WorldGenMinable(BlockInit.AZURITE_ORE.getDefaultState(), 7, BlockMatcher.forBlock(Blocks.STONE));
         draconium_ore = new WorldGenMinable(BlockInit.DRACONIUM_ORE.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.STONE));
+        explosive_ore = new WorldGenMinable(BlockInit.EXPLOSIVE_ORE.getDefaultState(), 4, BlockMatcher.forBlock(Blocks.STONE));
         findium_ore = new WorldGenMinable(BlockInit.FINDIUM_ORE.getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
+
     }
 
     @SideOnly(Side.SERVER)
@@ -43,6 +45,7 @@ public class WorldGenCustomOres implements IWorldGenerator {
         if (isMinage && world.provider.getDimension() == 0) {
             runGenerator(azurite_ore, world, random, chunkX, chunkZ, 20, 0, 30);
             runGenerator(draconium_ore, world, random, chunkX, chunkZ, 10, 0, 12);
+            runGenerator(explosive_ore, world, random, chunkX, chunkZ, 8, 0, 15);
             runGenerator(findium_ore, world, random, chunkX, chunkZ, 5, 0, 7);
         }
     }
