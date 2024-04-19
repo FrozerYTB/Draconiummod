@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 
 public class ItemGrenade extends Item {
 
-    public ItemGrenade() {
+    public ItemGrenade(String name) {
         super();
         this.setUnlocalizedName("grenade");
         this.setCreativeTab(Main.DraconiummodTab);
