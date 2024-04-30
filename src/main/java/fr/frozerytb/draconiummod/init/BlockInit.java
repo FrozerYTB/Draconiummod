@@ -3,6 +3,7 @@ package fr.frozerytb.draconiummod.init;
 import fr.frozerytb.draconiummod.objects.blocks.BlockBasic;
 import fr.frozerytb.draconiummod.objects.blocks.BlockCaveBlock;
 import fr.frozerytb.draconiummod.objects.blocks.BlockElevator;
+import fr.frozerytb.draconiummod.objects.blocks.BlockExplosiveOre;
 import fr.frozerytb.draconiummod.objects.blocks.fluids.BlockFakeWaterFluid;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -17,7 +18,7 @@ public class BlockInit {
     public static final Block AZURITE_ORE = new BlockBasic("azurite_ore", Material.ROCK);
     public static final Block DRACONIUM_ORE = new BlockBasic("draconium_ore", Material.ROCK);
     public static final Block FINDIUM_ORE = new BlockBasic("findium_ore", Material.ROCK);
-    public static final Block EXPLOSIVE_ORE = new BlockBasic("explosive_ore", Material.ROCK);
+    public static final Block EXPLOSIVE_ORE = new BlockExplosiveOre("explosive_ore", Material.ROCK);
 
     //BLOCS
     public static final Block AZURITE_BLOCK = new BlockBasic("azurite_block", Material.IRON);
