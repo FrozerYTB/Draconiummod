@@ -21,11 +21,11 @@ public class ItemRegenerationStick extends Item implements IHasmodel {
     private static final int MAX_DURABILITY = 11;
 
     public ItemRegenerationStick(String name) {
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setMaxDamage(MAX_DURABILITY - 1); // Adjusted to start at 0 and go up to MAX_DURABILITY - 1
-        setMaxStackSize(1);
-        setCreativeTab(Main.DraconiummodTab);
+        this.setUnlocalizedName(name);
+        this.setRegistryName(name);
+        this.setMaxDamage(MAX_DURABILITY - 1); // Adjusted to start at 0 and go up to MAX_DURABILITY - 1
+        this.setMaxStackSize(1);
+        this.setCreativeTab(Main.DraconiummodTab);
         ItemInit.ITEMS.add(this);
     }
 

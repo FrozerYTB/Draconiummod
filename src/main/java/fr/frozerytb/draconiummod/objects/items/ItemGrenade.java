@@ -16,6 +16,8 @@ public class ItemGrenade extends Item {
     public ItemGrenade(String name) {
         super();
         this.setUnlocalizedName("grenade");
+        this.setUnlocalizedName(name);
+        this.setRegistryName("grenade");
         this.setCreativeTab(Main.DraconiummodTab);
         this.setMaxStackSize(16);
         ItemInit.ITEMS.add(this);
