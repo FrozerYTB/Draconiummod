@@ -1,10 +1,11 @@
+
 package fr.frozerytb.draconiummod.init;
 
-import fr.frozerytb.draconiummod.objects.blocks.fluids.BlockFakeWaterFluid;
 import fr.frozerytb.draconiummod.objects.blocks.fluids.FluidFakeWater;
 import fr.frozerytb.draconiummod.util.Reference;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
@@ -17,9 +18,9 @@ public class FluidInit {
             new ResourceLocation(Reference.MODID + ":blocks/fake_water_overlay")) {
 
         public void onEntityCollision(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entity, float damage) {
-            // Vérifie si l'entité nage dans le fluide
-            if (!entity.isImmuneToFire() && !entity.isInWater() && !entity.isWet()) {
-                // Inflige des dégâts à l'entité
+            // Vérifie si l'entité est un joueur
+            if (entity instanceof EntityPlayer) {
+                // Inflige des dégâts au joueur
                 entity.attackEntityFrom(DamageSource.DROWN, 2.0f);
             }
         }
