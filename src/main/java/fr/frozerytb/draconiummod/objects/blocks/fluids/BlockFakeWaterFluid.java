@@ -1,5 +1,6 @@
 package fr.frozerytb.draconiummod.objects.blocks.fluids;
 
+import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 
@@ -14,9 +15,8 @@ public class BlockFakeWaterFluid extends BlockFluidClassic{
     public BlockFakeWaterFluid(String name, Fluid fluid, Material material)
     {
         super(fluid, material);
-        setUnlocalizedName(name);
-        setRegistryName(name);
-
+        this.setUnlocalizedName(name);
+        this.setRegistryName(name);
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }

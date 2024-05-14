@@ -7,6 +7,7 @@ import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.BlockRenderLayer;

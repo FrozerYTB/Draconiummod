@@ -1,6 +1,7 @@
 
 package fr.frozerytb.draconiummod.init;
 
+import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.objects.blocks.fluids.FluidFakeWater;
 import fr.frozerytb.draconiummod.util.Reference;
 
