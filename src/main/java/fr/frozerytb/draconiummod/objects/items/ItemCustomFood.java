@@ -15,10 +15,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class ItemCustomFood extends ItemFood implements IHasmodel {
     public ItemCustomFood(String name, int amout, boolean isWolfFood) {
         super(amout, isWolfFood);
-        setUnlocalizedName(name);
-        setRegistryName(name);
-        setCreativeTab(Main.DraconiummodTab);
-        setAlwaysEdible();
+        this.setUnlocalizedName(name);
+        this.setRegistryName(name);
+        this.setCreativeTab(Main.DraconiummodTab);
+        this.setAlwaysEdible();
         ItemInit.ITEMS.add(this);
     }
 

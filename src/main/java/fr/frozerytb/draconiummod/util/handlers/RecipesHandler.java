@@ -20,10 +20,10 @@ public class RecipesHandler {
         GameRegistry.addSmelting(ItemInit.AZURITE_BOOTS, new ItemStack(ItemInit.AZURITE_INGOT, 4), 5.0F);
 
         //DRACONIUM
-        GameRegistry.addSmelting(ItemInit.DRACONIUM_HELMET, new ItemStack(ItemInit.DRACONIUM_INGOT, 3), 5.0F);
-        GameRegistry.addSmelting(ItemInit.DRACONIUM_CHESTPLATE, new ItemStack(ItemInit.DRACONIUM_INGOT, 3), 5.0F);
-        GameRegistry.addSmelting(ItemInit.DRACONIUM_SHOVEL, new ItemStack(ItemInit.DRACONIUM_INGOT, 1), 5.0F);
-        GameRegistry.addSmelting(ItemInit.DRACONIUM_SWORD, new ItemStack(ItemInit.DRACONIUM_INGOT, 2), 5.0F);
+        GameRegistry.addSmelting(ItemInit.DRACONIUM_HELMET, new ItemStack(ItemInit.DRACONIUM_INGOT, 5), 5.0F);
+        GameRegistry.addSmelting(ItemInit.DRACONIUM_CHESTPLATE, new ItemStack(ItemInit.DRACONIUM_INGOT, 8), 5.0F);
+        GameRegistry.addSmelting(ItemInit.DRACONIUM_LEGGINGS, new ItemStack(ItemInit.DRACONIUM_INGOT, 7), 5.0F);
+        GameRegistry.addSmelting(ItemInit.DRACONIUM_BOOTS, new ItemStack(ItemInit.DRACONIUM_INGOT, 4), 5.0F);
 
 
         //UNCRAFT TOOLS
