@@ -22,7 +22,7 @@ public class FluidInit {
             // Vérifie si l'entité est un joueur
             if (entity instanceof EntityPlayer) {
                 // Inflige des dégâts au joueur
-                entity.attackEntityFrom(DamageSource.DROWN, 2.0f);
+                entity.attackEntityFrom(DamageSourceCustom.FAKE_WATER, 2.0f);
             }
         }
     };
