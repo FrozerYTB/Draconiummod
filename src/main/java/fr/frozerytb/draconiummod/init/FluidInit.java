@@ -17,16 +17,7 @@ public class FluidInit {
             new ResourceLocation(Reference.MODID + ":blocks/fake_water_still"),
             new ResourceLocation(Reference.MODID + ":blocks/fake_water_flow"),
             new ResourceLocation(Reference.MODID + ":blocks/fake_water_overlay")) {
-
-        public void onEntityCollision(net.minecraft.world.World world, net.minecraft.util.math.BlockPos pos, net.minecraft.entity.Entity entity, float damage) {
-            // Vérifie si l'entité est un joueur
-            if (entity instanceof EntityPlayer) {
-                // Inflige des dégâts au joueur
-                entity.attackEntityFrom(DamageSourceCustom.FAKE_WATER, 2.0f);
-            }
-        }
     };
-
     public static void registerFluids() {
         registerFluid(FAKE_WATER_FLUID);
     }
