@@ -2,9 +2,9 @@ package fr.frozerytb.draconiummod.objects.items;
 
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
-import net.minecraft.entity.EntityLivingBase;
+import fr.frozerytb.draconiummod.objects.entity.EntityGrenade;
+import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.projectile.EntitySnowball;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,9 +12,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
-import fr.frozerytb.draconiummod.objects.entity.EntityGrenade;
 
-public class ItemGrenade extends Item {
+public class ItemGrenade extends Item implements IHasmodel {
 
     public ItemGrenade(String name) {
         super();
@@ -44,5 +43,10 @@ public class ItemGrenade extends Item {
         itemstack.shrink(1);
 
         return super.onItemRightClick(worldIn, playerIn, handIn);
+    }
+
+    @Override
+    public void registerModels() {
+        Main.proxy.registerItemRenderer(this, 0);
     }
 }
