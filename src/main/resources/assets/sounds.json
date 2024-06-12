@@ -1,0 +1,11 @@
+{
+  "dragon_roar": {
+    "category": "ambient",
+    "sounds": [
+      {
+        "name": "yourmodid:dragon_roar",
+        "stream": false
+      }
+    ]
+  }
+}

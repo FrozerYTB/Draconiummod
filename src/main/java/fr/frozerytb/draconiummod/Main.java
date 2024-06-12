@@ -38,8 +38,7 @@ public class Main {
         RegistryHandler.preInitRegistries();
     }
 
+
     @EventHandler
-    public static void init(FMLInitializationEvent e) {
-        RegistryHandler.initRegistries();
-    }
+    public static void init(FMLInitializationEvent e) {RegistryHandler.initRegistries();}
 }
