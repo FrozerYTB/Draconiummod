@@ -17,6 +17,12 @@ public class EnergyShieldPacket implements IMessage {
     public void fromBytes(ByteBuf buf) {
         // Lire les données du buffer si nécessaire
     }
+
+    @Override
+    public void toBytes(ByteBuf buf) {
+        
+    }
+
     public static class Handler implements IMessageHandler<EnergyShieldPacket, IMessage> {
 
         @Override
