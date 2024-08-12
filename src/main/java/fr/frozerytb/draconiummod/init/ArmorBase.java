@@ -49,8 +49,6 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
             handleDraconiumArmorEffects(player);
         } else if (isWearingFullAquatiqueArmor(player)) {
             handleAquatiqueArmorEffects(player);
-        } else {
-            removePotionEffects(player);
         }
     }
 
@@ -85,14 +83,6 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
         if (this == ItemInit.DRACONIQUE_BOOTS) {
             applyHaste(player);
             teleportCooldown--; // Décrémente le cooldown de téléportation
-
-            if (teleportCooldown <= 0) {
-                teleportRandomly(player);
-                teleportCooldown = TELEPORT_INTERVAL_TICKS; // Réinitialise le cooldown
-            }
-
-            applyEnergyShield(player);
-            spawnAllies(player);
         }
     }
 
