@@ -1,4 +1,3 @@
-
 package fr.frozerytb.draconiummod.init;
 
 import fr.frozerytb.draconiummod.objects.blocks.fluids.FluidFakeWater;

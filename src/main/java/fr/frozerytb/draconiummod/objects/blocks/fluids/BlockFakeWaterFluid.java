@@ -30,7 +30,7 @@ public class BlockFakeWaterFluid extends BlockFluidClassic {
                 (entityIn instanceof EntityPlayer && (((EntityPlayer) entityIn).capabilities.isCreativeMode || (entityIn.getRidingEntity() instanceof EntityBoat)))) {
             return;
         }
-        entityIn.attackEntityFrom(DamageSourceCustom.FAKE_WATER, 3F);
+        entityIn.attackEntityFrom(DamageSourceCustom.FAKE_WATER, 4F);
     }
 }
 
