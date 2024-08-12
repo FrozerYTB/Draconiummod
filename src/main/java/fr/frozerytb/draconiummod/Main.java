@@ -1,7 +1,5 @@
 package fr.frozerytb.draconiummod;
 
-import fr.frozerytb.draconiummod.init.KeyBindings;
-import fr.frozerytb.draconiummod.network.ModNetworkHandler;
 import fr.frozerytb.draconiummod.proxy.CommonProxy;
 import fr.frozerytb.draconiummod.tabs.DraconiummodTab;
 import fr.frozerytb.draconiummod.util.Reference;
@@ -32,36 +30,29 @@ public class Main {
     public static CommonProxy proxy;
     public static Logger logger;
 
-
-
     public static final CreativeTabs DraconiummodTab = new DraconiummodTab("draconiummod");
 
     static {
         FluidRegistry.enableUniversalBucket();
     }
 
-    public class ModInitializer {
-        public void preinit(FMLPreInitializationEvent event) {
-            MinecraftForge.EVENT_BUS.register(SoundEventHandler.class);
-            MinecraftForge.EVENT_BUS.register(PlayerJoinEventHandler.class);
-            logger = event.getModLog();
+    @EventHandler
+    public void preinit(FMLPreInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.register(SoundEventHandler.class);
+        MinecraftForge.EVENT_BUS.register(PlayerJoinEventHandler.class);
+        logger = event.getModLog();
 
-
-            proxy.preInit();
-            RegistryHandler.preInitRegistries();
-            KeyBindings.init();
-
-            MinecraftForge.EVENT_BUS.register(KeyBindings.class);
-            ModNetworkHandler.registerMessages();
-        }
+        proxy.preInit();
+        RegistryHandler.preInitRegistries();
     }
+
 
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         RegistryHandler.initRegistries();
     }
-
+    
     @Mod.EventBusSubscriber(modid = Reference.MODID)
     public static class SoundEventHandler {
 
