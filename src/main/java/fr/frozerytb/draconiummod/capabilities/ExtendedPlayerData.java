@@ -40,13 +40,13 @@ public class ExtendedPlayerData implements ICapabilitySerializable<NBTTagCompoun
         return compound;
     }
 
-    public void tick() {
-        this.draconiumArmorAbilities.tick();
-    }
-
     @Override
     public void deserializeNBT(NBTTagCompound nbt) {
         this.draconiumArmorAbilities.deserializeNBT(nbt.getCompoundTag("draconiumArmorAbilities"));
+    }
+
+    public void tick() {
+        this.draconiumArmorAbilities.tick();
     }
 
     public static void register() {

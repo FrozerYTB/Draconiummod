@@ -23,7 +23,7 @@ public class CapabilitiesInit {
     }
 
     @SubscribeEvent
-    public void onPlayerTick(TickEvent.PlayerTickEvent event) {
+    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         if (event.side.isServer() && event.phase == TickEvent.Phase.END) {
             ExtendedPlayerData.get(event.player).tick();
         }
