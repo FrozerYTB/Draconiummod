@@ -1,6 +1,7 @@
 package fr.frozerytb.draconiummod.proxy;
 
 import fr.frozerytb.draconiummod.guis.GuiRadar;
+import fr.frozerytb.draconiummod.init.KeyBindings;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -30,6 +31,11 @@ public class ClientProxy extends CommonProxy {
     public void preInit() {
         super.preInit();
         this.registerGuis();
+    }
+
+    @Override
+    public void init() {
+        KeyBindings.init();
     }
 
     public void registerGuis() {

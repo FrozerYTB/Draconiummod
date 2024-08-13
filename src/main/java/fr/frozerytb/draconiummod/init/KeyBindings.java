@@ -4,9 +4,7 @@ import fr.frozerytb.draconiummod.network.EnergyShieldPacket;
 import fr.frozerytb.draconiummod.network.ModNetworkHandler;
 import fr.frozerytb.draconiummod.network.SpawnAlliesPacket;
 import fr.frozerytb.draconiummod.network.TeleportPacket;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -39,23 +37,5 @@ public class KeyBindings {
             ModNetworkHandler.INSTANCE.sendToServer(new SpawnAlliesPacket());
         }
 
-    }
-
-    private static void performTeleport(EntityPlayer player) {
-        if (player != null) {
-            ArmorBase.teleportRandomly(player);
-        }
-    }
-
-    private static void activateEnergyShield(EntityPlayer player) {
-        if (player != null) {
-            ArmorBase.applyEnergyShield(player);
-        }
-    }
-
-    private static void spawnAllies(EntityPlayer player) {
-        if (player != null) {
-            ArmorBase.spawnAllies(player);
-        }
     }
 }

@@ -53,6 +53,7 @@ public class Main {
     @EventHandler
     public void init(FMLInitializationEvent event) {
         RegistryHandler.initRegistries();
+        proxy.init();
     }
 
     @Mod.EventBusSubscriber(modid = Reference.MODID)
