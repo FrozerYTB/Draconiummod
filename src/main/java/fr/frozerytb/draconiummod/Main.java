@@ -1,5 +1,6 @@
 package fr.frozerytb.draconiummod;
 
+import fr.frozerytb.draconiummod.init.CapabilitiesInit;
 import fr.frozerytb.draconiummod.network.ModNetworkHandler;
 import fr.frozerytb.draconiummod.proxy.CommonProxy;
 import fr.frozerytb.draconiummod.tabs.DraconiummodTab;
@@ -48,6 +49,7 @@ public class Main {
 
         proxy.preInit();
         RegistryHandler.preInitRegistries();
+        CapabilitiesInit.preInit(event);
     }
 
     @EventHandler
