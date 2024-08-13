@@ -41,11 +41,6 @@ public class ItemStickOfGod extends Item implements IHasmodel {
             if (!playerIn.getCooldownTracker().hasCooldown(this) && itemstack.getItemDamage() < itemstack.getMaxDamage()) {
                 playerIn.getCooldownTracker().setCooldown(this, COOLDOWN_TICKS);
                 itemstack.damageItem(1, playerIn);
-                // Si la durabilité atteint zéro, l'item est détruit
-                if (itemstack.getItemDamage() == itemstack.getMaxDamage())
-                {
-
-                }
                 playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 1850, 2));
                 playerIn.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 4440, 1));
                 playerIn.addPotionEffect(new PotionEffect(MobEffects.SPEED, 100, 2));
