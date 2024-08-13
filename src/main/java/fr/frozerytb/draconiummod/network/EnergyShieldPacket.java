@@ -20,7 +20,7 @@ public class EnergyShieldPacket implements IMessage {
 
     @Override
     public void toBytes(ByteBuf buf) {
-        
+
     }
 
     public static class Handler implements IMessageHandler<EnergyShieldPacket, IMessage> {

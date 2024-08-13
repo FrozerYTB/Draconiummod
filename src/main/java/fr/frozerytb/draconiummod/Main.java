@@ -1,5 +1,6 @@
 package fr.frozerytb.draconiummod;
 
+import fr.frozerytb.draconiummod.network.ModNetworkHandler;
 import fr.frozerytb.draconiummod.proxy.CommonProxy;
 import fr.frozerytb.draconiummod.tabs.DraconiummodTab;
 import fr.frozerytb.draconiummod.util.Reference;
@@ -42,17 +43,18 @@ public class Main {
         MinecraftForge.EVENT_BUS.register(PlayerJoinEventHandler.class);
         logger = event.getModLog();
 
+        // Appel à la méthode d'enregistrement des paquets
+        ModNetworkHandler.registerMessages();
+
         proxy.preInit();
         RegistryHandler.preInitRegistries();
     }
-
-
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         RegistryHandler.initRegistries();
     }
-    
+
     @Mod.EventBusSubscriber(modid = Reference.MODID)
     public static class SoundEventHandler {
 
