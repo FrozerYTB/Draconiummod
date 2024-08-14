@@ -9,7 +9,6 @@ import net.minecraftforge.fluids.Fluid;
 
 import java.util.Random;
 
-// Classe regroupant l'eau normale et FakeWater pour une gestion unifiée
 public class OptimizedWaterBlock extends BlockFluidClassic {
 
     // Constructor pour initialiser le bloc d'eau
@@ -56,7 +55,5 @@ public class OptimizedWaterBlock extends BlockFluidClassic {
             propagateWater(world, pos);
         }
     }
-}
-
 }
 

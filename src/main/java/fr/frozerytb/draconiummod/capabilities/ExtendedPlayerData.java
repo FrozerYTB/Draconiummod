@@ -30,6 +30,10 @@ public class ExtendedPlayerData implements ICapabilitySerializable<NBTTagCompoun
 
     @Override
     public <T> T getCapability(Capability<T> capability, @Nullable EnumFacing facing) {
+        if (CAPABILITY == null) {
+            CrashReport crashReport = new CrashReport("Getting extended player data capability", new NullPointerException("Capability was not registered"));
+            throw new ReportedException(crashReport);
+        }
         return capability == CAPABILITY ? CAPABILITY.cast(this) : null;
     }
 
