@@ -1,30 +1,27 @@
 package fr.frozerytb.draconiummod.init;
 
 import fr.frozerytb.draconiummod.Main;
+import fr.frozerytb.draconiummod.capabilities.ExtendedPlayerData;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWolf;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
 public class ArmorBase extends ItemArmor implements IHasmodel {
-
-    private static final int TELEPORT_INTERVAL_TICKS = 84000; // 7 minutes en ticks
-    private int teleportCooldown = TELEPORT_INTERVAL_TICKS; // Compteur de cooldown de téléportation
+    private static final int TELEPORT_INTERVAL_TICKS = 84000; // 70 minutes en ticks
+    private static final int TELEPORT_DISTANCE = 9;
 
     public ArmorBase(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
         super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -32,7 +29,6 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
         setRegistryName(name);
         setCreativeTab(Main.DraconiummodTab);
         ItemInit.ITEMS.add(this);
-        MinecraftForge.EVENT_BUS.register(this); // Enregistre l'objet pour écouter les événements
     }
 
     @Override
@@ -52,22 +48,22 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
         }
     }
 
-    private boolean isWearingFullDraconiqueArmor(EntityPlayer player) {
-        return player.inventory.armorInventory.get(3).getItem() == ItemInit.DRACONIQUE_HELMET
-                && player.inventory.armorInventory.get(2).getItem() == ItemInit.DRACONIQUE_CHESTPLATE
-                && player.inventory.armorInventory.get(1).getItem() == ItemInit.DRACONIQUE_LEGGINGS
-                && player.inventory.armorInventory.get(0).getItem() == ItemInit.DRACONIQUE_BOOTS;
+    public static boolean isWearingFullDraconiqueArmor(EntityPlayer player) {
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemInit.DRACONIQUE_HELMET
+                && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemInit.DRACONIQUE_CHESTPLATE
+                && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemInit.DRACONIQUE_LEGGINGS
+                && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemInit.DRACONIQUE_BOOTS;
     }
 
-    private boolean isWearingFullDraconiumArmor(EntityPlayer player) {
-        return player.inventory.armorInventory.get(3).getItem() == ItemInit.DRACONIUM_HELMET
-                && player.inventory.armorInventory.get(2).getItem() == ItemInit.DRACONIUM_CHESTPLATE
-                && player.inventory.armorInventory.get(1).getItem() == ItemInit.DRACONIUM_LEGGINGS
-                && player.inventory.armorInventory.get(0).getItem() == ItemInit.DRACONIUM_BOOTS;
+    public static boolean isWearingFullDraconiumArmor(EntityPlayer player) {
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemInit.DRACONIUM_HELMET
+                && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemInit.DRACONIUM_CHESTPLATE
+                && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemInit.DRACONIUM_LEGGINGS
+                && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemInit.DRACONIUM_BOOTS;
     }
 
-    private boolean isWearingFullAquatiqueArmor(EntityPlayer player) {
-        return player.inventory.armorInventory.get(3).getItem() == ItemInit.AQUATIQUE_HELMET;
+    public static boolean isWearingFullAquatiqueArmor(EntityPlayer player) {
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemInit.AQUATIQUE_HELMET;
     }
 
     private void handleDraconiqueArmorEffects(EntityPlayer player) {
@@ -82,7 +78,6 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
         }
         if (this == ItemInit.DRACONIQUE_BOOTS) {
             applyHaste(player);
-            teleportCooldown--; // Décrémente le cooldown de téléportation
         }
     }
 
@@ -108,28 +103,28 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
     }
 
     private void applyNightVision(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 300, 0, true, true)); // 300 ticks = 15 secondes
+        entity.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 0, true, true)); // 300 ticks = 15 secondes
     }
 
     private void applyResistance(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 20, 0, true, true)); // 20 ticks = 1 seconde
+        entity.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 20, 0, true, true)); // 20 ticks = 1 seconde
     }
 
     private void applySpeed(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(1), 20, 0, true, true)); // 20 ticks = 1 seconde
+        entity.addPotionEffect(new PotionEffect(MobEffects.SPEED, 20, 0, true, true)); // 20 ticks = 1 seconde
     }
 
     private void applyHaste(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(3), 20, 0, true, true)); // 20 ticks = 1 seconde
+        entity.addPotionEffect(new PotionEffect(MobEffects.HASTE, 20, 0, true, true)); // 20 ticks = 1 seconde
     }
 
     private void applyWaterBreathing(EntityLivingBase entity) {
-        entity.addPotionEffect(new PotionEffect(Potion.getPotionById(13), 300, 0, true, true)); // 300 ticks = 15 secondes
+        entity.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 300, 0, true, true)); // 300 ticks = 15 secondes
     }
 
     public static void applyEnergyShield(EntityPlayer player) {
         if (player.getRNG().nextDouble() < 0.3) { // 30% de chance d'activer le bouclier
-            player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 100, 1)); // Résistance
+            player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 100, 1)); // Résistance
         }
     }
 
@@ -145,58 +140,49 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
             double y = player.posY;
             double z = player.posZ + (random.nextDouble() - 0.5D) * 2.0D * distance;
 
-            BlockPos pos = new BlockPos(x, y, z);
-
             // Assurez-vous que la position est valide avant de faire apparaître l'allié
             if (world.getCollisionBoxes(player, player.getEntityBoundingBox().offset(x - player.posX, y - player.posY, z - player.posZ)).isEmpty()) {
                 EntityWolf ally = new EntityWolf(world);
                 ally.setPosition(x, y, z);
+                ally.setTamedBy(player);
                 world.spawnEntity(ally);
             }
         }
     }
 
-
     public static void teleportRandomly(EntityPlayer player) {
-        if (!player.world.isRemote) {
-            World world = player.world;
-            Random random = player.getRNG();
-
-            double distance = 1.0D + random.nextDouble() * 9.0D;
-            double x = player.posX + (random.nextDouble() - 0.5D) * 2.0D * distance;
-            double y = player.posY;
-            double z = player.posZ + (random.nextDouble() - 0.5D) * 2.0D * distance;
-
-            BlockPos pos = new BlockPos(x, y, z);
-
-            if (world.getCollisionBoxes(player, player.getEntityBoundingBox().offset(x - player.posX, y - player.posY, z - player.posZ)).isEmpty()) {
-                player.setPositionAndUpdate(x, y, z);
-            }
+        if (player.world.isRemote) {
+            return;
         }
-    }
+        if (!isWearingFullDraconiqueArmor(player)) {
+            // Envoyer un message d'erreur au joueur
+            player.sendMessage(new TextComponentString("Vous devez porter une armure complète de Draconium pour vous téléporter."));
+            return;
+        }
 
-    private void removePotionEffects(EntityLivingBase entity) {
-        entity.removePotionEffect(Potion.getPotionById(16)); // Night Vision
-        entity.removePotionEffect(Potion.getPotionById(11)); // Resistance
-        entity.removePotionEffect(Potion.getPotionById(1));  // Speed
-        entity.removePotionEffect(Potion.getPotionById(3));  // Haste
-        entity.removePotionEffect(Potion.getPotionById(13)); // Water Breathing
-    }
+        ExtendedPlayerData.DraconiumArmorAbilities draconiumArmorAbilities = ExtendedPlayerData.get(player).draconiumArmorAbilities;
+        if (draconiumArmorAbilities.getTeleportCooldown() > 0) {
+            player.sendMessage(new TextComponentString("Cette abilité est en cooldown."));
+            return;
+        }
+        draconiumArmorAbilities.setTeleportCooldown(TELEPORT_INTERVAL_TICKS);
 
-    @SubscribeEvent
-    public void onUnequipped(PlayerEvent.ItemCraftedEvent event) {
-        // Vérifie si l'item qui a été enlevé est une pièce d'armure
-        if (event.crafting.getItem() == ItemInit.DRACONIQUE_HELMET
-                || event.crafting.getItem() == ItemInit.DRACONIQUE_CHESTPLATE
-                || event.crafting.getItem() == ItemInit.DRACONIQUE_LEGGINGS
-                || event.crafting.getItem() == ItemInit.DRACONIQUE_BOOTS
-                || event.crafting.getItem() == ItemInit.DRACONIUM_HELMET
-                || event.crafting.getItem() == ItemInit.DRACONIUM_CHESTPLATE
-                || event.crafting.getItem() == ItemInit.DRACONIUM_LEGGINGS
-                || event.crafting.getItem() == ItemInit.DRACONIUM_BOOTS
-                || event.crafting.getItem() == ItemInit.AQUATIQUE_HELMET) {
-            // Retire les effets de potion
-            removePotionEffects(event.player);
+        // Code de la téléportation extrait du chorus fruit
+        World world = player.world;
+        Random random = player.getRNG();
+
+        if (player.isRiding()) {
+            player.dismountRidingEntity();
+        }
+
+        for (int i = 0; i < 16; i++) {
+            double x = player.posX + (random.nextDouble() - 0.5D) * TELEPORT_DISTANCE;
+            double y = MathHelper.clamp(player.posY + (random.nextInt(TELEPORT_DISTANCE) - (double) TELEPORT_DISTANCE / 2), 0.0D, world.getActualHeight() - 1);
+            double z = player.posZ + (random.nextDouble() - 0.5D) * TELEPORT_DISTANCE;
+
+            if (player.attemptTeleport(x, y, z)) {
+                break;
+            }
         }
     }
 }
