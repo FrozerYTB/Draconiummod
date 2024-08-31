@@ -46,6 +46,7 @@ public class RegistryHandler {
     public static void preInitRegistries()
     {
         FluidInit.registerFluids();
+        BlockInit.initBlocks();
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
     }
 

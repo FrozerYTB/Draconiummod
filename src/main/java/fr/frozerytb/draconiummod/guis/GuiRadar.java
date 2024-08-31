@@ -25,7 +25,7 @@ public class GuiRadar extends Gui {
     private static final ResourceLocation te26_more = new ResourceLocation(Reference.MODID, "textures/items/radar_26+.png");
 
     public static String formatDuration(ItemStack stack) {
-        int remainingTime = ItemRadar.maxUseTime - ItemRadar.getUsedTime(stack);
+        int remainingTime = ItemRadar.getMaxUseTime(stack) - ItemRadar.getUsedTime(stack);
         Duration duration = Duration.ofSeconds(remainingTime / 20);
         long seconds = duration.getSeconds();
         long absSeconds = Math.abs(seconds);

@@ -4,8 +4,10 @@ import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.guis.GuiRadar;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Enchantments;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,7 +26,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 
 public class ItemRadar extends Item implements IHasmodel {
-    public static final int maxUseTime = 90 * 20 * 60; // 90 minutes
+    public static final int baseUseTime = 90 * 20 * 60; // 90 minutes
 
     public ItemRadar(String name) {
         this.addPropertyOverride(new ResourceLocation("percent"), new IItemPropertyGetter() {
@@ -35,13 +37,12 @@ public class ItemRadar extends Item implements IHasmodel {
             }
         });
 
-        // Utilisation d'un système de "durabilité" alternatif, car sinon on ne pourrait pas dépasser 54 minutes d'utilisation (65535 ticks)
         this.addPropertyOverride(new ResourceLocation("damage"), new IItemPropertyGetter() {
             @Override
             @SideOnly(Side.CLIENT)
             public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn) {
                 int usedTime = getUsedTime(stack);
-                return MathHelper.clamp((float) usedTime / (float) maxUseTime, 0.0F, 1.0F);
+                return MathHelper.clamp((float) usedTime / (float) getMaxUseTime(stack), 0.0F, 1.0F);
             }
         });
         this.addPropertyOverride(new ResourceLocation("damaged"), new IItemPropertyGetter() {
@@ -74,7 +75,17 @@ public class ItemRadar extends Item implements IHasmodel {
 
     @Override
     public int getMaxDamage(ItemStack stack) {
-        return maxUseTime;
+        return getMaxUseTime(stack);
+    }
+
+    public static int getMaxUseTime(ItemStack stack) {
+        int unbreakingLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, stack);
+        switch (unbreakingLevel) {
+            case 1: return baseUseTime + 30 * 20 * 60; 
+            case 2: return baseUseTime + 60 * 20 * 60;
+            case 3: return baseUseTime + 90 * 20 * 60;
+            default: return baseUseTime;
+        }
     }
 
     @Override
@@ -111,7 +122,7 @@ public class ItemRadar extends Item implements IHasmodel {
                 stack.setTagCompound(itemNBT = new NBTTagCompound());
             }
             int usedTime = itemNBT.getInteger("usedTime") + 1;
-            if (usedTime > maxUseTime) {
+            if (usedTime > getMaxUseTime(stack)) {
                 player.renderBrokenItemStack(stack);
                 stack.shrink(1);
                 player.addStat(StatList.getObjectBreakStats(stack.getItem()));

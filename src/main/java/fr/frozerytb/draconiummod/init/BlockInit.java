@@ -27,7 +27,13 @@ public class BlockInit {
     //AUTRES
     public static final Block CAVE_BLOCK = new BlockCaveBlock("cave_block", Material.GLASS);
     public static final Block ELEVATOR = new BlockElevator("elevator", Material.IRON);
-    public static final Block FAKE_WATER_FLUID = new BlockFakeWaterFluid("fake_water", FluidInit.FAKE_WATER_FLUID, Material.WATER);
 
+    // LIQUIDES
+    public static Block FAKE_WATER_FLUID;
+
+    public static void initBlocks() {
+        FAKE_WATER_FLUID = new BlockFakeWaterFluid("fake_water", FluidInit.FAKE_WATER_FLUID, Material.WATER);
+        BLOCKS.add(FAKE_WATER_FLUID);
+    }
 
 }

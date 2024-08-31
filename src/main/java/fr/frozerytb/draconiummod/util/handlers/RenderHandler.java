@@ -14,25 +14,25 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderHandler {
-    public static void registerCustomMeshesAndStates()
-    {
-        ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(BlockInit.FAKE_WATER_FLUID),
-                new ItemMeshDefinition()
-        {
-            @Override
-            public ModelResourceLocation getModelLocation(ItemStack stack)
-            {
-                return new ModelResourceLocation(Reference.MODID + ":fake_water", "fluid");
-            }
-        });
 
-        ModelLoader.setCustomStateMapper(BlockInit.FAKE_WATER_FLUID, new StateMapperBase()
-        {
-            @Override
-            protected ModelResourceLocation getModelResourceLocation(IBlockState state)
-            {
-                return new ModelResourceLocation(Reference.MODID + ":fake_water", "fluid");
-            }
-        });
+    public static void registerCustomMeshesAndStates() {
+        if (BlockInit.FAKE_WATER_FLUID != null) {
+            ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(BlockInit.FAKE_WATER_FLUID),
+                    new ItemMeshDefinition() {
+                        @Override
+                        public ModelResourceLocation getModelLocation(ItemStack stack) {
+                            return new ModelResourceLocation(Reference.MODID + ":fake_water", "fluid");
+                        }
+                    });
+
+            ModelLoader.setCustomStateMapper(BlockInit.FAKE_WATER_FLUID, new StateMapperBase() {
+                @Override
+                protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+                    return new ModelResourceLocation(Reference.MODID + ":fake_water", "fluid");
+                }
+            });
+        } else {
+            System.err.println("Error: BlockInit.FAKE_WATER_FLUID is null. Make sure it is initialized before calling registerCustomMeshesAndStates.");
+        }
     }
 }
