@@ -81,7 +81,7 @@ public class ItemRadar extends Item implements IHasmodel {
     public static int getMaxUseTime(ItemStack stack) {
         int unbreakingLevel = EnchantmentHelper.getEnchantmentLevel(Enchantments.UNBREAKING, stack);
         switch (unbreakingLevel) {
-            case 1: return baseUseTime + 30 * 20 * 60; 
+            case 1: return baseUseTime + 30 * 20 * 60;
             case 2: return baseUseTime + 60 * 20 * 60;
             case 3: return baseUseTime + 90 * 20 * 60;
             default: return baseUseTime;

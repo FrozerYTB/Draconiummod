@@ -1,6 +1,14 @@
-death.attack.fakeWater.player=%1$s est tombé(e) dans de l'eau empoisonnée en combattant %2$s.
+#MORTS
+
 death.attack.fakeWater=%1$s est tombé(e) dans de l'eau empoisonnée.
+death.attack.fakeWater.player=%1$s est tombé(e) dans de l'eau empoisonnée en combattant %2$s.
+
+# FLUIDES
+
 fluid.fake_water=Fausse eau
+
+# ITEMS
+
 item.aquatique_helmet.name=Casque de plongée
 item.azurite_axe.name=Hache en Azurite
 item.azurite_boots.name=Bottes en Azurite
@@ -13,6 +21,10 @@ item.azurite_pickaxe.name=Pioche en Azurite
 item.azurite_shovel.name=Pelle en Azurite
 item.azurite_sword.name=Épée en Azurite
 item.debris_grenade.name=Débris de Grenade
+item.draconique_boots.name=Bottes Draconique
+item.draconique_chestplate.name=Plastron Draconique
+item.draconique_helmet.name=Casque Draconite
+item.draconique_leggings.name=Jambières Draconique
 item.draconium_apple.name=Pomme en Draconium
 item.draconium_axe.name=Hache en Draconium
 item.draconium_boots.name=Bottes en Draconium
@@ -30,7 +42,13 @@ item.grenade.name=Grenade
 item.radar.name=Unclaim Finder
 item.regeneration_stick.name=Bâton de Régénération
 item.stick_of_god.name=Bâton de Dieu
+
+# CREATIVE TAB
+
 itemGroup.draconiummod=DraconiumMod
+
+# BLOCS
+
 tile.azurite_block.name=Bloc d'Azurite
 tile.azurite_ore.name=Minerai d'Azurite
 tile.cave_block.name=Cave Block
