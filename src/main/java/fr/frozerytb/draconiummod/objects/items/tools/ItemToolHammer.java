@@ -1,6 +1,7 @@
 package fr.frozerytb.draconiummod.objects.items.tools;
 
 import fr.frozerytb.draconiummod.Main;
+import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.block.material.Material;
@@ -37,6 +38,16 @@ public class ItemToolHammer extends ItemPickaxe implements IHasmodel {
         Main.proxy.registerItemRenderer(this, 0);
     }
 
+    @Override
+    public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment) {
+        // Bloque l'enchantement Mending
+        if (enchantment == net.minecraft.init.Enchantments.MENDING) {
+            return false;
+        }
+        // Autorise les autres enchantements par défaut
+        return super.canApplyAtEnchantingTable(stack, enchantment);
+    }
+
     public RayTraceResult rayTrace(double blockReachDistance, float partialTicks, World world, EntityLivingBase e) {
         Vec3d vec3d = e.getPositionEyes(partialTicks);
         Vec3d vec3d1 = e.getLook(partialTicks);
@@ -47,6 +58,21 @@ public class ItemToolHammer extends ItemPickaxe implements IHasmodel {
     @Override
     public boolean onBlockDestroyed(ItemStack breaker, World w, IBlockState state, BlockPos pos, EntityLivingBase e) {
         if (e instanceof EntityPlayer && !w.isRemote) {
+            // Vérifie si le bloc est un minerai, si oui, retourne false sans miner
+            if (state.getBlock() == net.minecraft.init.Blocks.COAL_ORE ||
+                    state.getBlock() == net.minecraft.init.Blocks.IRON_ORE ||
+                    state.getBlock() == net.minecraft.init.Blocks.GOLD_ORE ||
+                    state.getBlock() == net.minecraft.init.Blocks.DIAMOND_ORE ||
+                    state.getBlock() == net.minecraft.init.Blocks.REDSTONE_ORE ||
+                    state.getBlock() == net.minecraft.init.Blocks.LAPIS_ORE ||
+                    state.getBlock() == net.minecraft.init.Blocks.EMERALD_ORE ||
+                    state.getBlock() == net.minecraft.init.Blocks.QUARTZ_ORE ||
+                    state.getBlock() == BlockInit.AZURITE_ORE ||
+                    state.getBlock() == BlockInit.DRACONIUM_ORE ||
+                    state.getBlock() == BlockInit.FINDIUM_ORE) {
+                return false; // Ne pas miner les minerais
+            }
+
             EntityPlayer p = (EntityPlayer) e;
             RayTraceResult r = this.rayTrace(5.0D, 0.0f, w, e);
 

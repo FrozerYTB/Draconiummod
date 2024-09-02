@@ -54,6 +54,8 @@ public class ItemRadar extends Item implements IHasmodel {
             }
         });
 
+
+
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
         this.setMaxStackSize(1);
