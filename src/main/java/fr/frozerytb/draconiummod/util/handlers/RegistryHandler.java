@@ -3,17 +3,25 @@ package fr.frozerytb.draconiummod.util.handlers;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.FluidInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
+import fr.frozerytb.draconiummod.util.Reference;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import fr.frozerytb.draconiummod.world.generation.WorldGenCustomOres;
 import net.minecraft.block.Block;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import fr.frozerytb.draconiummod.objects.enchantments.EnchantRange;
+import fr.frozerytb.draconiummod.util.handlers.RecipesHandler;
 
-@EventBusSubscriber
+@Mod.EventBusSubscriber(modid = Reference.MODID)
 public class RegistryHandler {
 
     @SubscribeEvent
@@ -26,6 +34,13 @@ public class RegistryHandler {
         event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
     }
 
+    @SubscribeEvent
+    public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
+        event.getRegistry().registerAll(
+                new EnchantRange(Enchantment.Rarity.UNCOMMON, EnumEnchantmentType.DIGGER, EntityEquipmentSlot.MAINHAND)
+                        .setRegistryName(new ResourceLocation("draconiummod", "range_enchant"))
+        );
+    }
 
     @SubscribeEvent
     public static void onModelRegister(ModelRegistryEvent event) {
@@ -35,7 +50,6 @@ public class RegistryHandler {
             }
         }
 
-
         for (Block block : BlockInit.BLOCKS) {
             if (block instanceof IHasmodel) {
                 ((IHasmodel) block).registerModels();
@@ -43,15 +57,13 @@ public class RegistryHandler {
         }
     }
 
-    public static void preInitRegistries()
-    {
+    public static void preInitRegistries() {
         FluidInit.registerFluids();
         BlockInit.initBlocks();
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
     }
 
     public static void initRegistries() {
-        RecipesHandler.registerRecipies();
-        preInitRegistries();
+        RecipesHandler.registerRecipes();
     }
 }

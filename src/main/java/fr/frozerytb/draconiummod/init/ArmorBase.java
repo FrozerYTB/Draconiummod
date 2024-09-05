@@ -57,9 +57,9 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
 
     public static boolean isWearingFullDraconiumArmor(EntityPlayer player) {
         return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemInit.DRACONIUM_HELMET
-                && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemInit.DRACONIUM_CHESTPLATE
-                && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemInit.DRACONIUM_LEGGINGS
-                && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemInit.DRACONIUM_BOOTS;
+                || player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemInit.DRACONIUM_CHESTPLATE
+                || player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemInit.DRACONIUM_LEGGINGS
+                || player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemInit.DRACONIUM_BOOTS;
     }
 
     public static boolean isWearingFullAquatiqueArmor(EntityPlayer player) {

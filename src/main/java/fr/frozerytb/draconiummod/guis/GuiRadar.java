@@ -12,6 +12,8 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.time.Duration;
+import java.util.HashSet;
+import java.util.Set;
 
 @SideOnly(Side.CLIENT)
 public class GuiRadar extends Gui {
@@ -37,7 +39,6 @@ public class GuiRadar extends Gui {
         return seconds < 0 ? "-" + positive : positive;
     }
 
-
     @SubscribeEvent
     public void onRenderPre(RenderGameOverlayEvent.Pre event) {
         if (event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
@@ -46,13 +47,28 @@ public class GuiRadar extends Gui {
                 amountTiles = 0;
                 return;
             }
-            amountTiles = mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX, mc.player.chunkCoordZ).getTileEntityMap().values().size();
-            amountTiles += mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX, mc.player.chunkCoordZ + 1).getTileEntityMap().values().size();
-            amountTiles += mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX, mc.player.chunkCoordZ - 1).getTileEntityMap().values().size();
-            amountTiles += mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX + 1, mc.player.chunkCoordZ).getTileEntityMap().values().size();
-            amountTiles += mc.world.getChunkFromChunkCoords(mc.player.chunkCoordX - 1, mc.player.chunkCoordZ).getTileEntityMap().values().size();
 
 
+            int chunksRadius = (int) ItemRadar.getRadarRange(stack);
+
+
+            Set<String> chunksVisited = new HashSet<>();
+            amountTiles = 0;
+
+            for (int dx = -chunksRadius; dx <= chunksRadius; dx++) {
+                for (int dz = -chunksRadius; dz <= chunksRadius; dz++) {
+                    if (Math.abs(dx) + Math.abs(dz) <= chunksRadius) {
+                        int chunkX = mc.player.chunkCoordX + dx;
+                        int chunkZ = mc.player.chunkCoordZ + dz;
+                        String chunkKey = chunkX + "," + chunkZ;
+
+                        if (!chunksVisited.contains(chunkKey)) {
+                            chunksVisited.add(chunkKey);
+                            amountTiles += mc.world.getChunkFromChunkCoords(chunkX, chunkZ).getTileEntityMap().values().size();
+                        }
+                    }
+                }
+            }
 
             ResourceLocation texture;
             if (amountTiles > 25) {
@@ -69,7 +85,7 @@ public class GuiRadar extends Gui {
             mc.getTextureManager().bindTexture(texture);
             drawModalRectWithCustomSizedTexture(5, 5, 0, 0, 32, 32, 32, 32);
             drawCenteredString(mc.fontRenderer, amountTiles + "%", 23, 39, -1);
-            drawCenteredString(mc.fontRenderer, formatDuration(stack), 23, 48, -1);
+            drawCenteredString(mc.fontRenderer, GuiRadar.formatDuration(stack), 23, 48, -1);
         }
     }
 }
