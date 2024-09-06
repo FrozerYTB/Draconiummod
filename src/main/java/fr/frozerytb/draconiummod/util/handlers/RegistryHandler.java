@@ -36,10 +36,11 @@ public class RegistryHandler {
 
     @SubscribeEvent
     public static void registerEnchantments(RegistryEvent.Register<Enchantment> event) {
-        event.getRegistry().registerAll(
-                new EnchantRange(Enchantment.Rarity.UNCOMMON, EnumEnchantmentType.DIGGER, EntityEquipmentSlot.MAINHAND)
-                        .setRegistryName(new ResourceLocation("draconiummod", "range_enchant"))
-        );
+        System.out.println("Registering enchantments...");
+        Enchantment enchantRange = new EnchantRange(Enchantment.Rarity.UNCOMMON, EnumEnchantmentType.DIGGER, EntityEquipmentSlot.MAINHAND);
+        enchantRange.setRegistryName(new ResourceLocation(Reference.MODID, "range_enchant"));
+        event.getRegistry().registerAll(enchantRange);
+        System.out.println("Enchantment registered: " + enchantRange.getRegistryName());
     }
 
     @SubscribeEvent
@@ -59,7 +60,7 @@ public class RegistryHandler {
 
     public static void preInitRegistries() {
         FluidInit.registerFluids();
-        BlockInit.initBlocks();
+        BlockInit.init(); // Correct method for initializing blocks
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
     }
 

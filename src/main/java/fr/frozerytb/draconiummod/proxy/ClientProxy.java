@@ -1,8 +1,11 @@
 package fr.frozerytb.draconiummod.proxy;
 
 import fr.frozerytb.draconiummod.guis.GuiRadar;
+import fr.frozerytb.draconiummod.init.BlockInit;
+import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.init.KeyBindings;
 import fr.frozerytb.draconiummod.util.handlers.RenderHandler;
+import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
@@ -12,10 +15,23 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
+
+    public void registerModels() {
+        // Enregistre les modèles pour tous les items
+        for (Item item : ItemInit.ITEMS) {
+            registerItemRenderer(item, 0);
+        }
+
+        // Enregistre les modèles pour tous les blocs
+        for (Block block : BlockInit.BLOCKS) {
+            registerItemRenderer(Item.getItemFromBlock(block), 0);
+        }
+    }
+
     @Override
     public void registerItemRenderer(Item item, int meta) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-        MinecraftForge.EVENT_BUS.register(new GuiRadar());
+        ModelLoader.setCustomModelResourceLocation(item, meta,
+                new ModelResourceLocation(item.getRegistryName(), "inventory"));
     }
 
     @Override
@@ -41,6 +57,6 @@ public class ClientProxy extends CommonProxy {
     }
 
     public void registerGuis() {
-
+        MinecraftForge.EVENT_BUS.register(new GuiRadar());
     }
 }

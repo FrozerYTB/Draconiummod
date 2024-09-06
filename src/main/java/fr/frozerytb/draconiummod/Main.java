@@ -1,6 +1,8 @@
 package fr.frozerytb.draconiummod;
 
+import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.CapabilitiesInit;
+import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.network.ModNetworkHandler;
 import fr.frozerytb.draconiummod.proxy.CommonProxy;
 import fr.frozerytb.draconiummod.tabs.DraconiummodTab;
@@ -58,6 +60,10 @@ public class Main {
         proxy.preInit();
         RegistryHandler.preInitRegistries();
         CapabilitiesInit.preInit(event);
+
+        MinecraftForge.EVENT_BUS.register(new ItemInit());
+        MinecraftForge.EVENT_BUS.register(new BlockInit());
+
     }
 
     @EventHandler

@@ -2,6 +2,7 @@ package fr.frozerytb.draconiummod.objects.items;
 
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
+import fr.frozerytb.draconiummod.init.ItemSpecialInit;
 import fr.frozerytb.draconiummod.objects.enchantments.EnchantRange;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -92,7 +93,7 @@ public class ItemRadar extends Item implements IHasmodel {
     public static ItemStack getUsableItemStack(EntityPlayer player) {
         for (EnumHand hand : EnumHand.values()) {
             ItemStack stack = player.getHeldItem(hand);
-            if (stack.getItem() == ItemInit.RADAR) {
+            if (stack.getItem() == ItemSpecialInit.RADAR) {
                 return stack;
             }
         }

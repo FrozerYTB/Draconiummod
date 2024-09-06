@@ -2,6 +2,7 @@ package fr.frozerytb.draconiummod.objects.items.tools;
 
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.BlockInit;
+import fr.frozerytb.draconiummod.init.BlockOreInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.block.material.Material;
@@ -40,11 +41,9 @@ public class ItemToolHammer extends ItemPickaxe implements IHasmodel {
 
     @Override
     public boolean canApplyAtEnchantingTable(ItemStack stack, net.minecraft.enchantment.Enchantment enchantment) {
-        // Bloque l'enchantement Mending
         if (enchantment == net.minecraft.init.Enchantments.MENDING) {
             return false;
         }
-        // Autorise les autres enchantements par défaut
         return super.canApplyAtEnchantingTable(stack, enchantment);
     }
 
@@ -67,9 +66,9 @@ public class ItemToolHammer extends ItemPickaxe implements IHasmodel {
                     state.getBlock() == net.minecraft.init.Blocks.LAPIS_ORE ||
                     state.getBlock() == net.minecraft.init.Blocks.EMERALD_ORE ||
                     state.getBlock() == net.minecraft.init.Blocks.QUARTZ_ORE ||
-                    state.getBlock() == BlockInit.AZURITE_ORE ||
-                    state.getBlock() == BlockInit.DRACONIUM_ORE ||
-                    state.getBlock() == BlockInit.FINDIUM_ORE) {
+                    state.getBlock() == BlockOreInit.AZURITE_ORE ||
+                    state.getBlock() == BlockOreInit.DRACONIUM_ORE ||
+                    state.getBlock() == BlockOreInit.FINDIUM_ORE) {
                 return false; // Ne pas miner les minerais
             }
 

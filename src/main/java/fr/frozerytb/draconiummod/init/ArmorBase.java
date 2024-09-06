@@ -49,55 +49,55 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
     }
 
     public static boolean isWearingFullDraconiqueArmor(EntityPlayer player) {
-        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemInit.DRACONIQUE_HELMET
-                && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemInit.DRACONIQUE_CHESTPLATE
-                && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemInit.DRACONIQUE_LEGGINGS
-                && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemInit.DRACONIQUE_BOOTS;
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemArmorInit.DRACONIQUE_HELMET
+                && player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemArmorInit.DRACONIQUE_CHESTPLATE
+                && player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemArmorInit.DRACONIQUE_LEGGINGS
+                && player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemArmorInit.DRACONIQUE_BOOTS;
     }
 
     public static boolean isWearingFullDraconiumArmor(EntityPlayer player) {
-        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemInit.DRACONIUM_HELMET
-                || player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemInit.DRACONIUM_CHESTPLATE
-                || player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemInit.DRACONIUM_LEGGINGS
-                || player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemInit.DRACONIUM_BOOTS;
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemArmorInit.DRACONIUM_HELMET
+                || player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem() == ItemArmorInit.DRACONIUM_CHESTPLATE
+                || player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem() == ItemArmorInit.DRACONIUM_LEGGINGS
+                || player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem() == ItemArmorInit.DRACONIUM_BOOTS;
     }
 
     public static boolean isWearingFullAquatiqueArmor(EntityPlayer player) {
-        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemInit.AQUATIQUE_HELMET;
+        return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem() == ItemArmorInit.AQUATIQUE_HELMET;
     }
 
     private void handleDraconiqueArmorEffects(EntityPlayer player) {
-        if (this == ItemInit.DRACONIQUE_HELMET) {
+        if (this == ItemArmorInit.DRACONIQUE_HELMET) {
             applyNightVision(player);
         }
-        if (this == ItemInit.DRACONIQUE_CHESTPLATE) {
+        if (this == ItemArmorInit.DRACONIQUE_CHESTPLATE) {
             applyResistance(player);
         }
-        if (this == ItemInit.DRACONIQUE_LEGGINGS) {
+        if (this == ItemArmorInit.DRACONIQUE_LEGGINGS) {
             applySpeed(player);
         }
-        if (this == ItemInit.DRACONIQUE_BOOTS) {
+        if (this == ItemArmorInit.DRACONIQUE_BOOTS) {
             applyHaste(player);
         }
     }
 
     private void handleDraconiumArmorEffects(EntityPlayer player) {
-        if (this == ItemInit.DRACONIUM_HELMET) {
+        if (this == ItemArmorInit.DRACONIUM_HELMET) {
             applyNightVision(player);
         }
-        if (this == ItemInit.DRACONIUM_CHESTPLATE) {
+        if (this == ItemArmorInit.DRACONIUM_CHESTPLATE) {
             applyResistance(player);
         }
-        if (this == ItemInit.DRACONIUM_LEGGINGS) {
+        if (this == ItemArmorInit.DRACONIUM_LEGGINGS) {
             applySpeed(player);
         }
-        if (this == ItemInit.DRACONIUM_BOOTS) {
+        if (this == ItemArmorInit.DRACONIUM_BOOTS) {
             applyHaste(player);
         }
     }
 
     private void handleAquatiqueArmorEffects(EntityPlayer player) {
-        if (this == ItemInit.AQUATIQUE_HELMET) {
+        if (this == ItemArmorInit.AQUATIQUE_HELMET) {
             applyWaterBreathing(player);
         }
     }

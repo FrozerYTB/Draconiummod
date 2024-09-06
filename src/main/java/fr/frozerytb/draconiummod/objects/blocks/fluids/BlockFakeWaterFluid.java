@@ -2,6 +2,7 @@ package fr.frozerytb.draconiummod.objects.blocks.fluids;
 
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.DamageSourceCustom;
+import fr.frozerytb.draconiummod.util.Reference;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -16,8 +17,8 @@ import net.minecraftforge.fluids.Fluid;
 public class BlockFakeWaterFluid extends BlockFluidClassic {
     public BlockFakeWaterFluid(String name, Fluid fluid, Material material) {
         super(fluid, material);
-        this.setUnlocalizedName(name);
-        this.setRegistryName(name);
+        this.setUnlocalizedName(Reference.MODID + "." + name);
+        this.setRegistryName(Reference.MODID, name);
         BlockInit.BLOCKS.add(this);
     }
 

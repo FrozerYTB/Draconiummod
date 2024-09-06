@@ -1,6 +1,7 @@
 package fr.frozerytb.draconiummod.world.generation;
 
 import fr.frozerytb.draconiummod.init.BlockInit;
+import fr.frozerytb.draconiummod.init.BlockOreInit;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.dedicated.DedicatedServer;
@@ -22,10 +23,10 @@ public class WorldGenCustomOres implements IWorldGenerator {
     private final WorldGenerator azurite_ore, draconium_ore, explosive_ore, findium_ore;
 
     public WorldGenCustomOres() {
-        azurite_ore = new WorldGenMinable(BlockInit.AZURITE_ORE.getDefaultState(), 7, BlockMatcher.forBlock(Blocks.STONE));
-        draconium_ore = new WorldGenMinable(BlockInit.DRACONIUM_ORE.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.STONE));
-        explosive_ore = new WorldGenMinable(BlockInit.EXPLOSIVE_ORE.getDefaultState(), 4, BlockMatcher.forBlock(Blocks.STONE));
-        findium_ore = new WorldGenMinable(BlockInit.FINDIUM_ORE.getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
+        azurite_ore = new WorldGenMinable(BlockOreInit.AZURITE_ORE.getDefaultState(), 7, BlockMatcher.forBlock(Blocks.STONE));
+        draconium_ore = new WorldGenMinable(BlockOreInit.DRACONIUM_ORE.getDefaultState(), 5, BlockMatcher.forBlock(Blocks.STONE));
+        explosive_ore = new WorldGenMinable(BlockOreInit.EXPLOSIVE_ORE.getDefaultState(), 4, BlockMatcher.forBlock(Blocks.STONE));
+        findium_ore = new WorldGenMinable(BlockOreInit.FINDIUM_ORE.getDefaultState(), 2, BlockMatcher.forBlock(Blocks.STONE));
 
     }
 
