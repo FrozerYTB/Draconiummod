@@ -19,19 +19,25 @@ public class FluidInit {
             new ResourceLocation(Reference.MODID, "blocks/fake_water_flow"),
             new ResourceLocation(Reference.MODID, "blocks/fake_water_overlay"));
 
-    public static void registerFluids() {
-        registerFluid(FAKE_WATER_FLUID);
-    }
-
     public static void initFluids() {
+        System.out.println("Initializing fluids...");
         registerFluids();
     }
 
+    public static void registerFluids() {
+        System.out.println("Registering fluids...");
+        registerFluid(FAKE_WATER_FLUID);
+    }
+
     private static void registerFluid(Fluid fluid) {
-        FluidRegistry.registerFluid(fluid);
-        FluidRegistry.addBucketForFluid(fluid);
-        FLUIDS.add(fluid);
-        System.out.println("Registered fluid: " + fluid.getName());
+        if (FluidRegistry.getFluid(fluid.getName()) == null) {
+            System.out.println("Registering fluid: " + fluid.getName());
+            FluidRegistry.registerFluid(fluid);
+            FluidRegistry.addBucketForFluid(fluid);
+            FLUIDS.add(fluid);
+            System.out.println("Registered fluid: " + fluid.getName());
+        } else {
+            System.out.println("Fluid already registered: " + fluid.getName());
+        }
     }
 }
-

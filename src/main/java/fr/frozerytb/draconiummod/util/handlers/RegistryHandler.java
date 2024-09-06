@@ -15,11 +15,10 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import fr.frozerytb.draconiummod.objects.enchantments.EnchantRange;
-import fr.frozerytb.draconiummod.util.handlers.RecipesHandler;
+
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class RegistryHandler {
@@ -59,8 +58,8 @@ public class RegistryHandler {
     }
 
     public static void preInitRegistries() {
-        FluidInit.registerFluids();
-        BlockInit.init(); // Correct method for initializing blocks
+        FluidInit.initFluids(); // Enregistrement des fluides
+        BlockInit.init(); // Initialisation des blocs
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
     }
 

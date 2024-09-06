@@ -15,7 +15,7 @@ public class BlockInit {
     public static final Block FAKE_WATER_BLOCK = new BlockFakeWaterFluid("fake_water", FluidInit.FAKE_WATER_FLUID, Material.WATER);
 
     public static void init() {
-        // Initialisation de chaque catégorie de blocs
+        System.out.println("Initializing blocks...");
         BlockOreInit.init();
         BlockBasicInit.init();
         BlockSpecialInit.init();
