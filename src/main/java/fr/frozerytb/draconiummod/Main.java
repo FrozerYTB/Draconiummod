@@ -52,8 +52,7 @@ public class Main {
         ModNetworkHandler.registerMessages();
 
         proxy.preInit();
-
-        // Assurez-vous que FluidInit est enregistré avant BlockInit
+        
         FluidInit.initFluids();
         RegistryHandler.preInitRegistries();
         CapabilitiesInit.preInit(event);
