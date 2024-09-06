@@ -52,7 +52,7 @@ public class Main {
         ModNetworkHandler.registerMessages();
 
         proxy.preInit();
-        
+
         FluidInit.initFluids();
         RegistryHandler.preInitRegistries();
         CapabilitiesInit.preInit(event);

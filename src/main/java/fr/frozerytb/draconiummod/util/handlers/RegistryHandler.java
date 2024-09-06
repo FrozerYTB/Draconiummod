@@ -3,6 +3,7 @@ package fr.frozerytb.draconiummod.util.handlers;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.FluidInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
+import fr.frozerytb.draconiummod.init.ItemSpecialInit;
 import fr.frozerytb.draconiummod.util.Reference;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import fr.frozerytb.draconiummod.world.generation.WorldGenCustomOres;
@@ -26,6 +27,7 @@ public class RegistryHandler {
     @SubscribeEvent
     public static void onItemRegister(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
+        ItemSpecialInit.registerItems(event.getRegistry());
     }
 
     @SubscribeEvent
@@ -58,8 +60,8 @@ public class RegistryHandler {
     }
 
     public static void preInitRegistries() {
-        FluidInit.initFluids(); // Enregistrement des fluides
-        BlockInit.init(); // Initialisation des blocs
+        FluidInit.initFluids();
+        BlockInit.init();
         GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
     }
 

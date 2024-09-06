@@ -15,11 +15,9 @@ public class BlockBasicInit {
     public static final Block AZURITE_BLOCK = new BlockBasic("azurite_block", Material.IRON);
     public static final Block DRACONIUM_BLOCK = new BlockBasic("draconium_block", Material.IRON);
 
-    static {
-        BLOCKS.add(AZURITE_BLOCK);
-        BLOCKS.add(DRACONIUM_BLOCK);
-    }
 
     public static void init() {
+        BLOCKS.add(AZURITE_BLOCK);
+        BLOCKS.add(DRACONIUM_BLOCK);
     }
 }

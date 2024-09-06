@@ -14,12 +14,11 @@ public class ItemOreInit {
     public static final Item DRACONIUM_INGOT = new ItemBase("draconium_ingot");
     public static final Item FINDIUM_CRISTAL = new ItemBase("findium_cristal");
 
-    static {
+
+
+    public static void init() {
         ITEMS.add(AZURITE_INGOT);
         ITEMS.add(DRACONIUM_INGOT);
         ITEMS.add(FINDIUM_CRISTAL);
-    }
-
-    public static void init() {
     }
 }

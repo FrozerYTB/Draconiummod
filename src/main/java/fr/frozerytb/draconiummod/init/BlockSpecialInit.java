@@ -15,11 +15,10 @@ public class BlockSpecialInit {
     public static final Block CAVE_BLOCK = new BlockCaveBlock("cave_block", Material.GLASS);
     public static final Block ELEVATOR = new BlockElevator("elevator", Material.IRON);
 
-    static {
-        SPECIAL_BLOCKS.add(CAVE_BLOCK);
-        SPECIAL_BLOCKS.add(ELEVATOR);
-    }
+
 
     public static void init() {
+        SPECIAL_BLOCKS.add(CAVE_BLOCK);
+        SPECIAL_BLOCKS.add(ELEVATOR);
     }
 }

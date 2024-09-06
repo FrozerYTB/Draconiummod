@@ -12,11 +12,9 @@ public class ItemFoodInit {
     // Création et ajout d'un item de nourriture
     public static final Item DRACONIUM_APPLE = new ItemCustomFood("draconium_apple", 8, false);
 
-    static {
 
-        FOODS.add(DRACONIUM_APPLE);
-    }
 
     public static void init() {
+        FOODS.add(DRACONIUM_APPLE);
     }
 }

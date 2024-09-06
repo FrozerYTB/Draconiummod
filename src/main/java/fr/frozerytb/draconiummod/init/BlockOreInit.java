@@ -19,14 +19,13 @@ public class BlockOreInit {
     public static final Block FINDIUM_ORE = new BlockBasic("findium_ore", Material.ROCK);
     public static final Block EXPLOSIVE_ORE = new BlockExplosiveOre("explosive_ore", Material.ROCK);
 
-    static {
+
+
+    public static void init() {
         ORES.add(AZURITE_ORE);
         ORES.add(DRACONIUM_ORE);
         ORES.add(FINDIUM_ORE);
         ORES.add(EXPLOSIVE_ORE);
-    }
-
-    public static void init() {
     }
 }
 

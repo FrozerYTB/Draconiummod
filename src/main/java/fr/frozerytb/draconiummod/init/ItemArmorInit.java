@@ -38,7 +38,9 @@ public class ItemArmorInit {
 
     public static final Item AQUATIQUE_HELMET = new ArmorBase("aquatique_helmet", ARMOR_MATERIAL_AQUATIQUE, 1, EntityEquipmentSlot.HEAD);
 
-    static {
+
+
+    public static void init() {
         ARMORS.add(AZURITE_HELMET);
         ARMORS.add(AZURITE_CHESTPLATE);
         ARMORS.add(AZURITE_LEGGINGS);
@@ -52,8 +54,5 @@ public class ItemArmorInit {
         ARMORS.add(DRACONIQUE_LEGGINGS);
         ARMORS.add(DRACONIQUE_BOOTS);
         ARMORS.add(AQUATIQUE_HELMET);
-    }
-
-    public static void init() {
     }
 }

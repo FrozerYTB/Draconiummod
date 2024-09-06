@@ -5,6 +5,8 @@ import fr.frozerytb.draconiummod.util.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +15,6 @@ public class FluidInit {
 
     public static final List<Fluid> FLUIDS = new ArrayList<>();
 
-    // Déclaration des fluides
     public static final Fluid FAKE_WATER_FLUID = new FluidFakeWater("fake_water",
             new ResourceLocation(Reference.MODID, "blocks/fake_water_still"),
             new ResourceLocation(Reference.MODID, "blocks/fake_water_flow"),

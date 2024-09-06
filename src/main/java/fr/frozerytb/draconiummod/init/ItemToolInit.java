@@ -30,7 +30,9 @@ public class ItemToolInit {
     public static final Item DRACONIUM_SWORD = new ItemToolSword("draconium_sword", TOOLS_MATERIAL_DRACONIUM);
     public static final Item DRACONIUM_HAMMER = new ItemToolHammer("draconium_hammer", HAMMER_MATERIAL_DRACONIUM);
 
-    static {
+
+
+    public static void init() {
         TOOLS.add(AZURITE_AXE);
         TOOLS.add(AZURITE_PICKAXE);
         TOOLS.add(AZURITE_SHOVEL);
@@ -41,8 +43,5 @@ public class ItemToolInit {
         TOOLS.add(DRACONIUM_SHOVEL);
         TOOLS.add(DRACONIUM_SWORD);
         TOOLS.add(DRACONIUM_HAMMER);
-    }
-
-    public static void init() {
     }
 }
