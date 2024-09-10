@@ -123,7 +123,7 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
     }
 
     public static void applyEnergyShield(EntityPlayer player) {
-        if (player.getRNG().nextDouble() < 0.3) { // 30% de chance d'activer le bouclier
+        if (player.getRNG().nextDouble() < 0.6) { // 60% de chance d'activer le bouclier
             player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 100, 1)); // Résistance
         }
     }
