@@ -19,7 +19,7 @@ public class BlockCaveBlock extends Block implements IHasmodel {
         setUnlocalizedName(name);
         setRegistryName(name);
         setHardness(5.0f);
-        setCreativeTab(Main.DraconiummodTab);
+        setCreativeTab(Main.DRACONIUMMOD_TAB);
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }

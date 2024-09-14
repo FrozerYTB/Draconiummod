@@ -18,7 +18,7 @@ public class ItemSpecialInit {
     public static final Item GRENADE = new ItemGrenade("grenade");
     public static final Item DEBRIS_GRENADE = new ItemBase("debris_grenade");
     public static final Item SPONGE_ON_A_STICK = new ItemSpongeOnAStick("sponge_on_a_stick");
-    public static final Item BUCKET_FAKE_WATER = new ItemBucketFakeWater(BlockInit.FAKE_WATER_BLOCK).setCreativeTab(Main.DraconiummodTab);
+    public static final Item BUCKET_FAKE_WATER = new ItemBucketFakeWater(BlockInit.FAKE_WATER_BLOCK).setCreativeTab(Main.DRACONIUMMOD_TAB);
 
     public static void init() {
         SPECIAL_ITEMS.add(STICK_OF_GOD);

@@ -25,7 +25,7 @@ public class ItemToolHammer extends ItemPickaxe implements IHasmodel {
         setUnlocalizedName(name);
         setMaxStackSize(1);
         setRegistryName(name);
-        setCreativeTab(Main.DraconiummodTab);
+        setCreativeTab(Main.DRACONIUMMOD_TAB);
         ItemInit.ITEMS.add(this);
     }
 

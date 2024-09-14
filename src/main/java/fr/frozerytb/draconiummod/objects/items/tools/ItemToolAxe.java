@@ -13,7 +13,7 @@ public class ItemToolAxe extends ItemAxe implements IHasmodel {
         super(material, 9.0F, -3.0F);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(Main.DraconiummodTab);
+        setCreativeTab(Main.DRACONIUMMOD_TAB);
 
         ItemInit.ITEMS.add(this);
     }

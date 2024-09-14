@@ -17,7 +17,7 @@ public class ItemCustomFood extends ItemFood implements IHasmodel {
         super(amout, isWolfFood);
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
-        this.setCreativeTab(Main.DraconiummodTab);
+        this.setCreativeTab(Main.DRACONIUMMOD_TAB);
         this.setAlwaysEdible();
         ItemInit.ITEMS.add(this);
     }

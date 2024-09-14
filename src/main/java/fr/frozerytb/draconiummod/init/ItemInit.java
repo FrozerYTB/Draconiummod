@@ -28,7 +28,7 @@ public class ItemInit {
 
         for (Item item : ITEMS) {
             item.setRegistryName(item.getUnlocalizedName().substring(5));
-            item.setCreativeTab(Main.DraconiummodTab);
+            item.setCreativeTab(Main.DRACONIUMMOD_TAB);
         }
     }
 }

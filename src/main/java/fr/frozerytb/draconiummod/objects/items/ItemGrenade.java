@@ -19,7 +19,7 @@ public class ItemGrenade extends Item implements IHasmodel {
         super();
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
-        this.setCreativeTab(Main.DraconiummodTab);
+        this.setCreativeTab(Main.DRACONIUMMOD_TAB);
         this.setMaxStackSize(16);
         ItemInit.ITEMS.add(this);
     }

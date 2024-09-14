@@ -16,19 +16,23 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderHandler {
 
     public static void registerCustomMeshesAndStates() {
-        Item fluidBucket = Item.getItemFromBlock(BlockInit.FAKE_WATER_BLOCK);
-        if (fluidBucket != null) {
-            ModelLoader.setCustomModelResourceLocation(fluidBucket, 0,
-                    new ModelResourceLocation(Reference.MODID + ":fake_water", "inventory"));
-        } else {
-            System.err.println("Error: Fluid bucket item is null. Make sure it is initialized before calling registerCustomMeshesAndStates.");
-        }
-
-        ModelLoader.setCustomStateMapper(BlockInit.FAKE_WATER_BLOCK, new StateMapperBase() {
-            @Override
-            protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
-                return new ModelResourceLocation(Reference.MODID + ":fake_water", "fluid");
+        if (BlockInit.FAKE_WATER_BLOCK != null) {
+            Item fluidBucket = Item.getItemFromBlock(BlockInit.FAKE_WATER_BLOCK);
+            if (fluidBucket != null) {
+                ModelLoader.setCustomModelResourceLocation(fluidBucket, 0,
+                        new ModelResourceLocation(Reference.MODID + ":fake_water", "inventory"));
+            } else {
+                System.err.println("Error: Fluid bucket item is null. Make sure it is initialized before calling registerCustomMeshesAndStates.");
             }
-        });
+
+            ModelLoader.setCustomStateMapper(BlockInit.FAKE_WATER_BLOCK, new StateMapperBase() {
+                @Override
+                protected ModelResourceLocation getModelResourceLocation(IBlockState state) {
+                    return new ModelResourceLocation(Reference.MODID + ":fake_water", "fluid");
+                }
+            });
+        } else {
+            System.err.println("Error: FAKE_WATER_BLOCK is null. Make sure it is initialized before calling registerCustomMeshesAndStates.");
+        }
     }
 }

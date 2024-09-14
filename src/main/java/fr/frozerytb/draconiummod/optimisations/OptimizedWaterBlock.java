@@ -32,7 +32,7 @@ public class OptimizedWaterBlock extends BlockFluidClassic {
     }
 
     // Méthode personnalisée pour gérer la propagation d'eau (standard et FakeWater)
-    private void propagateWater(World world, BlockPos pos) {
+    public void propagateWater(World world, BlockPos pos) {
         // Ajoutez ici les conditions spécifiques pour FakeWater si nécessaire
 
         // Si la propagation est valide, mise à jour du bloc d'eau
@@ -42,7 +42,7 @@ public class OptimizedWaterBlock extends BlockFluidClassic {
     }
 
     // Vérification si l'eau peut se propager dans le bloc donné
-    private boolean canFlowInto(World world, BlockPos pos) {
+    public boolean canFlowInto(World world, BlockPos pos) {
         IBlockState state = world.getBlockState(pos);
         return state.getBlock().isAir(state, world, pos) || state.getMaterial().isReplaceable();
     }

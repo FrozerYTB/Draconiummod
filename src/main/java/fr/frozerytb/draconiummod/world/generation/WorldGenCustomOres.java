@@ -39,7 +39,6 @@ public class WorldGenCustomOres implements IWorldGenerator {
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if (isMinage == null) {
-            // Monde solo considéré en minage
             isMinage = FMLCommonHandler.instance().getSide().isClient() || dedicatedServerIsMinage(world);
         }
 

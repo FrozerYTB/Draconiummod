@@ -23,7 +23,7 @@ public class ItemStickOfGod extends Item implements IHasmodel {
         this.setRegistryName(name);
         this.setMaxDamage(MAX_DURABILITY - 1); // Adjusted to start at 0 and go up to MAX_DURABILITY - 1
         this.setMaxStackSize(1);
-        this.setCreativeTab(Main.DraconiummodTab);
+        this.setCreativeTab(Main.DRACONIUMMOD_TAB);
         ItemInit.ITEMS.add(this);
     }
 

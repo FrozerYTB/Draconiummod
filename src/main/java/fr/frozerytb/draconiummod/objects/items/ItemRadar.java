@@ -28,7 +28,7 @@ public class ItemRadar extends Item implements IHasmodel {
     public ItemRadar(String name) {
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
-        this.setCreativeTab(Main.DraconiummodTab);
+        this.setCreativeTab(Main.DRACONIUMMOD_TAB);
         this.setMaxStackSize(1);
         ItemInit.ITEMS.add(this);
         MinecraftForge.EVENT_BUS.register(this);

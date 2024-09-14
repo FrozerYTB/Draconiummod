@@ -13,8 +13,6 @@ import java.util.List;
 
 public class FluidInit {
 
-    public static final List<Fluid> FLUIDS = new ArrayList<>();
-
     public static final Fluid FAKE_WATER_FLUID = new FluidFakeWater("fake_water",
             new ResourceLocation(Reference.MODID, "blocks/fake_water_still"),
             new ResourceLocation(Reference.MODID, "blocks/fake_water_flow"),
@@ -35,7 +33,6 @@ public class FluidInit {
             System.out.println("Registering fluid: " + fluid.getName());
             FluidRegistry.registerFluid(fluid);
             FluidRegistry.addBucketForFluid(fluid);
-            FLUIDS.add(fluid);
             System.out.println("Registered fluid: " + fluid.getName());
         } else {
             System.out.println("Fluid already registered: " + fluid.getName());

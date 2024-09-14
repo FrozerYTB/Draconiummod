@@ -32,7 +32,7 @@ public class ItemSpongeOnAStick extends Item implements IHasmodel {
         setRegistryName(name);
         setMaxStackSize(1);
         setMaxDamage(SPONGE_MAX_DAMAGE);
-        setCreativeTab(Main.DraconiummodTab);
+        setCreativeTab(Main.DRACONIUMMOD_TAB);
         ItemInit.ITEMS.add(this);
     }
 

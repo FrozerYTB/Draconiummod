@@ -40,7 +40,7 @@ public class BlockInit {
         IForgeRegistry<Block> registry = GameRegistry.findRegistry(Block.class);
         for (Block block : BLOCKS) {
             block.setRegistryName(block.getUnlocalizedName().substring(5));
-            block.setCreativeTab(Main.DraconiummodTab);
+            block.setCreativeTab(Main.DRACONIUMMOD_TAB);
             registry.register(block);
             System.out.println("Registered block: " + block.getRegistryName());
         }

@@ -27,7 +27,7 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
         super(materialIn, renderIndexIn, equipmentSlotIn);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(Main.DraconiummodTab);
+        setCreativeTab(Main.DRACONIUMMOD_TAB);
         ItemInit.ITEMS.add(this);
     }
 

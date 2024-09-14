@@ -13,7 +13,7 @@ public class ItemToolPickaxe extends ItemPickaxe implements IHasmodel {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(Main.DraconiummodTab);
+        setCreativeTab(Main.DRACONIUMMOD_TAB);
         ItemInit.ITEMS.add(this);
     }
 

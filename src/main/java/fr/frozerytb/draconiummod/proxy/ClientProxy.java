@@ -5,16 +5,34 @@ import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.init.KeyBindings;
 import fr.frozerytb.draconiummod.util.handlers.RenderHandler;
+import fr.frozerytb.draconiummod.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
+@Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
 public class ClientProxy extends CommonProxy {
+
+    @Override
+    public void preInit() {
+        super.preInit();
+        // Register GUI elements
+        this.registerGuis();
+        // Register models and custom states
+        registerModels();
+        RenderHandler.registerCustomMeshesAndStates();
+    }
+
+    @Override
+    public void init() {
+        KeyBindings.init();
+    }
 
     public void registerModels() {
         // Enregistre les modèles pour tous les items
@@ -42,18 +60,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void registerEntityRenderers() {
         super.registerEntityRenderers();
-    }
-
-    @Override
-    public void preInit() {
-        super.preInit();
-        RenderHandler.registerCustomMeshesAndStates();
-        this.registerGuis();
-    }
-
-    @Override
-    public void init() {
-        KeyBindings.init();
     }
 
     public void registerGuis() {

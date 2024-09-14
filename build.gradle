@@ -5,7 +5,6 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
-        // classpath 'net.sf.proguard:proguard-gradle:5.2.1'   // Comment out this line
     }
 }
 
@@ -34,19 +33,8 @@ repositories {
 }
 
 minecraft {
-    // The mappings can be changed at any time, and must be in the following format.
-    // snapshot_YYYYMMDD   Snapshot are built nightly.
-    // stable_#            Stables are built at the discretion of the MCP team.
-    // Use non-default mappings at your own risk. they may not always work.
-    // Simply re-run your setup task after changing the mappings to update your workspace.
-    //mappings channel: 'snapshot', version: '20171003-1.12'
     mappings channel: 'snapshot', version: '20171003-1.12'
-    // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
             workingDirectory project.file('run')
@@ -59,7 +47,6 @@ minecraft {
         }
 
         server {
-
             // Recommended logging data for a userdev environment
             property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
 
@@ -70,63 +57,40 @@ minecraft {
 }
 
 dependencies {
-    // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
-    // The userdev artifact is a special name and will get all sorts of transformations applied to it.
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
 
-    classpath 'net.sf.proguard:proguard-gradle:6.0.3'
     compileOnly "mezz.jei:jei_${mc_version}:${jei_version}:api"
 }
 
-apply plugin: 'proguard'
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "draconiumc",
+                "Specification-Vendor"    : "examplemodsareus",
+                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "examplemodsareus",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
 
-proguard {
-    injars "${project.buildDir}/libs/${project.name}-${project.version}.jar"
-    outjars "${project.buildDir}/libs/${project.name}-${project.version}-obf.jar"
-
-    libraryjars "${System.getProperty('java.home')}/lib/rt.jar"
-
-    keep 'public class * { public static void main(java.lang.String[]); }'
-    keep 'class net.minecraft.** { *; }'
-    keep 'class net.minecraftforge.** { *; }'
-
-// Example for how to get properties into the manifest for reading by the runtime..
-    jar {
-        manifest {
-            attributes([
-                    "Specification-Title"     : "draconiumc",
-                    "Specification-Vendor"    : "examplemodsareus",
-                    "Specification-Version"   : "1", // We are version 1 of ourselves
-                    "Implementation-Title"    : project.name,
-                    "Implementation-Version"  : "${version}",
-                    "Implementation-Vendor"   : "examplemodsareus",
-                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-            ])
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            artifact jar
         }
     }
+    repositories {
+        maven {
+            url "file:///${project.projectDir}/mcmodsrepo"
+        }
+    }
+}
 
-// Example configuration to allow publishing using the maven-publish task
-// This is the preferred method to reobfuscate your jar file
-// jar.finalizedBy('reobfJar')
-// However if you are in a multi-project build, dev time needs unobfed jar files, so you can delay the obfuscation until publishing by doing
-//publish.dependsOn('reobfJar')
-
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                artifact jar
-            }
-        }
-        repositories {
-            maven {
-                url "file:///${project.projectDir}/mcmodsrepo"
-            }
-        }
-        sourceSets {
-            main {
-                output.resourcesDir = output.classesDir
-            }
-        }
+sourceSets {
+    main {
+        output.resourcesDir = output.classesDir
     }
 }

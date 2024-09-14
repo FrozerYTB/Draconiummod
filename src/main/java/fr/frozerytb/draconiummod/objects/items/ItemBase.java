@@ -11,7 +11,7 @@ public class ItemBase extends Item implements IHasmodel {
     public ItemBase(String name) {
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
-        this.setCreativeTab(Main.DraconiummodTab);
+        this.setCreativeTab(Main.DRACONIUMMOD_TAB);
         ItemInit.ITEMS.add(this);
     }
 
