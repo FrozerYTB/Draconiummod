@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "#B#",
+    "B#B",
+    "#B#"
+
+  ],
+  "key": {
+    "#": {
+      "item": "draconiummod:debris_grenade"
+    },
+    "S": {
+      "item": "minecraft:snowball"
+    }
+  },
+  "result": {
+    "item": "draconiummod:grenade",
+    "count": 2
+  }
+}

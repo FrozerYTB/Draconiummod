@@ -4,7 +4,6 @@ import fr.frozerytb.draconiummod.guis.GuiRadar;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.init.KeyBindings;
-import fr.frozerytb.draconiummod.util.handlers.RenderHandler;
 import fr.frozerytb.draconiummod.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -26,7 +25,6 @@ public class ClientProxy extends CommonProxy {
         this.registerGuis();
         // Register models and custom states
         registerModels();
-        RenderHandler.registerCustomMeshesAndStates();
     }
 
     @Override

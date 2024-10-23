@@ -72,7 +72,7 @@ item.findium_cristal.name= Cristal en Findium
 
 # CREATIVE TAB
 
-itemGroup.draconiummod=DraconiumMod
+itemGroup.draconiummodtab=DraconiumMod
 
 
 # BLOCS NORMAUX
@@ -91,3 +91,10 @@ tile.findium_ore.name=Minerai de Findium
 #ENCHANTEMENTS
 
 enchantment.draconiummod.range_enchant=Enchantement de Portée
+
+#AUTRES ITEMS
+item.draconium_gear.name=Rouage en Draconium
+
+#ARC ET FLECHES
+item.draconium_bow.name=Arc en Draconium
+item.switch_arrow.name= Fleches de déplacement
