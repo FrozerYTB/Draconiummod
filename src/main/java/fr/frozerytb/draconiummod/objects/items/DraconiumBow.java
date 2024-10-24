@@ -5,11 +5,14 @@ import javax.annotation.Nullable;
 
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -58,12 +61,32 @@ public class DraconiumBow extends ItemBow
     }
 
     @Override
-    protected boolean isArrow(ItemStack stack)
-    {
-        if(stack.getItem() == ItemInit.SWITCH_ARROW)
-        {
-            return true;
+    protected boolean isArrow(ItemStack stack) {
+        return stack.getItem() == ItemInit.SWITCH_ARROW; // Ne permet que la flèche modée
+    }
+
+    @Override
+    public void onPlayerStoppedUsing(ItemStack stack, World world, EntityLivingBase entityLiving, int timeLeft) {
+        if (entityLiving instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) entityLiving;
+            ItemStack arrowStack = this.findAmmo(player);
+
+            // Vérifie que l'item est une flèche modée
+            if (!arrowStack.isEmpty() && arrowStack.getItem() instanceof ItemSwitchArrow) {
+                // Logique pour tirer la flèche
+                if (!world.isRemote) {
+                    SwitchArrowEntity arrow = new SwitchArrowEntity(world, player);
+                    arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
+                    world.spawnEntity(arrow);
+                }
+
+                // Décrémente la flèche de l'inventaire
+                arrowStack.shrink(1);
+                player.getCooldownTracker().setCooldown(this, 20);
+            } else {
+                // Message d'erreur pour l'utilisateur
+                player.sendMessage(new TextComponentString("Seules les flèches modées peuvent être utilisées !"));
+            }
         }
-        return false;
     }
 }

@@ -13,7 +13,7 @@ public class EntityInit {
 
         public static void registerEntities()
         {
-            registerArrow("draconium_arrow", SwitchArrowEntity.class, ConfigHandler.ENTITY_SWITCH_ARROW);
+            registerArrow("switch_arrow", SwitchArrowEntity.class, ConfigHandler.ENTITY_SWITCH_ARROW);
         }
 
         private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2)

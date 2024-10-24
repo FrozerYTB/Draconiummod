@@ -1,9 +1,7 @@
 package fr.frozerytb.draconiummod.init;
 
-import fr.frozerytb.draconiummod.objects.blocks.BlockBasic;
-import fr.frozerytb.draconiummod.objects.blocks.BlockCaveBlock;
-import fr.frozerytb.draconiummod.objects.blocks.BlockElevator;
-import fr.frozerytb.draconiummod.objects.blocks.BlockExplosiveOre;
+import fr.frozerytb.draconiummod.objects.blocks.*;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -27,6 +25,11 @@ public class BlockInit
     // Blocs spéciaux
     public static final Block CAVE_BLOCK = new BlockCaveBlock("cave_block", Material.GLASS);
     public static final Block ELEVATOR = new BlockElevator("elevator", Material.IRON);
+
+
+
+
+
 
 
 

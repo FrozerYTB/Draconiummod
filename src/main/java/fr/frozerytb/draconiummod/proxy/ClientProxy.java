@@ -4,15 +4,20 @@ import fr.frozerytb.draconiummod.guis.GuiRadar;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.init.KeyBindings;
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.RenderSwitchArrow;
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
 import fr.frozerytb.draconiummod.util.Reference;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
 
 @SideOnly(Side.CLIENT)
 @Mod.EventBusSubscriber(modid = Reference.MODID, value = Side.CLIENT)
@@ -30,6 +35,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init() {
         KeyBindings.init();
+        registerEntityRenderers();
     }
 
     public void registerModels() {
@@ -55,9 +61,8 @@ public class ClientProxy extends CommonProxy {
         super.registerVariantRenderer(item, meta, filename, id);
     }
 
-    @Override
     public void registerEntityRenderers() {
-        super.registerEntityRenderers();
+        RenderingRegistry.registerEntityRenderingHandler(SwitchArrowEntity.class, RenderSwitchArrow::new);
     }
 
     public void registerGuis() {
