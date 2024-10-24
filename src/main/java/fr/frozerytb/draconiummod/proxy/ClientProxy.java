@@ -4,10 +4,9 @@ import fr.frozerytb.draconiummod.guis.GuiRadar;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.init.KeyBindings;
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.EntitySwitchArrow;
 import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.RenderSwitchArrow;
-import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
 import fr.frozerytb.draconiummod.util.Reference;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -62,7 +61,7 @@ public class ClientProxy extends CommonProxy {
     }
 
     public void registerEntityRenderers() {
-        RenderingRegistry.registerEntityRenderingHandler(SwitchArrowEntity.class, RenderSwitchArrow::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntitySwitchArrow.class, RenderSwitchArrow::new);
     }
 
     public void registerGuis() {

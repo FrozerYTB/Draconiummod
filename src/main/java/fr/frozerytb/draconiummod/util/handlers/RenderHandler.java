@@ -1,7 +1,7 @@
 package fr.frozerytb.draconiummod.util.handlers;
 
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.EntitySwitchArrow;
 import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.RenderSwitchArrow;
-import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.client.registry.IRenderFactory;
@@ -13,10 +13,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class RenderHandler {
 
     public static void registerEntityRenders() {
-        RenderingRegistry.registerEntityRenderingHandler(SwitchArrowEntity.class, new IRenderFactory<SwitchArrowEntity>()
+        RenderingRegistry.registerEntityRenderingHandler(EntitySwitchArrow.class, new IRenderFactory<EntitySwitchArrow>()
         {
             @Override
-            public Render<? super SwitchArrowEntity> createRenderFor(RenderManager manager)
+            public Render<? super EntitySwitchArrow> createRenderFor(RenderManager manager)
             {
                 return new RenderSwitchArrow(manager);
             }

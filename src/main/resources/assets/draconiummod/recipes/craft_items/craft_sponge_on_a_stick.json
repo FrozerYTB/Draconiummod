@@ -3,16 +3,14 @@
   "pattern": [
     "#",
     "S",
-    ""
-
-
+    "S"
   ],
   "key": {
     "#": {
       "item": "minecraft:sponge"
     },
     "S": {
-      "item": "minecraft:stick"
+      "item": "draconiummod:draconium_stick"
     }
   },
   "result": {

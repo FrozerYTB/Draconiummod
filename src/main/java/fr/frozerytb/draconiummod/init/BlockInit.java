@@ -21,6 +21,7 @@ public class BlockInit
     public static final Block DRACONIUM_ORE = new BlockBasic("draconium_ore", Material.ROCK);
     public static final Block FINDIUM_ORE = new BlockBasic("findium_ore", Material.ROCK);
     public static final Block EXPLOSIVE_ORE = new BlockExplosiveOre("explosive_ore", Material.ROCK);
+    public static final Block RANDOM_ORE = new BlockRandomOre("random_ore", Material.ROCK);
 
     // Blocs spéciaux
     public static final Block CAVE_BLOCK = new BlockCaveBlock("cave_block", Material.GLASS);

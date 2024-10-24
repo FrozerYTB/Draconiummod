@@ -4,7 +4,7 @@ import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
 
 
-import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.EntitySwitchArrow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemArrow;
@@ -27,7 +27,7 @@ public class ItemSwitchArrow extends ItemArrow {
     @Override
     public EntityArrow createArrow(World worldIn, ItemStack stack, EntityLivingBase shooter)
     {
-        SwitchArrowEntity entitySwitchArrow = new SwitchArrowEntity(worldIn, shooter);
+        EntitySwitchArrow entitySwitchArrow = new EntitySwitchArrow(worldIn, shooter);
         return entitySwitchArrow;
     }
 }

@@ -8,13 +8,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
-public class RenderSwitchArrow extends RenderArrow<SwitchArrowEntity> {
+public class RenderSwitchArrow extends RenderArrow<EntitySwitchArrow> {
     public RenderSwitchArrow(RenderManager manager) {
         super(manager);
     }
 
     @Override
-    public ResourceLocation getEntityTexture(SwitchArrowEntity entity) {
+    public ResourceLocation getEntityTexture(EntitySwitchArrow entity) {
         return new ResourceLocation(Reference.MODID + ":textures/entity/arrows/switch_arrow.png");
     }
 }

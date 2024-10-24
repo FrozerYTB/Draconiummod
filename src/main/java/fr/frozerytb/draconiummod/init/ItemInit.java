@@ -1,6 +1,5 @@
 package fr.frozerytb.draconiummod.init;
 
-import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
 import fr.frozerytb.draconiummod.objects.items.*;
 import fr.frozerytb.draconiummod.objects.items.tools.*;
 import fr.frozerytb.draconiummod.util.Reference;
@@ -75,6 +74,7 @@ public class ItemInit {
 
 //AUTRES
     public static final Item DRACONIUM_GEAR = new ItemBase("draconium_gear");
+    public static final Item DRACONIUM_STICK = new ItemBase("draconium_stick");
 
 //ARC ET FLECHES
 public static final Item DRACONIUM_BOW = new DraconiumBow("draconium_bow");

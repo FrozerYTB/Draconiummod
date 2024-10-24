@@ -5,7 +5,7 @@ import javax.annotation.Nullable;
 
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
-import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.EntitySwitchArrow;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
@@ -75,7 +75,7 @@ public class DraconiumBow extends ItemBow
             if (!arrowStack.isEmpty() && arrowStack.getItem() instanceof ItemSwitchArrow) {
                 // Logique pour tirer la flèche
                 if (!world.isRemote) {
-                    SwitchArrowEntity arrow = new SwitchArrowEntity(world, player);
+                    EntitySwitchArrow arrow = new EntitySwitchArrow(world, player);
                     arrow.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 3.0F, 1.0F);
                     world.spawnEntity(arrow);
                 }

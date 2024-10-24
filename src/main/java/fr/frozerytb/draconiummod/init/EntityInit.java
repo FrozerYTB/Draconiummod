@@ -1,7 +1,7 @@
 package fr.frozerytb.draconiummod.init;
 
 import fr.frozerytb.draconiummod.Main;
-import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.SwitchArrowEntity;
+import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.EntitySwitchArrow;
 import fr.frozerytb.draconiummod.util.Reference;
 import fr.frozerytb.draconiummod.util.handlers.ConfigHandler;
 import net.minecraft.entity.Entity;
@@ -13,7 +13,7 @@ public class EntityInit {
 
         public static void registerEntities()
         {
-            registerArrow("switch_arrow", SwitchArrowEntity.class, ConfigHandler.ENTITY_SWITCH_ARROW);
+            registerArrow("switch_arrow", EntitySwitchArrow.class, ConfigHandler.ENTITY_SWITCH_ARROW);
         }
 
         private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, int color1, int color2)
