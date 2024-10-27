@@ -14,6 +14,7 @@ public class TeleportPacket implements IMessage {
     public void toBytes(ByteBuf buf) {}
 
     @Override
+
     public void fromBytes(ByteBuf buf) {}
 
     public static class Handler implements IMessageHandler<TeleportPacket, IMessage> {

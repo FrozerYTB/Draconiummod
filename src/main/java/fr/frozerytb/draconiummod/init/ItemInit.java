@@ -24,8 +24,8 @@ public class ItemInit {
     // Matériaux des outils
     public static final Item.ToolMaterial TOOLS_MATERIAL_AZURITE = EnumHelper.addToolMaterial("tools_material_azurite", 4, 2890, 9.0F, 4.0F, 17);
     public static final Item.ToolMaterial HAMMER_MATERIAL_AZURITE = EnumHelper.addToolMaterial("hammer_material_azurite", 4, 2890, 1.0F, 2.0F, 17);
-    public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3890, 10.0F, 6.0F, 25);
-    public static final Item.ToolMaterial HAMMER_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("hammer_material_draconium", 5, 3890, 3.0F, 3.0F, 25);
+    public static final Item.ToolMaterial TOOLS_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("tools_material_draconium", 5, 3890, 12.0F, 6.0F, 25);
+    public static final Item.ToolMaterial HAMMER_MATERIAL_DRACONIUM = EnumHelper.addToolMaterial("hammer_material_draconium", 5, 3890, 2.0F, 2.0F, 25);
 
     // Armures
     public static final Item AZURITE_HELMET = new ArmorBase("azurite_helmet", ARMOR_MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
@@ -75,6 +75,7 @@ public class ItemInit {
 //AUTRES
     public static final Item DRACONIUM_GEAR = new ItemBase("draconium_gear");
     public static final Item DRACONIUM_STICK = new ItemBase("draconium_stick");
+
 
 //ARC ET FLECHES
 public static final Item DRACONIUM_BOW = new DraconiumBow("draconium_bow");

@@ -127,6 +127,12 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
         if (player.getRNG().nextDouble() < 0.6) { // 60% de chance d'activer le bouclier
             player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 100, 1)); // Résistance
         }
+        ExtendedPlayerData.DraconiumArmorAbilities draconiumArmorAbilities = ExtendedPlayerData.get(player).draconiumArmorAbilities;
+        if (draconiumArmorAbilities.getTeleportCooldown() > 0) {
+            player.sendMessage(new TextComponentString("Cette abilité est en cooldown."));
+            return;
+        }
+        draconiumArmorAbilities.setTeleportCooldown(TELEPORT_INTERVAL_TICKS);
     }
 
     public static void spawnAllies(EntityPlayer player) {
@@ -148,6 +154,12 @@ public class ArmorBase extends ItemArmor implements IHasmodel {
                 ally.setTamedBy(player);
                 world.spawnEntity(ally);
             }
+            ExtendedPlayerData.DraconiumArmorAbilities draconiumArmorAbilities = ExtendedPlayerData.get(player).draconiumArmorAbilities;
+            if (draconiumArmorAbilities.getTeleportCooldown() > 0) {
+                player.sendMessage(new TextComponentString("Cette abilité est en cooldown."));
+                return;
+            }
+            draconiumArmorAbilities.setTeleportCooldown(TELEPORT_INTERVAL_TICKS);
         }
     }
 

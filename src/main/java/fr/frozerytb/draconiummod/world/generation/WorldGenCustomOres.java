@@ -43,11 +43,11 @@ public class WorldGenCustomOres implements IWorldGenerator {
         }
 
         if (isMinage && world.provider.getDimension() == 0) {
-            runGenerator(azurite_ore, world, random, chunkX, chunkZ, 15, 0, 20);
-            runGenerator(draconium_ore, world, random, chunkX, chunkZ, 9, 0, 12);
+            runGenerator(azurite_ore, world, random, chunkX, chunkZ, 10, 0, 15);
+            runGenerator(draconium_ore, world, random, chunkX, chunkZ, 9, 0, 9);
             runGenerator(explosive_ore, world, random, chunkX, chunkZ, 7, 0, 9);
             runGenerator(findium_ore, world, random, chunkX, chunkZ, 5, 0, 7);
-            runGenerator(random_ore, world, random, chunkX, chunkZ, 3, 0, 8);
+            runGenerator(random_ore, world, random, chunkX, chunkZ, 3, 0, 7);
         }
     }
 

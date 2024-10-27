@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.objects.entity.arrows.switchArrow.EntitySwitchArrow;
+import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.IItemPropertyGetter;
@@ -17,7 +18,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class DraconiumBow extends ItemBow
+public class DraconiumBow extends ItemBow implements IHasmodel
 {
     public DraconiumBow(String name)
     {
@@ -42,6 +43,7 @@ public class DraconiumBow extends ItemBow
                 }
             }
         });
+
         this.addPropertyOverride(new ResourceLocation("pulling"), new IItemPropertyGetter()
         {
             @SideOnly(Side.CLIENT)
@@ -52,6 +54,12 @@ public class DraconiumBow extends ItemBow
         });
 
         ItemInit.ITEMS.add(this);
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerModels() {
+        Main.proxy.registerItemRenderer(this, 0);
     }
 
     @Override
@@ -85,8 +93,8 @@ public class DraconiumBow extends ItemBow
                 player.getCooldownTracker().setCooldown(this, 20);
             } else {
                 // Message d'erreur pour l'utilisateur
-                player.sendMessage(new TextComponentString("Seules les flèches modées peuvent être utilisées !"));
+                player.sendStatusMessage(new TextComponentString("Seules les flèches modées peuvent être utilisées !"), true);
             }
         }
     }
-}
+}  

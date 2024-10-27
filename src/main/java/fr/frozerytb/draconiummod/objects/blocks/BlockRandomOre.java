@@ -3,6 +3,7 @@ package fr.frozerytb.draconiummod.objects.blocks;
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
+import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,19 +19,23 @@ import net.minecraft.world.World;
 import net.minecraft.util.NonNullList;
 import java.util.Random;
 
-public class BlockRandomOre extends Block {
+public class BlockRandomOre extends Block implements IHasmodel {
 
     public BlockRandomOre(String name, Material material) {
         super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
-        setHardness(5.0f);
+        setHardness(8.0f);
         setCreativeTab(Main.DRACONIUMMOD_TAB);
         BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(name));
     }
 
     @Override
+    public void registerModels() {
+        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0);
+    }
+
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         Random random = new Random();
         EntityPlayer player = world instanceof World ? ((World) world).getClosestPlayer(pos.getX(), pos.getY(), pos.getZ(), 16, false) : null;
@@ -38,30 +43,33 @@ public class BlockRandomOre extends Block {
         if (player != null && EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player.getHeldItemMainhand()) > 0) {
             drops.add(new ItemStack(this));
         } else {
-            drops.add(new ItemStack(getRandomOre(random)));
+            drops.add(new ItemStack(getRandomOre(random, fortune)));
         }
     }
 
-    private Item getRandomOre(Random random) {
-        int chance = random.nextInt(101);
+    private Item getRandomOre(Random random, int fortune) {
 
-        if (chance < 52) { // 52% pour le charbon
+        int chance = random.nextInt(101) + (fortune * 3);
+
+        if (chance < 48) {
             return Item.getByNameOrId("minecraft:coal_ore");
-        } else if (chance < 72) { // 20% pour le lapis-lazuli (de 45 à 64)
+        } else if (chance < 68) {
             return Item.getByNameOrId("minecraft:lapis_ore");
-        } else if (chance < 82) { // 10% pour le fer (de 65 à 74)
+        } else if (chance < 83) {
             return Item.getByNameOrId("minecraft:iron_ore");
-        } else if (chance < 87) { // 5% pour l'or (de 75 à 79)
+        } else if (chance < 88) {
             return Item.getByNameOrId("minecraft:gold_ore");
-        } else if (chance < 92) { // 5% pour le diamant (de 80 à 84)
+        } else if (chance < 91) {
             return Item.getByNameOrId("minecraft:diamond_ore");
-        } else if (chance < 95) { // 3% pour l'azurite (de 85 à 87)
+        } else if (chance < 94) {
             return Item.getByNameOrId("draconiummod:azurite_ore");
-        } else if (chance < 97) { // 2% pour l'émeraude (de 88 à 89)
+        } else if (chance < 96) {
             return Item.getByNameOrId("minecraft:emerald_ore");
-        } else if (chance < 99) { // 2% pour le draconium (de 90 à 91)
+        } else if (chance < 98) {
             return Item.getByNameOrId("draconiummod:draconium_ore");
-        } else { // 1% pour le findium (de 92 à 100)
+        } else if (chance < 100) {
+            return Item.getByNameOrId("draconiummod:explosive_ore");
+        } else {
             return Item.getByNameOrId("draconiummod:findium_ore");
         }
     }

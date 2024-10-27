@@ -1,7 +1,10 @@
 # MORTS
+
 death.attack.fakeWater=%1$s est tombé(e) dans de l'eau empoisonnée.
 death.attack.fakeWater.player=%1$s est tombé(e) dans de l'eau empoisonnée en combattant %2$s.
+
 # FLUIDES
+
 fluid.fake_water=Fausse eau
 
 # ARMURE EN AZURITE
@@ -89,8 +92,6 @@ tile.explosive_ore.name=Minerai explosif
 tile.findium_ore.name=Minerai de Findium
 
 #ENCHANTEMENTS
-
-enchantment.draconiummod.range_enchant=Enchantement de Portée
 
 #AUTRES ITEMS
 item.draconium_gear.name=Rouage en Draconium

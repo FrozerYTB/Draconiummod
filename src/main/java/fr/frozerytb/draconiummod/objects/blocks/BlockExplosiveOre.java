@@ -46,7 +46,7 @@ public class BlockExplosiveOre extends Block implements IHasmodel {
 
     @Override
     public int quantityDroppedWithBonus(int fortune, Random random) {
-        return random.nextFloat() < (0.6F + fortune * 0.06F) ? 1 : 0;
+        return random.nextFloat() < (0.4F + fortune * 0.06F) ? 1 : 0;
     }
 
     @Override
