@@ -28,14 +28,17 @@ public class KeyBindings {
     @SubscribeEvent
     public static void onKeyInput(InputEvent.KeyInputEvent event) {
         if (TELEPORT_KEY.isPressed()) {
+            System.out.println("Teleport key pressed");
             ModNetworkHandler.INSTANCE.sendToServer(new TeleportPacket());
         }
         if (ENERGY_SHIELD_KEY.isPressed()) {
+            System.out.println("Energy Shield key pressed");
             ModNetworkHandler.INSTANCE.sendToServer(new EnergyShieldPacket());
         }
         if (SPAWN_ALLIES_KEY.isPressed()) {
+            System.out.println("Spawn Allies key pressed");
             ModNetworkHandler.INSTANCE.sendToServer(new SpawnAlliesPacket());
         }
-
     }
 }
+

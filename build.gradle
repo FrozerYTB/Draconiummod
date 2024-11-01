@@ -58,6 +58,7 @@ minecraft {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+    implementation 'org.apache.logging.log4j:log4j-core:2.14.1'
 
     compileOnly "mezz.jei:jei_${mc_version}:${jei_version}:api"
 }

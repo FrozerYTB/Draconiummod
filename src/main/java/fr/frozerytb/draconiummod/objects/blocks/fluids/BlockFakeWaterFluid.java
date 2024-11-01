@@ -18,12 +18,12 @@ public class BlockFakeWaterFluid extends BlockFluidClassic {
         super(fluid, material);
         this.setUnlocalizedName(name);
         this.setRegistryName(name);
-        BlockInit.BLOCKS.add(this);
         System.out.println("Created block: " + name);
     }
 
     @Override
     public void onEntityCollidedWithBlock(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
+        System.out.println("Entity collided with block: " + this.getRegistryName());
         if ((worldIn.isRemote || entityIn instanceof EntityItem || entityIn instanceof EntityBoat) ||
                 (entityIn instanceof EntityPlayer && (((EntityPlayer) entityIn).capabilities.isCreativeMode || (entityIn.getRidingEntity() instanceof EntityBoat)))) {
             return;

@@ -24,6 +24,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Logger;
 
+
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION)
 public class Main {
 
@@ -51,7 +52,9 @@ public class Main {
         ModNetworkHandler.registerMessages();
         proxy.preInit();
 
+
         FluidInit.initFluids();
+        BlockInit.init();
         RegistryHandler.preInitRegistries();
         CapabilitiesInit.preInit(event);
 

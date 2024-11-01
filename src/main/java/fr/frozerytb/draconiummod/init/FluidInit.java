@@ -8,9 +8,6 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class FluidInit {
 
     public static final Fluid FAKE_WATER_FLUID = new FluidFakeWater("fake_water",
