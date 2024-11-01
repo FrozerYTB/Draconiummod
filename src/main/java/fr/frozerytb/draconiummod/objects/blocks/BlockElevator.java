@@ -3,7 +3,6 @@ package fr.frozerytb.draconiummod.objects.blocks;
 
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.BlockInit;
-import fr.frozerytb.draconiummod.init.BlockSpecialInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.block.Block;
@@ -54,10 +53,10 @@ public class BlockElevator extends Block implements IHasmodel {
             if (player.isSneaking()) {
                 if (playersSneaking.add(player)) {
                     BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(MathHelper.floor(player.posX), MathHelper.floor(player.posY) - 1, MathHelper.floor(player.posZ));
-                    if (world.getBlockState(pos).getBlock() == BlockSpecialInit.ELEVATOR) {
+                    if (world.getBlockState(pos).getBlock() == BlockInit.ELEVATOR) {
                         for (int y = (int) player.posY - 2; y > -1; y--) {
                             pos.setY(y);
-                            if (world.getBlockState(pos).getBlock() == BlockSpecialInit.ELEVATOR) {
+                            if (world.getBlockState(pos).getBlock() == BlockInit.ELEVATOR) {
                                 player.attemptTeleport(player.posX, y + 1, player.posZ);
                                 break;
                             }
@@ -81,10 +80,10 @@ public class BlockElevator extends Block implements IHasmodel {
         World world = entity.world;
         if (!world.isRemote && entity instanceof EntityPlayer) {
             BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(MathHelper.floor(entity.posX), MathHelper.floor(entity.posY) - 1, MathHelper.floor(entity.posZ));
-            if (world.getBlockState(pos).getBlock() == BlockSpecialInit.ELEVATOR) {
+            if (world.getBlockState(pos).getBlock() == BlockInit.ELEVATOR) {
                 for (int y = (int) entity.posY + 1; y < 256; y++) {
                     pos.setY(y);
-                    if (world.getBlockState(pos).getBlock() == BlockSpecialInit.ELEVATOR && entity.attemptTeleport(entity.posX, y + 1, entity.posZ)) {
+                    if (world.getBlockState(pos).getBlock() == BlockInit.ELEVATOR && entity.attemptTeleport(entity.posX, y + 1, entity.posZ)) {
                         entity.motionY = 0;
                         entity.velocityChanged = true;
                         break;

@@ -3,7 +3,6 @@ package fr.frozerytb.draconiummod.objects.blocks;
 import fr.frozerytb.draconiummod.Main;
 import fr.frozerytb.draconiummod.init.BlockInit;
 import fr.frozerytb.draconiummod.init.ItemInit;
-import fr.frozerytb.draconiummod.init.ItemSpecialInit;
 import fr.frozerytb.draconiummod.util.interfaces.IHasmodel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -42,12 +41,12 @@ public class BlockExplosiveOre extends Block implements IHasmodel {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ItemSpecialInit.DEBRIS_GRENADE;
+        return ItemInit.DEBRIS_GRENADE;
     }
 
     @Override
     public int quantityDroppedWithBonus(int fortune, Random random) {
-        return random.nextFloat() < (0.6F + fortune * 0.06F) ? 1 : 0;
+        return random.nextFloat() < (0.4F + fortune * 0.06F) ? 1 : 0;
     }
 
     @Override

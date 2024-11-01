@@ -23,12 +23,6 @@ public class OptimizedWaterBlock extends BlockFluidClassic {
         if (rand.nextInt(4) != 0) {
             return; // Arrête la propagation pour ce tick
         }
-
-        // Ajout du bloc à la file d'attente pour une mise à jour différée
-        FakeWaterUpdateQueue.add(pos);
-
-        // Traitement des mises à jour différées
-        processQueuedUpdates(world);
     }
 
     // Méthode personnalisée pour gérer la propagation d'eau (standard et FakeWater)
@@ -47,13 +41,6 @@ public class OptimizedWaterBlock extends BlockFluidClassic {
         return state.getBlock().isAir(state, world, pos) || state.getMaterial().isReplaceable();
     }
 
-    // Gestion des mises à jour différées pour éviter les pics de charge
-    public void processQueuedUpdates(World world) {
-        int updatesPerTick = 10; // Limite le nombre de mises à jour par tick pour lisser la charge
-        for (int i = 0; i < updatesPerTick && !FakeWaterUpdateQueue.isEmpty(); i++) {
-            BlockPos pos = FakeWaterUpdateQueue.poll();
-            propagateWater(world, pos);
-        }
-    }
 }
+
 

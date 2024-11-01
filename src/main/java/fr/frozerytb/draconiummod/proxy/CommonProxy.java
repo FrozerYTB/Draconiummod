@@ -15,6 +15,10 @@ public class CommonProxy {
 
     }
 
+    public void registerModel(Item item, int metadata) {
+
+    }
+
     public void preInit() {
 
     }
