@@ -1,0 +1,11 @@
+{
+    "dragon_roar":
+    {
+        "category": "ambient",
+        "sounds":
+        [{
+            "name": "draconiumcore:sounds/background/background_music",
+            "stream": true
+        }]
+    }
+}

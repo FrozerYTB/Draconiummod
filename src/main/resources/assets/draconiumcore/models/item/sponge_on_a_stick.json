@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures":
+    {
+        "layer0": "draconiumcore:items/others/sponge_on_a_stick"
+    }
+}

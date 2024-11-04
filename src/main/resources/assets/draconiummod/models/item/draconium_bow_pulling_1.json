@@ -1,7 +1,0 @@
-{
-  "parent": "item/bow",
-  "textures":
-  {
-    "layer0": "draconiummod:items/draconium_bow_1"
-  }
-}

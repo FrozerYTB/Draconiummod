@@ -1,18 +1,16 @@
 [
-  {
-    "modid": "draconiummod",
-    "name": "Draconium Mod",
-    "description": "Voici le mod pour le serveur DraconiumMC",
-    "version": "${version}",
-    "mcversion": "${mcversion}",
-    "url": "",
-    "updateUrl": "",
-    "authorList": [
-      "FrozerYTB"
-    ],
-    "credits": "Merci a FrozerYTB d'avoir fait ce mod !",
-    "logoFile": "logo.jpg",
-    "screenshots": [],
-    "dependencies": []
-  }
+{
+  "modid": "draconiumcore",
+  "name": "Draconium - Core",
+  "description": "Draconium Core",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Blackbalrog"],
+  "credits": "Made in France",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
 ]
