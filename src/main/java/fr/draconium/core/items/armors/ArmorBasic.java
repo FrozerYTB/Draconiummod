@@ -6,7 +6,6 @@ import net.minecraft.item.ItemArmor;
 
 public class ArmorBasic extends ItemArmor
 {
-	
 	public ArmorBasic(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
 	{
 		super(materialIn, renderIndexIn, equipmentSlotIn);

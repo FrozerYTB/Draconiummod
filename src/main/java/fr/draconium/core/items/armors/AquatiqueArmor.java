@@ -5,17 +5,13 @@ import fr.draconium.core.init.items.armors.ArmorsInit;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class AquatiqueArmor extends ItemArmor
 {
-	
-	private Item[] armors_aquatique = {ArmorsInit.AQUATIQUE_HELMET/*, ArmorsInit.AQUATIQUE_CHESTPLATE, ArmorsInit.AQUATIQUE_LEGGINGS, ArmorsInit.AQUATIQUE_BOOTS*/};
 	
 	public AquatiqueArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
 	{
@@ -28,17 +24,18 @@ public class AquatiqueArmor extends ItemArmor
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-		if (this.isAmrorsCompletAquatique(player) == true) this.handleAquatiqueArmorEffects(player);
+		if (this.isAmrorComplet(player) == true) this.handleAquatiqueArmorEffects(player);
 	}
 	
 	
-	protected boolean isAmrorsCompletAquatique(EntityPlayer player)
+	protected boolean isAmrorComplet(EntityPlayer player)
 	{
-		return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(this.armors_aquatique[0])
-				//&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(this.armors_aquatique[1])
-				//&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem().equals(this.armors_aquatique[2])
-				//&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem().equals(this.armors_aquatique[3]) 
-				? true : false;
+		return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.AQUATIQUE_HELMET);
+				/*
+				&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(ArmorsInit.AQUATIQUE_CHESTPLATE)
+				&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem().equals(ArmorsInit.AQUATIQUE_LEGGINGS)
+				&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem().equals(ArmorsInit.AQUATIQUE_BOOTS);
+				*/
 	}
 	
 	private void handleAquatiqueArmorEffects(EntityPlayer player)

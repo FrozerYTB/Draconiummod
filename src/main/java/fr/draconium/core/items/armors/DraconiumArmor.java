@@ -5,7 +5,6 @@ import fr.draconium.core.init.items.armors.ArmorsInit;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
@@ -14,8 +13,6 @@ import net.minecraft.world.World;
 public class DraconiumArmor extends ItemArmor
 {
 
-	private Item[] armors_draconique = {ArmorsInit.DRACONIUM_HELMET, ArmorsInit.DRACONIUM_CHESTPLATE, ArmorsInit.DRACONIUM_LEGGINGS, ArmorsInit.DRACONIUM_BOOTS};
-	
 	public DraconiumArmor(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
 	{
 		super(materialIn, renderIndexIn, equipmentSlotIn);
@@ -27,16 +24,15 @@ public class DraconiumArmor extends ItemArmor
 	@Override
 	public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack)
 	{
-		if (this.isAmrorsCompletDraconium(player) == true) this.handleDraconiumArmorEffects(player);
+		if (this.isAmrorComplet(player) == true) this.handleDraconiumArmorEffects(player);
 	}
 	
-	protected boolean isAmrorsCompletDraconium(EntityPlayer player)
+	protected boolean isAmrorComplet(EntityPlayer player)
 	{
-		return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(this.armors_draconique[0])
-				&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(this.armors_draconique[1])
-				&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem().equals(this.armors_draconique[2])
-				&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem().equals(this.armors_draconique[3]) 
-				? true : false;
+		return player.getItemStackFromSlot(EntityEquipmentSlot.HEAD).getItem().equals(ArmorsInit.DRACONIUM_HELMET)
+				&& player.getItemStackFromSlot(EntityEquipmentSlot.CHEST).getItem().equals(ArmorsInit.DRACONIUM_CHESTPLATE)
+				&& player.getItemStackFromSlot(EntityEquipmentSlot.LEGS).getItem().equals(ArmorsInit.DRACONIUM_LEGGINGS)
+				&& player.getItemStackFromSlot(EntityEquipmentSlot.FEET).getItem().equals(ArmorsInit.DRACONIUM_BOOTS);
 	}
 	
 	private void handleDraconiumArmorEffects(EntityPlayer player)
