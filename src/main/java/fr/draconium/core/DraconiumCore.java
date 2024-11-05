@@ -1,5 +1,8 @@
 package fr.draconium.core;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import fr.draconium.core.entitys.EntityGrenade;
 import fr.draconium.core.handlers.AmbientSoundHandler;
 import fr.draconium.core.handlers.PlayerJoinHandler;
@@ -10,13 +13,12 @@ import fr.draconium.core.init.capabilities.CapabilitiesInit;
 import fr.draconium.core.init.items.armors.ArmorsInit;
 import fr.draconium.core.init.items.foods.FoodsInit;
 import fr.draconium.core.init.items.liquids.FluidInit;
-import fr.draconium.core.init.items.liquids.LiquidsInit;
 import fr.draconium.core.init.items.ores.OresInit;
 import fr.draconium.core.init.items.others.OthersInit;
 import fr.draconium.core.init.items.swords.SwordsInit;
 import fr.draconium.core.init.items.tools.ToolsInit;
 import fr.draconium.core.init.keys.KeyBindings;
-import fr.draconium.core.init.sounds.BackgroundSound;
+import fr.draconium.core.init.sounds.BackgroundInit;
 import fr.draconium.core.proxy.ServerProxy;
 import fr.draconium.core.proxy.packets.DraconiumCorePackets;
 import fr.draconium.core.references.Reference;
@@ -43,6 +45,8 @@ public class DraconiumCore
 	
 	@SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER, modId = Reference.MODID)
 	private static ServerProxy serverProxy;
+	
+	public static final Logger LOGGER = LogManager.getLogger("");
 	
 	static
 	{
@@ -81,7 +85,7 @@ public class DraconiumCore
 		this.registerEventBus();
 		
 		//Init Game Sound
-		BackgroundSound.init();
+		BackgroundInit.init();
 		
 		//Init Render
 		RenderGrenade.register();

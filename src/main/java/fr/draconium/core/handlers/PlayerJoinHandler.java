@@ -1,6 +1,6 @@
 package fr.draconium.core.handlers;
 
-import fr.draconium.core.init.sounds.BackgroundSound;
+import fr.draconium.core.init.sounds.BackgroundInit;
 import fr.draconium.core.references.Reference;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundCategory;
@@ -17,7 +17,9 @@ public class PlayerJoinHandler
 	{
 		EntityPlayer player = event.player;
 		World world = player.world;
-		if (!world.isRemote && BackgroundSound.BACKGROUND_MUSIC != null)
-				world.playSound(null, player.getPosition(), BackgroundSound.BACKGROUND_MUSIC, SoundCategory.MUSIC, 1.0F, 1.0F);
+		if (!world.isRemote && BackgroundInit.BACKGROUND_MUSIC != null)
+		{
+			world.playSound(null, player.getPosition(), BackgroundInit.BACKGROUND_MUSIC, SoundCategory.MUSIC, 1.0F, 1.0F);
+		}
 	}
 }

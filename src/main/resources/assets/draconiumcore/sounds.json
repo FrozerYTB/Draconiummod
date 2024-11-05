@@ -4,7 +4,7 @@
         "category": "ambient",
         "sounds":
         [{
-            "name": "draconiumcore:sounds/background/background_music",
+            "name": "draconiumcore:background/dragon_roar",
             "stream": true
         }]
     }

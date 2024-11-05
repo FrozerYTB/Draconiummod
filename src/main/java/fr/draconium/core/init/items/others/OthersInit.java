@@ -1,5 +1,8 @@
 package fr.draconium.core.init.items.others;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.draconium.core.DraconiumCore;
 import fr.draconium.core.items.ItemBasic;
 import fr.draconium.core.items.others.ItemGrenade;
@@ -7,6 +10,7 @@ import fr.draconium.core.items.others.ItemRadar;
 import fr.draconium.core.items.others.ItemRegenerationStick;
 import fr.draconium.core.items.others.ItemSpongeOnAStick;
 import fr.draconium.core.items.others.ItemStickOfGod;
+import fr.draconium.core.messages.Console;
 import fr.draconium.core.references.Reference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -19,6 +23,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class OthersInit
 {
+
+	private static List<Item> others = new ArrayList<>();
 	
 	public static Item STICK_OF_GOD;
 	public static Item REGENERATION_STICK;
@@ -29,36 +35,32 @@ public class OthersInit
 	
 	public static void init()
 	{
-		STICK_OF_GOD 		= new ItemStickOfGod("stick_of_god");
-		REGENERATION_STICK 	= new ItemRegenerationStick("regeneration_stick");
-		RADAR 				= new ItemRadar("radar");
-		GRENADE 			= new ItemGrenade("grenade");
-		DEBRIS_GRENADE 		= new ItemBasic("debris_grenade").setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS);
-		SPONGE_ON_A_STICK 	= new ItemSpongeOnAStick("sponge_on_a_stick");
+		others.add(STICK_OF_GOD 		= new ItemStickOfGod("stick_of_god"));
+		others.add(REGENERATION_STICK 	= new ItemRegenerationStick("regeneration_stick"));
+		others.add(RADAR 				= new ItemRadar("radar"));
+		others.add(GRENADE 				= new ItemGrenade("grenade"));
+		others.add(DEBRIS_GRENADE 		= new ItemBasic("debris_grenade").setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS));
+		others.add(SPONGE_ON_A_STICK 	= new ItemSpongeOnAStick("sponge_on_a_stick"));
 	}
 	
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
-		event.getRegistry().registerAll(
-				STICK_OF_GOD,
-				REGENERATION_STICK,
-				RADAR,
-				GRENADE,
-				DEBRIS_GRENADE,
-				SPONGE_ON_A_STICK
-		);
+		for (Item other : others)
+		{
+			event.getRegistry().registerAll(other);
+			Console.debug("Enregistrement de l'item: #6FF7D0" + other.getRegistryName());
+		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
-		registerRender(STICK_OF_GOD);
-		registerRender(REGENERATION_STICK);
-		registerRender(RADAR);
-		registerRender(GRENADE);
-		registerRender(DEBRIS_GRENADE);
-		registerRender(SPONGE_ON_A_STICK);
+		for (Item other : others)
+		{
+			registerRender(other);
+			Console.debug("Enregistrement de l'item: #6FF794" + other.getRegistryName());
+		}
 	}
 	
 	private static void registerRender(Item item)

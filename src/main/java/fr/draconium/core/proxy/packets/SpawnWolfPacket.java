@@ -1,6 +1,8 @@
 package fr.draconium.core.proxy.packets;
 
+import fr.draconium.core.actions.KeyAction;
 import fr.draconium.core.items.armors.DraconiqueArmor;
+import fr.draconium.core.messages.Console;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.text.TextComponentString;
@@ -25,19 +27,20 @@ public class SpawnWolfPacket implements IMessage
 	public static class Handler implements IMessageHandler<SpawnWolfPacket, IMessage>
 	{
 		@Override
-		public IMessage onMessage(SpawnWolfPacket message, MessageContext ctx)
+		public IMessage onMessage(SpawnWolfPacket message, MessageContext messageContexte)
 		{
-			EntityPlayerMP player = ctx.getServerHandler().player;
-			player.getServerWorld().addScheduledTask(() -> {
-				// Vérifie si le joueur porte l'armure complète de Draconium
-				if (DraconiqueArmor.isAmrorsCompletDraconique(player))
+			EntityPlayerMP player = messageContexte.getServerHandler().player;
+			player.getServerWorld().addScheduledTask(() ->
+			{
+				if (DraconiqueArmor.isAmrorComplet(player))
 				{
-					DraconiqueArmor.spawnAllies(player);
+					KeyAction.spawnAllies(player);
+					Console.debug("Amure de draconique complète");
 				}
 				else
 				{
-					// Envoyer un message d'erreur au joueur
-					player.sendMessage(new TextComponentString("Vous devez porter une armure complète de Draconium pour invoquer des alliés."));
+					player.sendMessage(new TextComponentString("Vous devez porter une armure complète en Draconique pour invoquer des alliés."));
+					Console.error("Amure de draconique incomplète");
 				}
 			});
 			return null;

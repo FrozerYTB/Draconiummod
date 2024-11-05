@@ -1,12 +1,14 @@
 package fr.draconium.core.init.blocks;
 
-import fr.draconium.core.DraconiumCore;
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.draconium.core.blocks.BlockBasic;
 import fr.draconium.core.blocks.BlockCaveBlock;
 import fr.draconium.core.blocks.BlockElevator;
-import fr.draconium.core.blocks.BlockExplosiveOre;
 import fr.draconium.core.blocks.BlockFluid;
 import fr.draconium.core.init.items.liquids.FluidInit;
+import fr.draconium.core.messages.Console;
 import fr.draconium.core.references.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -22,6 +24,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class BlocksInit
 {
+	private static List<Block> blocks = new ArrayList<>();
+	
 	//Blocks
 	public static Block AZURITE_BLOCK;
 	public static Block DRACONIUM_BLOCK;
@@ -34,41 +38,34 @@ public class BlocksInit
 	
 	public static void init()
 	{
-		AZURITE_BLOCK 			= new BlockBasic("azurite_block", Material.IRON);
-		DRACONIUM_BLOCK 		= new BlockBasic("draconium_block", Material.IRON);
+		blocks.add(AZURITE_BLOCK 			= new BlockBasic("azurite_block", Material.IRON));
+		blocks.add(DRACONIUM_BLOCK 			= new BlockBasic("draconium_block", Material.IRON));
 		
-		CAVE_BLOCK 				= new BlockCaveBlock("cave_block", Material.GLASS);
-		ELEVATOR 				= new BlockElevator("elevator", Material.IRON);
+		blocks.add(CAVE_BLOCK 				= new BlockCaveBlock("cave_block", Material.GLASS));
+		blocks.add(ELEVATOR 				= new BlockElevator("elevator", Material.IRON));
 		
-		DRACONIUM_FLUID_BLOCK 	= new BlockFluid("draconium_fluid", FluidInit.DRACONIUM_FLUID, Material.LAVA);
+		blocks.add(DRACONIUM_FLUID_BLOCK 	= new BlockFluid("draconium_fluid", FluidInit.DRACONIUM_FLUID, Material.LAVA));
 	}
+	
+	
 	
 	@SubscribeEvent
 	protected static void registerBlocks(RegistryEvent.Register<Block> event)
 	{
-		event.getRegistry().registerAll(
-				AZURITE_BLOCK,
-				DRACONIUM_BLOCK,
-				
-				CAVE_BLOCK,
-				ELEVATOR,
-				
-				DRACONIUM_FLUID_BLOCK
-		);
+		for (Block block : blocks)
+		{
+			event.getRegistry().registerAll(block);
+			Console.debug("Enregistrement du block: #6FF7D0" + block.getRegistryName());
+		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerItemBlocks(RegistryEvent.Register<Item> event)
 	{
-		event.getRegistry().registerAll(
-				new ItemBlock(AZURITE_BLOCK).setRegistryName(AZURITE_BLOCK.getRegistryName()),
-				new ItemBlock(DRACONIUM_BLOCK).setRegistryName(DRACONIUM_BLOCK.getRegistryName()),
-				
-				new ItemBlock(CAVE_BLOCK).setRegistryName(CAVE_BLOCK.getRegistryName()),
-				new ItemBlock(ELEVATOR).setRegistryName(ELEVATOR.getRegistryName()),
-				
-				new ItemBlock(DRACONIUM_FLUID_BLOCK).setRegistryName(DRACONIUM_FLUID_BLOCK.getRegistryName())
-		);
+		for (Block block : blocks)
+		{
+			event.getRegistry().registerAll(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+		}
 	}
 	
 	/**
@@ -77,14 +74,10 @@ public class BlocksInit
 	@SubscribeEvent
 	protected static void regsiterRenders(ModelRegistryEvent event)
 	{
-		registerRender(Item.getItemFromBlock(AZURITE_BLOCK));
-		registerRender(Item.getItemFromBlock(DRACONIUM_BLOCK));
-		
-		registerRender(Item.getItemFromBlock(CAVE_BLOCK));
-		registerRender(Item.getItemFromBlock(ELEVATOR));
-		
-		registerRender(Item.getItemFromBlock(DRACONIUM_FLUID_BLOCK));
-		//...
+		for (Block block : blocks)
+		{
+			registerRender(Item.getItemFromBlock(block));
+		}
 	}
 	
 	private static void registerRender(Item item)

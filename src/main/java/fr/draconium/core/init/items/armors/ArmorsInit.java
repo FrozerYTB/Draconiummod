@@ -1,10 +1,14 @@
 package fr.draconium.core.init.items.armors;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import fr.draconium.core.items.armors.AquatiqueArmor;
 import fr.draconium.core.items.armors.ArmorBasic;
 import fr.draconium.core.items.armors.DraconiqueArmor;
 import fr.draconium.core.items.armors.DraconiumArmor;
 import fr.draconium.core.materials.ArmorsMaterial;
+import fr.draconium.core.messages.Console;
 import fr.draconium.core.references.Reference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -19,6 +23,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ArmorsInit
 {
 
+	private static List<Item> armors = new ArrayList<>();
+	
 	public static Item AZURITE_HELMET;
 	public static Item AZURITE_CHESTPLATE;
 	public static Item AZURITE_LEGGINGS;
@@ -38,66 +44,42 @@ public class ArmorsInit
 	
 	public static void init()
 	{
-		AZURITE_HELMET 			= new ArmorBasic("azurite_helmet", ArmorsMaterial.MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD);
-		AZURITE_CHESTPLATE 		= new ArmorBasic("azurite_chestplate", ArmorsMaterial.MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST);
-		AZURITE_LEGGINGS 		= new ArmorBasic("azurite_leggings", ArmorsMaterial.MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS);
-		AZURITE_BOOTS 			= new ArmorBasic("azurite_boots", ArmorsMaterial.MATERIAL_AZURITE, 1, EntityEquipmentSlot.FEET);
+		armors.add(AZURITE_HELMET 			= new ArmorBasic("azurite_helmet", ArmorsMaterial.MATERIAL_AZURITE, 1, EntityEquipmentSlot.HEAD));
+		armors.add(AZURITE_CHESTPLATE 		= new ArmorBasic("azurite_chestplate", ArmorsMaterial.MATERIAL_AZURITE, 1, EntityEquipmentSlot.CHEST));
+		armors.add(AZURITE_LEGGINGS 		= new ArmorBasic("azurite_leggings", ArmorsMaterial.MATERIAL_AZURITE, 2, EntityEquipmentSlot.LEGS));
+		armors.add(AZURITE_BOOTS 			= new ArmorBasic("azurite_boots", ArmorsMaterial.MATERIAL_AZURITE, 1, EntityEquipmentSlot.FEET));
 		
-		DRACONIUM_HELMET 		= new DraconiumArmor("draconium_helmet", ArmorsMaterial.MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.HEAD);
-		DRACONIUM_CHESTPLATE 	= new DraconiumArmor("draconium_chestplate",ArmorsMaterial.MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.CHEST);
-		DRACONIUM_LEGGINGS 		= new DraconiumArmor("draconium_leggings", ArmorsMaterial.MATERIAL_DRACONIUM, 2, EntityEquipmentSlot.LEGS);
-		DRACONIUM_BOOTS 		= new DraconiumArmor("draconium_boots", ArmorsMaterial.MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.FEET);
+		armors.add(DRACONIUM_HELMET 		= new DraconiumArmor("draconium_helmet", ArmorsMaterial.MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.HEAD));
+		armors.add(DRACONIUM_CHESTPLATE 	= new DraconiumArmor("draconium_chestplate",ArmorsMaterial.MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.CHEST));
+		armors.add(DRACONIUM_LEGGINGS 		= new DraconiumArmor("draconium_leggings", ArmorsMaterial.MATERIAL_DRACONIUM, 2, EntityEquipmentSlot.LEGS));
+		armors.add(DRACONIUM_BOOTS 			= new DraconiumArmor("draconium_boots", ArmorsMaterial.MATERIAL_DRACONIUM, 1, EntityEquipmentSlot.FEET));
 		
-		DRACONIQUE_HELMET 		= new DraconiqueArmor("draconique_helmet", ArmorsMaterial.MATERIAL_DRACONIQUE, 1, EntityEquipmentSlot.HEAD);
-		DRACONIQUE_CHESTPLATE 	= new DraconiqueArmor("draconique_chestplate", ArmorsMaterial.MATERIAL_DRACONIQUE, 1, EntityEquipmentSlot.CHEST);
-		DRACONIQUE_LEGGINGS 	= new DraconiqueArmor("draconique_leggings", ArmorsMaterial.MATERIAL_DRACONIQUE, 2, EntityEquipmentSlot.LEGS);
-		DRACONIQUE_BOOTS 		= new DraconiqueArmor("draconique_boots", ArmorsMaterial.MATERIAL_DRACONIQUE, 1, EntityEquipmentSlot.FEET);
+		armors.add(DRACONIQUE_HELMET 		= new DraconiqueArmor("draconique_helmet", ArmorsMaterial.MATERIAL_DRACONIQUE, 1, EntityEquipmentSlot.HEAD));
+		armors.add(DRACONIQUE_CHESTPLATE 	= new DraconiqueArmor("draconique_chestplate", ArmorsMaterial.MATERIAL_DRACONIQUE, 1, EntityEquipmentSlot.CHEST));
+		armors.add(DRACONIQUE_LEGGINGS 		= new DraconiqueArmor("draconique_leggings", ArmorsMaterial.MATERIAL_DRACONIQUE, 2, EntityEquipmentSlot.LEGS));
+		armors.add(DRACONIQUE_BOOTS 		= new DraconiqueArmor("draconique_boots", ArmorsMaterial.MATERIAL_DRACONIQUE, 1, EntityEquipmentSlot.FEET));
 		
-		AQUATIQUE_HELMET 		= new AquatiqueArmor("aquatique_helmet", ArmorsMaterial.MATERIAL_AQUATIQUE, 1, EntityEquipmentSlot.HEAD);
+		armors.add(AQUATIQUE_HELMET 		= new AquatiqueArmor("aquatique_helmet", ArmorsMaterial.MATERIAL_AQUATIQUE, 1, EntityEquipmentSlot.HEAD));
 	}
 	
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
-		event.getRegistry().registerAll(
-				AZURITE_HELMET,
-				AZURITE_CHESTPLATE,
-				AZURITE_LEGGINGS,
-				AZURITE_BOOTS,
-				
-				DRACONIUM_HELMET,
-				DRACONIUM_CHESTPLATE,
-				DRACONIUM_LEGGINGS,
-				DRACONIUM_BOOTS,
-				
-				DRACONIQUE_HELMET,
-				DRACONIQUE_CHESTPLATE,
-				DRACONIQUE_LEGGINGS,
-				DRACONIQUE_BOOTS,
-				
-				AQUATIQUE_HELMET
-		);
+		for (Item armor : armors)
+		{
+			event.getRegistry().registerAll(armor);
+			Console.debug("Enregistrement de l'armure: #6FF7D0" + armor.getRegistryName());
+		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
-		registerRender(AZURITE_HELMET);
-		registerRender(AZURITE_CHESTPLATE);
-		registerRender(AZURITE_LEGGINGS);
-		registerRender(AZURITE_BOOTS);
-		
-		registerRender(DRACONIUM_HELMET);
-		registerRender(DRACONIUM_CHESTPLATE);
-		registerRender(DRACONIUM_LEGGINGS);
-		registerRender(DRACONIUM_BOOTS);
-		
-		registerRender(DRACONIQUE_HELMET);
-		registerRender(DRACONIQUE_CHESTPLATE);
-		registerRender(DRACONIQUE_LEGGINGS);
-		registerRender(DRACONIQUE_BOOTS);
-		
-		registerRender(AQUATIQUE_HELMET);
+		for (Item armor : armors)
+		{
+			registerRender(armor);
+			Console.debug("Enregistrement du rendu de l'armure: #6FF794" + armor.getRegistryName());
+		}
 	}
 	
 	private static void registerRender(Item item)
