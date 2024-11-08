@@ -83,8 +83,8 @@ public class ItemRadar extends Item
 				ItemStack stack = getUsableItemStack(player);
 				if (!stack.isEmpty())
 				{
-					NBTTagCompound tag = stack.getOrCreateSubCompound("radarData");
-					int usedTime = tag.getInteger("usedTime") + 1;
+					NBTTagCompound tag 	= stack.getOrCreateSubCompound("radarData");
+					int usedTime 		= tag.getInteger("usedTime") + 1;
 
 					if (usedTime > getMaxUseTime(stack))
 					{
@@ -116,9 +116,9 @@ public class ItemRadar extends Item
 
 	public static double getRadarRange(ItemStack stack)
 	{
-		int level = EnchantmentHelper.getEnchantmentLevel(EnchantRange.ENCHANT_RANGE, stack);
-		double baseRange = 50.0;
-		double rangeBonus = level * 16.0;
+		int level 			= EnchantmentHelper.getEnchantmentLevel(EnchantRange.ENCHANT_RANGE, stack);
+		double baseRange 	= 50.0;
+		double rangeBonus 	= level * 16.0;
 		return baseRange + rangeBonus;
 	}
 
@@ -137,8 +137,7 @@ public class ItemRadar extends Item
 	{
 		if (!world.isRemote)
 		{
-			double range = getRadarRange(stack);
-			player.sendMessage(new TextComponentString("Radar range: " + range + " chunks"));
+			player.sendMessage(new TextComponentString("Radar range: " + getRadarRange(stack) + " chunks"));
 		}
 	}
 }

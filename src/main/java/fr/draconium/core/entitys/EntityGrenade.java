@@ -6,15 +6,14 @@ import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 
 public class EntityGrenade extends EntityThrowable
 {
-	private static final double HITBOX_SIZE = 0.5D;
-	private float rotationAngle;
+	//private static final double HITBOX_SIZE = 0.5D;
+	//private float rotationAngle;
 
 	public EntityGrenade(World worldIn)
 	{
@@ -25,19 +24,20 @@ public class EntityGrenade extends EntityThrowable
 	{
 		super(worldIn, throwerIn);
 	}
-
+	
+	/*
 	@Override
 	protected void entityInit()
 	{
 		this.setSize((float) HITBOX_SIZE, (float) HITBOX_SIZE);
 		this.updateBoundingBox();
 	}
-
+	
 	private void updateBoundingBox()
 	{
 		this.setEntityBoundingBox(new AxisAlignedBB(this.posX - HITBOX_SIZE / 2, this.posY - HITBOX_SIZE / 2, this.posZ - HITBOX_SIZE / 2, this.posX + HITBOX_SIZE / 2, this.posY + HITBOX_SIZE / 2, this.posZ + HITBOX_SIZE / 2));
 	}
-
+	
 	@Override
 	public void onUpdate()
 	{
@@ -58,7 +58,7 @@ public class EntityGrenade extends EntityThrowable
 		// Mettre à jour la hitbox
 		updateBoundingBox();
 	}
-
+	*/
 	@Override
 	protected void onImpact(RayTraceResult result)
 	{

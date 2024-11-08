@@ -18,7 +18,7 @@ public class RenderGrenade extends RenderSnowball<EntityGrenade>
 	{
 		super(renderManager, OthersInit.GRENADE, Minecraft.getMinecraft().getRenderItem());
 	}
-
+	
 	public static class Factory implements IRenderFactory<EntityGrenade>
 	{
 		@Override

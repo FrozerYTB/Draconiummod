@@ -1,6 +1,0 @@
-{
-    "parent": "forge:fluid",
-    "textures": {
-        "texture": "draconiumcore:fluids/draconium_fluid"
-    }
-}

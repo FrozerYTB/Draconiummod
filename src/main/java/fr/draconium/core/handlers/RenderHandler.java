@@ -14,21 +14,21 @@ public class RenderHandler
 {
 	public static void registerCustomMeshesAndStates()
 	{
-		ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(BlocksInit.DRACONIUM_FLUID_BLOCK), new ItemMeshDefinition()
+		ModelLoader.setCustomMeshDefinition(Item.getItemFromBlock(BlocksInit.FAKE_WATER_FLUID_BLOCK), new ItemMeshDefinition()
 		{
 			@Override
 			public ModelResourceLocation getModelLocation(ItemStack stack)
 			{
-				return new ModelResourceLocation(Reference.MODID + ":draconium_fluid", "fluid");
+				return new ModelResourceLocation(Reference.MODID + ":fake_water_fluid", "fluid");
 			}
 		});
 		
-		ModelLoader.setCustomStateMapper(BlocksInit.DRACONIUM_FLUID_BLOCK, new StateMapperBase()
+		ModelLoader.setCustomStateMapper(BlocksInit.FAKE_WATER_FLUID_BLOCK, new StateMapperBase()
 		{
 			@Override
 			protected ModelResourceLocation getModelResourceLocation(IBlockState state)
 			{
-				return new ModelResourceLocation(Reference.MODID + ":draconium_fluid", "fluid");
+				return new ModelResourceLocation(Reference.MODID + ":fake_water_fluid", "fluid");
 			}
 		});
 	}

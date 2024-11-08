@@ -34,7 +34,7 @@ public class BlocksInit
 	public static Block CAVE_BLOCK;
 	public static Block ELEVATOR;
 	
-	public static Block DRACONIUM_FLUID_BLOCK;
+	public static Block FAKE_WATER_FLUID_BLOCK;
 	
 	public static void init()
 	{
@@ -44,7 +44,7 @@ public class BlocksInit
 		blocks.add(CAVE_BLOCK 				= new BlockCaveBlock("cave_block", Material.GLASS));
 		blocks.add(ELEVATOR 				= new BlockElevator("elevator", Material.IRON));
 		
-		blocks.add(DRACONIUM_FLUID_BLOCK 	= new BlockFluid("draconium_fluid", FluidInit.DRACONIUM_FLUID, Material.LAVA));
+		blocks.add(FAKE_WATER_FLUID_BLOCK 	= new BlockFluid("fake_water_fluid", FluidInit.FAKE_WATER_FLUID, Material.WATER));
 	}
 	
 	

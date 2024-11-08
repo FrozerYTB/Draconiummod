@@ -67,30 +67,34 @@ public class DraconiumCore
 		KeyBindings.init();
 		DraconiumCorePackets.registerMessages();
 		
+		//Register Fluids
 		FluidInit.registerFluids();
 		
-		//Object Game
+		//Register Blocks
 		BlocksInit.init();
 		BlocksOresInit.init();
 		
+		//Register Items
 		FoodsInit.init();
 		ArmorsInit.init();
 		OresInit.init();
 		ToolsInit.init();
 		SwordsInit.init();
 		OthersInit.init();
-		//LiquidsInit.init();
 		
 		//Register Event
 		this.registerEventBus();
 		
-		//Init Game Sound
+		//Register Game Sound
 		BackgroundInit.init();
 		
-		//Init Render
+		//Register Render
 		RenderGrenade.register();
+		
+		//Register Entity
 		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, "grenade"), EntityGrenade.class, "Grenade", 1, this, 64, 10, true);
 		
+		//Register Handler Fluids
 		RenderHandler.registerCustomMeshesAndStates();
 	}
 	
