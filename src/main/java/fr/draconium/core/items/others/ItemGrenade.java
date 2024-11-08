@@ -18,7 +18,7 @@ public class ItemGrenade extends Item
 		this.setUnlocalizedName(name);
 		this.setRegistryName(name);
 		this.setMaxStackSize(16);
-		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_ARMORS);
+		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS);
 	}
 	
 	/**

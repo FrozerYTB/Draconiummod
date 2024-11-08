@@ -1,5 +1,8 @@
 package fr.draconium.core;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import fr.draconium.core.entitys.EntityGrenade;
 import fr.draconium.core.handlers.AmbientSoundHandler;
 import fr.draconium.core.handlers.PlayerJoinHandler;
@@ -10,13 +13,12 @@ import fr.draconium.core.init.capabilities.CapabilitiesInit;
 import fr.draconium.core.init.items.armors.ArmorsInit;
 import fr.draconium.core.init.items.foods.FoodsInit;
 import fr.draconium.core.init.items.liquids.FluidInit;
-import fr.draconium.core.init.items.liquids.LiquidsInit;
 import fr.draconium.core.init.items.ores.OresInit;
 import fr.draconium.core.init.items.others.OthersInit;
 import fr.draconium.core.init.items.swords.SwordsInit;
 import fr.draconium.core.init.items.tools.ToolsInit;
 import fr.draconium.core.init.keys.KeyBindings;
-import fr.draconium.core.init.sounds.BackgroundSound;
+import fr.draconium.core.init.sounds.BackgroundInit;
 import fr.draconium.core.proxy.ServerProxy;
 import fr.draconium.core.proxy.packets.DraconiumCorePackets;
 import fr.draconium.core.references.Reference;
@@ -44,6 +46,8 @@ public class DraconiumCore
 	@SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.SERVER, modId = Reference.MODID)
 	private static ServerProxy serverProxy;
 	
+	public static final Logger LOGGER = LogManager.getLogger("");
+	
 	static
 	{
 		FluidRegistry.enableUniversalBucket();
@@ -63,30 +67,34 @@ public class DraconiumCore
 		KeyBindings.init();
 		DraconiumCorePackets.registerMessages();
 		
+		//Register Fluids
 		FluidInit.registerFluids();
 		
-		//Object Game
+		//Register Blocks
 		BlocksInit.init();
 		BlocksOresInit.init();
 		
+		//Register Items
 		FoodsInit.init();
 		ArmorsInit.init();
 		OresInit.init();
 		ToolsInit.init();
 		SwordsInit.init();
 		OthersInit.init();
-		//LiquidsInit.init();
 		
 		//Register Event
 		this.registerEventBus();
 		
-		//Init Game Sound
-		BackgroundSound.init();
+		//Register Game Sound
+		BackgroundInit.init();
 		
-		//Init Render
+		//Register Render
 		RenderGrenade.register();
+		
+		//Register Entity
 		EntityRegistry.registerModEntity(new ResourceLocation(Reference.MODID, "grenade"), EntityGrenade.class, "Grenade", 1, this, 64, 10, true);
 		
+		//Register Handler Fluids
 		RenderHandler.registerCustomMeshesAndStates();
 	}
 	
