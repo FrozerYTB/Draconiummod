@@ -1,0 +1,34 @@
+tile.azurite_ore.name=§bMinerai d'Azurite
+tile.draconium_block.name=§aBlock de Draconium
+tile.azurite_block.name=§9Bloc d'Azurite
+tile.draconium_ore.name=§2Minerai de Draconium
+tile.findium_ore.name=§eMinerai de Findium
+tile.explosive_ore.name=§6Minerai explosif
+tile.cave_block.name=Cave Block
+tile.elevator.name=Elévateur
+
+item.item_test.name=Item Test
+item.draconium_apple.name=§2Pomme en Draconium
+
+item.azurite_helmet.name=Casque en Azurite
+item.azurite_chestplate.name=Plastron en Azurite
+item.azurite_leggings.name=Jambières en Azurite
+item.azurite_boots.name=Bottes en Azurite
+
+item.draconique_helmet.name=Casque Draconite
+item.draconique_chestplate.name=Plastron Draconique
+item.draconique_leggings.name=Jambières Draconique
+item.draconique_boots.name=Bottes Draconique
+
+item.draconium_helmet.name=Casque en Draconium
+item.draconium_chestplate.name=Plastron en Draconium
+item.draconium_leggings.name=Jambières en Draconium
+item.draconium_boots.name=Bottes en Draconium
+
+itemGroup.draconium_block=§2Draconium Blocks
+itemGroup.draconium_food=Draconium Nourritures
+itemGroup.draconium_armor=Draconium Armures
+itemGroup.draconium_tool=Draconium Outils
+itemGroup.draconium_other=Draconium Autres
+
+enchantment.range_enchant.name=Range
