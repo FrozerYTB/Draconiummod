@@ -101,3 +101,13 @@ item.draconium_gear.name=Rouage en Draconium
 #ARC ET FLECHES
 item.draconium_bow.name=Arc en Draconium
 item.switch_arrow.name= Fleches de déplacement
+
+
+#GROUPES
+
+itemGroup.draconium_block=§2Draconium Blocks
+itemGroup.draconium_food=Draconium Nourritures
+itemGroup.draconium_armor=Draconium Armures
+itemGroup.draconium_tool=Draconium Outils
+itemGroup.draconium_other=Draconium Autres
+
