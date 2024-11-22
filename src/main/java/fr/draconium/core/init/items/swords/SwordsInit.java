@@ -33,20 +33,22 @@ public class SwordsInit
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
+		Console.debug("- Enregistrement des éppées:");
 		for (Item sword : swords)
 		{
 			event.getRegistry().registerAll(sword);
-			Console.debug("Enregistrement de l'éppée: #6FF7D0" + sword.getRegistryName());
+			Console.debug("  - #6FF7D0" + sword.getRegistryName());
 		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
+		Console.debug("- Enregistrement du rendu des éppées:");
 		for (Item sword : swords)
 		{
 			registerRender(sword);
-			Console.debug("Enregistrement du rendu de l'éppée: #6FF794" + sword.getRegistryName());
+			Console.debug("  - #6FF794" + sword.getRegistryName());
 		}
 	}
 	

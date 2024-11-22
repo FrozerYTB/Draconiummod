@@ -1,4 +1,4 @@
-package fr.draconium.core.proxy.packets;
+package fr.draconium.core.proxy.packets.server;
 
 import fr.draconium.core.actions.KeyAction;
 import fr.draconium.core.items.armors.DraconiqueArmor;

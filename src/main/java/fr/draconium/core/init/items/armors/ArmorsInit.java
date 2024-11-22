@@ -65,20 +65,22 @@ public class ArmorsInit
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
+		Console.debug("- Enregistrement des armures:");
 		for (Item armor : armors)
 		{
 			event.getRegistry().registerAll(armor);
-			Console.debug("Enregistrement de l'armure: #6FF7D0" + armor.getRegistryName());
+			Console.debug("  - #6FF7D0" + armor.getRegistryName());
 		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
+		Console.debug("- Enregistrement du rendu des armures:");
 		for (Item armor : armors)
 		{
 			registerRender(armor);
-			Console.debug("Enregistrement du rendu de l'armure: #6FF794" + armor.getRegistryName());
+			Console.debug("  - #6FF794" + armor.getRegistryName());
 		}
 	}
 	

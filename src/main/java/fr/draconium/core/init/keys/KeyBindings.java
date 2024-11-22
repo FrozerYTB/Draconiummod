@@ -2,10 +2,10 @@ package fr.draconium.core.init.keys;
 
 import org.lwjgl.input.Keyboard;
 
-import fr.draconium.core.proxy.packets.DraconiumCorePackets;
-import fr.draconium.core.proxy.packets.EnergyShieldPacket;
-import fr.draconium.core.proxy.packets.SpawnWolfPacket;
-import fr.draconium.core.proxy.packets.TeleportPacket;
+import fr.draconium.core.proxy.packets.server.DraconiumCorePackets;
+import fr.draconium.core.proxy.packets.server.EnergyShieldPacket;
+import fr.draconium.core.proxy.packets.server.SpawnWolfPacket;
+import fr.draconium.core.proxy.packets.server.TeleportPacket;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.common.Mod;

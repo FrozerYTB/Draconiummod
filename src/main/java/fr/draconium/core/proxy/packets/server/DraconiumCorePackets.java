@@ -1,4 +1,4 @@
-package fr.draconium.core.proxy.packets;
+package fr.draconium.core.proxy.packets.server;
 
 import fr.draconium.core.references.Reference;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
@@ -23,5 +23,10 @@ public class DraconiumCorePackets
 	private static <T extends IMessage> void registerMessage(Class<? extends IMessageHandler<T, IMessage>> handler, Class<T> message, Side side)
 	{
 		INSTANCE.registerMessage(handler, message, packetId++, side);
+	}
+
+	private static int nextID()
+	{
+		return packetId++;
 	}
 }

@@ -40,10 +40,12 @@ public class BlocksOresInit
 	@SubscribeEvent
 	protected static void registerBlocks(RegistryEvent.Register<Block> event)
 	{
+		Console.debug("- Enregistrement des blocks de minerais:");
+		
 		for (Block block_ore : block_ores)
 		{
 			event.getRegistry().registerAll(block_ore);
-			Console.debug("Enregistrement du block: #6FF7D0" + block_ore.getRegistryName());
+			Console.debug("  - #6FF7D0" + block_ore.getRegistryName());
 		}
 	}
 	

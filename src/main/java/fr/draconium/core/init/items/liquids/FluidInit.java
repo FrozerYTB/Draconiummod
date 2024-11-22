@@ -5,7 +5,9 @@ import fr.draconium.core.references.Reference;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.Mod;
 
+@Mod.EventBusSubscriber(modid = Reference.MODID)
 public class FluidInit
 {
 	public static Fluid FAKE_WATER_FLUID = new FluidLiquid("fake_water_fluid",

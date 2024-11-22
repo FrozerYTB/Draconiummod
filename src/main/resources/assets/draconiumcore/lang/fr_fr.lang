@@ -30,3 +30,5 @@ itemGroup.draconium_food=Draconium Nourritures
 itemGroup.draconium_armor=Draconium Armures
 itemGroup.draconium_tool=Draconium Outils
 itemGroup.draconium_other=Draconium Autres
+
+enchantment.range_enchant.name=Range

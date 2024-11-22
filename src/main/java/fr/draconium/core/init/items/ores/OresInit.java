@@ -35,20 +35,22 @@ public class OresInit
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
+		Console.debug("- Enregistrement des l'ingots:");
 		for (Item ingot : ingots)
 		{
 			event.getRegistry().registerAll(ingot);
-			Console.debug("Enregistrement du l'ingot: #6FF7D0" + ingot.getRegistryName());
+			Console.debug("  - #6FF7D0" + ingot.getRegistryName());
 		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
+		Console.debug("- Enregistrement du rendu des l'ingots:");
 		for (Item ingot : ingots)
 		{
 			registerRender(ingot);
-			Console.debug("Enregistrement du rendu du l'ingot: #6FF794" + ingot.getRegistryName());
+			Console.debug("  - #6FF794" + ingot.getRegistryName());
 		}
 	}
 	

@@ -2,6 +2,6 @@
     "parent": "item/generated",
     "textures":
     {
-        "layer0": "draconiumcore:items/others/sponge_on_a_stick"
+        "layer0": "draconiumcore:items/sticks/sponge_on_a_stick"
     }
 }

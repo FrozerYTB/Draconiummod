@@ -27,10 +27,11 @@ public class BackgroundInit
 	@SubscribeEvent
 	public static void registerSounds(RegistryEvent.Register<SoundEvent> event)
 	{
+		Console.debug("- Enregistrement des sons:");
 		for (SoundEvent sound : sounds)
 		{
 			event.getRegistry().registerAll(sound);
-			Console.debug("Enregistrement du son: #F3F76F" + sound.getRegistryName());
+			Console.debug("  - #F3F76F" + sound.getRegistryName());
 		}
 	}
 }

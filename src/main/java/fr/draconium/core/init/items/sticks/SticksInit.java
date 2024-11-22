@@ -1,16 +1,11 @@
-package fr.draconium.core.init.items.others;
+package fr.draconium.core.init.items.sticks;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import fr.draconium.core.DraconiumCore;
-import fr.draconium.core.items.ItemBasic;
-import fr.draconium.core.items.others.ItemGrenade;
-import fr.draconium.core.items.others.ItemRadar;
 import fr.draconium.core.items.others.ItemRegenerationStick;
 import fr.draconium.core.items.others.ItemSpongeOnAStick;
 import fr.draconium.core.items.others.ItemStickOfGod;
-import fr.draconium.core.items.others.ItemTimer;
 import fr.draconium.core.messages.Console;
 import fr.draconium.core.references.Reference;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -22,44 +17,40 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod.EventBusSubscriber(modid = Reference.MODID)
-public class OthersInit
+public class SticksInit
 {
-
-	private static List<Item> others = new ArrayList<>();
+	private static List<Item> sticks = new ArrayList<>();
 	
-	public static Item RADAR;
-	public static Item GRENADE;
-	public static Item DEBRIS_GRENADE;
-	
-	public static Item TEST;
+	public static Item STICK_OF_GOD;
+	public static Item REGENERATION_STICK;
+	public static Item SPONGE_ON_A_STICK;
 	
 	public static void init()
 	{
-		others.add(RADAR 				= new ItemRadar("radar"));
-		others.add(GRENADE 				= new ItemGrenade("grenade"));
-		others.add(DEBRIS_GRENADE 		= new ItemBasic("debris_grenade").setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS));
-		//others.add(TEST 				= new ItemTimer("test"));
+		sticks.add(STICK_OF_GOD 		= new ItemStickOfGod("stick_of_god"));
+		sticks.add(REGENERATION_STICK 	= new ItemRegenerationStick("regeneration_stick"));
+		sticks.add(SPONGE_ON_A_STICK 	= new ItemSpongeOnAStick("sponge_on_a_stick"));
 	}
 	
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
-		Console.debug("- Enregistrement des items:");
-		for (Item other : others)
+		Console.debug("- Enregistrement des sticks:");
+		for (Item stick : sticks)
 		{
-			event.getRegistry().registerAll(other);
-			Console.debug("  - #6FF7D0" + other.getRegistryName());
+			event.getRegistry().registerAll(stick);
+			Console.debug("  - #6FF7D0" + stick.getRegistryName());
 		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
-		Console.debug("- Enregistrement des items:");
-		for (Item other : others)
+		Console.debug("- Enregistrement des rendus des sticks:");
+		for (Item stick : sticks)
 		{
-			registerRender(other);
-			Console.debug("  - #6FF794" + other.getRegistryName());
+			registerRender(stick);
+			Console.debug("  - #6FF794" + stick.getRegistryName());
 		}
 	}
 	

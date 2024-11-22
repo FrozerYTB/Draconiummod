@@ -52,10 +52,11 @@ public class BlocksInit
 	@SubscribeEvent
 	protected static void registerBlocks(RegistryEvent.Register<Block> event)
 	{
+		Console.debug("- Enregistrement des blocks:");
 		for (Block block : blocks)
 		{
 			event.getRegistry().registerAll(block);
-			Console.debug("Enregistrement du block: #6FF7D0" + block.getRegistryName());
+			Console.debug("  - #6FF7D0" + block.getRegistryName());
 		}
 	}
 	

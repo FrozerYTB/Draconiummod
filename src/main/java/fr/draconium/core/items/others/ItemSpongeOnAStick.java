@@ -30,7 +30,7 @@ public class ItemSpongeOnAStick extends Item
 		this.setRegistryName(name);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(SPONGE_MAX_DAMAGE);
-		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS);
+		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_STIKCS);
 	}
 	
 	@Override

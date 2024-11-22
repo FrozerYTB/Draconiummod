@@ -1,6 +1,5 @@
-package fr.draconium.core.inventorys;
+package fr.draconium.core.overlays;
 
-import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,42 +10,34 @@ import net.minecraft.client.gui.Gui;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class Radar extends Gui
+@Mod.EventBusSubscriber(modid = Reference.MODID)
+public class RadarOverlay extends Gui
 {
 	public static int amountTiles 				= 0;
 
 	private final Minecraft minecraft 			= Minecraft.getMinecraft();
-	private final ResourceLocation te0 			= new ResourceLocation(Reference.MODID, "textures/items/radar_empty.png");
-	private final ResourceLocation te1_5 		= new ResourceLocation(Reference.MODID, "textures/items/radar_0-5.png");
-	private final ResourceLocation te6_10 		= new ResourceLocation(Reference.MODID, "textures/items/radar_6-10.png");
-	private final ResourceLocation te11_25 		= new ResourceLocation(Reference.MODID, "textures/items/radar_11-25.png");
-	private final ResourceLocation te26_more 	= new ResourceLocation(Reference.MODID, "textures/items/radar_26+.png");
-	
-	public static String formatDuration(ItemStack stack)
-	{
-		int remainingTime = ItemRadar.getMaxUseTime(stack) - ItemRadar.getUsedTime(stack);
-		Duration duration = Duration.ofSeconds(remainingTime / 20);
-		long seconds = duration.getSeconds();
-		long absSeconds = Math.abs(seconds);
-		String positive = String.format("%d:%02d:%02d", absSeconds / 3600, (absSeconds % 3600) / 60, absSeconds % 60);
-		return seconds < 0 ? "-" + positive : positive;
-	}
+	private final ResourceLocation te0 			= new ResourceLocation(Reference.MODID, "textures/items/radars/radar_empty.png");
+	private final ResourceLocation te1_5 		= new ResourceLocation(Reference.MODID, "textures/items/radars/radar_0-5.png");
+	private final ResourceLocation te6_10 		= new ResourceLocation(Reference.MODID, "textures/items/radars/radar_6-10.png");
+	private final ResourceLocation te11_25 		= new ResourceLocation(Reference.MODID, "textures/items/radars/radar_11-25.png");
+	private final ResourceLocation te26_more 	= new ResourceLocation(Reference.MODID, "textures/items/radars/radar_26+.png");
 
 	@SubscribeEvent
 	public void onRenderPre(RenderGameOverlayEvent.Pre event)
 	{
 		if (event.getType() == RenderGameOverlayEvent.ElementType.HELMET)
 		{
-			ItemStack stack = ItemRadar.getUsableItemStack(this.minecraft.player);
+			ItemStack stack = ItemRadar.instance.getUsableItemStack(this.minecraft.player);
 			if (stack.isEmpty())
 			{
 				this.amountTiles = 0;
 				return;
 			}
 
-			int chunksRadius 			= (int) ItemRadar.getRadarRange(stack);
+			int chunksRadius 			= ItemRadar.instance.getRadarRange(stack);
 
 			Set<String> chunksVisited 	= new HashSet<>();
 			this.amountTiles 			= 0;
@@ -75,7 +66,7 @@ public class Radar extends Gui
 			this.minecraft.getTextureManager().bindTexture(texture);
 			drawModalRectWithCustomSizedTexture(5, 5, 0, 0, 32, 32, 32, 32);
 			drawCenteredString(this.minecraft.fontRenderer, this.amountTiles + "%", 23, 39, -1);
-			drawCenteredString(this.minecraft.fontRenderer, Radar.formatDuration(stack), 23, 48, -1);
+			drawCenteredString(this.minecraft.fontRenderer, ItemRadar.instance.getTimeLeft(), 23, 48, -1);
 		}
 	}
 }

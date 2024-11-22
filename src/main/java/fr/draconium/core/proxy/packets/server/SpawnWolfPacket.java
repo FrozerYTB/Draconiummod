@@ -1,4 +1,4 @@
-package fr.draconium.core.proxy.packets;
+package fr.draconium.core.proxy.packets.server;
 
 import fr.draconium.core.actions.KeyAction;
 import fr.draconium.core.items.armors.DraconiqueArmor;
@@ -10,31 +10,31 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 
-public class TeleportPacket implements IMessage
+public class SpawnWolfPacket implements IMessage
 {
 	@Override
-	public void toBytes(ByteBuf buffered)
+	public void fromBytes(ByteBuf buf)
 	{
 		
 	}
 
 	@Override
-	public void fromBytes(ByteBuf buffered)
+	public void toBytes(ByteBuf buf)
 	{
 		
 	}
 
-	public static class Handler implements IMessageHandler<TeleportPacket, IMessage>
+	public static class Handler implements IMessageHandler<SpawnWolfPacket, IMessage>
 	{
 		@Override
-		public IMessage onMessage(TeleportPacket message, MessageContext messageContexte)
+		public IMessage onMessage(SpawnWolfPacket message, MessageContext messageContexte)
 		{
 			EntityPlayerMP player = messageContexte.getServerHandler().player;
 			player.getServerWorld().addScheduledTask(() ->
 			{
 				if (DraconiqueArmor.isAmrorComplet(player))
 				{
-					KeyAction.teleportRandomly(player);
+					KeyAction.spawnAllies(player);
 					Console.debug("Amure de draconique complète");
 				}
 				else

@@ -5,27 +5,33 @@ import org.apache.logging.log4j.Logger;
 
 import fr.draconium.core.entitys.EntityGrenade;
 import fr.draconium.core.handlers.AmbientSoundHandler;
+import fr.draconium.core.handlers.AnvilEventHandler;
 import fr.draconium.core.handlers.PlayerJoinHandler;
 import fr.draconium.core.handlers.RenderHandler;
 import fr.draconium.core.init.blocks.BlocksInit;
 import fr.draconium.core.init.blocks.ores.BlocksOresInit;
 import fr.draconium.core.init.capabilities.CapabilitiesInit;
+import fr.draconium.core.init.enchants.EnchantmentsInit;
 import fr.draconium.core.init.items.armors.ArmorsInit;
 import fr.draconium.core.init.items.foods.FoodsInit;
 import fr.draconium.core.init.items.liquids.FluidInit;
 import fr.draconium.core.init.items.ores.OresInit;
 import fr.draconium.core.init.items.others.OthersInit;
+import fr.draconium.core.init.items.sticks.SticksInit;
 import fr.draconium.core.init.items.swords.SwordsInit;
 import fr.draconium.core.init.items.tools.ToolsInit;
 import fr.draconium.core.init.keys.KeyBindings;
 import fr.draconium.core.init.sounds.BackgroundInit;
+import fr.draconium.core.overlays.RadarOverlay;
 import fr.draconium.core.proxy.ServerProxy;
-import fr.draconium.core.proxy.packets.DraconiumCorePackets;
+import fr.draconium.core.proxy.packets.server.DraconiumCorePackets;
 import fr.draconium.core.references.Reference;
 import fr.draconium.core.renders.RenderGrenade;
 import fr.draconium.core.tabs.DraconiumCoreTab;
+import fr.draconium.core.tabs.DraconiumCoreTabEnchant;
 import fr.draconium.core.worlds.generation.GenerationOres;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -58,6 +64,8 @@ public class DraconiumCore
 	public static CreativeTabs DRACONIUM_TAB_ARMORS 	= new DraconiumCoreTab("draconium_armor");
 	public static CreativeTabs DRACONIUM_TAB_TOOLS 		= new DraconiumCoreTab("draconium_tool");
 	public static CreativeTabs DRACONIUM_TAB_OTHERS 	= new DraconiumCoreTab("draconium_other");
+	public static CreativeTabs DRACONIUM_TAB_STIKCS 	= new DraconiumCoreTab("draconium_sticks");
+	public static CreativeTabs DRACONIUM_TAB_ENCHANTS 	= new DraconiumCoreTabEnchant("draconium_enchant");
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
@@ -81,6 +89,9 @@ public class DraconiumCore
 		ToolsInit.init();
 		SwordsInit.init();
 		OthersInit.init();
+		SticksInit.init();
+		
+		//Register Enchants
 		
 		//Register Event
 		this.registerEventBus();
@@ -113,13 +124,20 @@ public class DraconiumCore
 		((DraconiumCoreTab) DRACONIUM_TAB_FOOD).setIcon(FoodsInit.DRACONIUM_APPLE);
 		((DraconiumCoreTab) DRACONIUM_TAB_ARMORS).setIcon(ArmorsInit.DRACONIUM_CHESTPLATE);
 		((DraconiumCoreTab) DRACONIUM_TAB_TOOLS).setIcon(ToolsInit.DRACONIUM_PICKAXE);
-		((DraconiumCoreTab) DRACONIUM_TAB_OTHERS).setIcon(OthersInit.REGENERATION_STICK);
+		((DraconiumCoreTab) DRACONIUM_TAB_OTHERS).setIcon(OthersInit.RADAR);
+		((DraconiumCoreTab) DRACONIUM_TAB_STIKCS).setIcon(SticksInit.REGENERATION_STICK);
+		((DraconiumCoreTabEnchant) DRACONIUM_TAB_ENCHANTS).setIcon(Items.ENCHANTED_BOOK);
 	}
 	
 	private void registerEventBus()
 	{
 		MinecraftForge.EVENT_BUS.register(AmbientSoundHandler.class);
 		MinecraftForge.EVENT_BUS.register(PlayerJoinHandler.class);
+		
+		MinecraftForge.EVENT_BUS.register(new RadarOverlay());
+		
+		MinecraftForge.EVENT_BUS.register(AnvilEventHandler.class);
+		MinecraftForge.EVENT_BUS.register(EnchantmentsInit.class);
 		
 		GameRegistry.registerWorldGenerator(new GenerationOres(), 0);
 	}

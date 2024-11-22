@@ -23,7 +23,7 @@ public class ItemRegenerationStick extends Item
 		this.setRegistryName(name);
 		this.setMaxDamage(MAX_DURABILITY - 1); // Adjusted to start at 0 and go up to MAX_DURABILITY - 1
 		this.setMaxStackSize(1);
-		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_OTHERS);
+		this.setCreativeTab(DraconiumCore.DRACONIUM_TAB_STIKCS);
 	}
 	
 	@Override

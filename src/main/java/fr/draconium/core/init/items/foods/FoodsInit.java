@@ -30,20 +30,22 @@ public class FoodsInit
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
+		Console.debug("- Enregistrement des nourritures:");
 		for (Item food : foods)
 		{
 			event.getRegistry().registerAll(food);
-			Console.debug("Enregistrement de la nourriture: #6FF7D0" + food.getRegistryName());
+			Console.debug("  - #6FF7D0" + food.getRegistryName());
 		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
+		Console.debug("- Enregistrement du rendu des nourritures:");
 		for (Item food : foods)
 		{
 			registerRender(food);
-			Console.debug("Enregistrement du rendu de la nourriture: #6FF794" + food.getRegistryName());
+			Console.debug("  - #6FF794" + food.getRegistryName());
 		}
 	}
 	

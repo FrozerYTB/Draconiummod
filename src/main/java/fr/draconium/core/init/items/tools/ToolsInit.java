@@ -50,20 +50,22 @@ public class ToolsInit
 	@SubscribeEvent
 	protected static void registerItems(RegistryEvent.Register<Item> event)
 	{
+		Console.debug("- Enregistrement des outils:");
 		for (Item tool : tools)
 		{
 			event.getRegistry().registerAll(tool);
-			Console.debug("Enregistrement de l'outil: #6FF7D0" + tool.getRegistryName());
+			Console.debug("  - #6FF7D0" + tool.getRegistryName());
 		}
 	}
 	
 	@SubscribeEvent
 	protected static void registerRenders(ModelRegistryEvent event)
 	{
+		Console.debug("- Enregistrement du rendu des outils:");
 		for (Item tool : tools)
 		{
 			registerRender(tool);
-			Console.debug("Enregistrement du rendu de l'outil: #6FF794" + tool.getRegistryName());
+			Console.debug("  - #6FF794" + tool.getRegistryName());
 		}
 	}
 	
